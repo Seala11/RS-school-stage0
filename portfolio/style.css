@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Merriweather Sans';
+  src: url('./assets/fonts/MerriweatherSans-VariableFont_wght.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
