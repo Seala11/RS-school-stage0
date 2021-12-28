@@ -10,21 +10,24 @@
 
 /* general styles */
 
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
@@ -34,10 +37,8 @@ body {
 h1 {
   font-family: 'Merriweather Sans', sans-serif;
   font-size: 3.75rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 120px;
-  letter-spacing: 0;
   color: var(--white);
 }
 
@@ -45,8 +46,9 @@ ul {
   list-style: none;
 }
 
+/* TODO: before adding to cross-check change max-width to width */
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -68,32 +70,31 @@ ul {
 .nav__link {
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  font-style: normal;
   font-weight: 400;
   line-height: 3.125rem;
-  letter-spacing: 0;
   color: var(--white);
   text-decoration: none;
   padding: 0 1rem;
 }
 
-.switcher__link {
-  font-family: 'Inter', sans-serif;
-  font-size: 1.25rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 3.125rem;
-  letter-spacing: 0;
-  color: var(--white);
-  text-decoration: none;
-}
-
-.nav__link:hover,
-.switcher__link:hover {
+.nav__link:hover {
   color: var(--gold);
   transition: 0.3s;
 }
 
-.switcher__span:hover {
+.lang-switcher {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 3.125rem;
+  padding-left: 1rem;
+  border: none;
+  background-color: transparent;
   color: var(--white);
+  text-decoration: none;
+}
+
+.lang-switcher--active {
+  color: var(--gold);
+  transition: 0.3s;
 }
