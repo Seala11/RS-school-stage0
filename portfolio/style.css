@@ -1,11 +1,17 @@
 @font-face {
-  font-family: 'Merriweather Sans';
-  src: url('./assets/fonts/MerriweatherSans-VariableFont_wght.ttf');
-}
-
-@font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+/* merriweather-700 - latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    url('./assets/fonts/merriweather-v28-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assets/fonts/merriweather-v28-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* general styles */
@@ -30,20 +36,50 @@ html {
   --white: #ffffff;
 }
 
+/* TODO: background-color should be black)) */
 body {
-  background-color: var(--bg-dark);
+  /* background-color: var(--bg-dark); */
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 40px;
 }
 
 h1 {
-  font-family: 'Merriweather Sans', sans-serif;
+  margin-bottom: 10px;
+  font-family: 'Merriweather', sans-serif;
   font-size: 3.75rem;
   font-weight: 700;
-  line-height: 120px;
+  line-height: 7.5rem;
   color: var(--white);
+}
+
+p {
+  font-family: inherit;
 }
 
 ul {
   list-style: none;
+}
+
+.button {
+  width: 13.75rem;
+  height: 3.438rem;
+  font-family: inherit;
+  border: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button--gold {
+  background-color: var(--gold);
+  color: var(--bg-dark);
+}
+
+.button--gold:hover {
+  color: var(--white);
 }
 
 /* TODO: before adding to cross-check change max-width to width */
@@ -56,10 +92,12 @@ ul {
 /* header */
 .header__container {
   display: flex;
-  margin-top: 1rem;
+  align-items: center;
+  height: 5.625rem;
   background: url('./assets/img/hero.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
+  margin-bottom: -1px;
 }
 
 .header__logo {
@@ -67,7 +105,7 @@ ul {
   height: 3.125rem;
   background-image: url('./assets/svg/logo.svg');
   background-size: contain;
-  background-repeat: no-repeat;  
+  background-repeat: no-repeat;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -116,4 +154,29 @@ ul {
 .lang-switcher--active {
   color: var(--gold);
   transition: 0.3s;
+}
+
+/* hero */
+
+.hero {
+  display: flex;
+  align-items: center;
+  background-image: url('./assets/img/hero.jpg');
+  background-position: center -5.625rem;
+  background-repeat: no-repeat;
+  height: 56.875rem;
+}
+
+.hero__intro-container {
+  width: 31.25rem;
+  height: 20.625rem;
+  margin-left: 3.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 14rem;
+}
+
+.hero__button {
+  margin-top: 1.1rem;
 }
