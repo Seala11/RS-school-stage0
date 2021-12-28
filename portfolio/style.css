@@ -57,6 +57,24 @@ ul {
 .header__container {
   display: flex;
   margin-top: 1rem;
+  background: url('./assets/img/hero.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+}
+
+.header__logo {
+  width: 3.125rem;
+  height: 3.125rem;
+  background-image: url('./assets/svg/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;  
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.header__logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 .nav {
@@ -92,6 +110,7 @@ ul {
   background-color: transparent;
   color: var(--white);
   text-decoration: none;
+  cursor: pointer;
 }
 
 .lang-switcher--active {
