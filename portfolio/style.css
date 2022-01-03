@@ -61,7 +61,7 @@ h1 {
   font-weight: 700;
   line-height: 80px;
   color: var(--gold);
-  flex: 0 1 auto; 
+  flex: 0 1 auto;
   padding: 0 15px 0 15px;
 }
 
@@ -77,12 +77,15 @@ h1 {
   justify-content: flex-start;
   align-items: center;
   width: 50%;
+  margin-top: 0.2rem;
+  margin-bottom: 3.5rem;
 }
 
-.section__lines::after, .section__lines::before{
+.section__lines::after,
+.section__lines::before {
   content: '';
   width: 19em;
-  flex: 1 1 auto; 
+  flex: 1 1 auto;
   border-bottom: solid 2px var(--gold);
 }
 
@@ -207,7 +210,7 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 14rem;
+  margin-bottom: 16rem;
 }
 
 .hero__button {
@@ -216,17 +219,56 @@ ul {
 
 /* skills */
 
-/* .skills__item {
+.skill__items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 6rem;
 }
 
-.skills__item-logo {
+.skill__item {
+  display: flex;
+  flex-direction: column;
 }
 
 .skills__item-title {
+  font-family: Inter;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 2.2em;
+  text-align: center;
+  color: var(--white);
 }
 
 .skills__item-text {
-} */
+  font-family: Inter;
+  font-size: 0.9em;
+  line-height: 2em;
+  text-align: center;
+  padding: 1rem;
+  color: var(--white);
+}
 
+.skills__item-title1::before,
+.skills__item-title2::before, 
+.skills__item-title3::before,
+.skills__item-title4::before{
+  display: block;
+  content: url(./assets/svg/camera1.svg);
+  padding-bottom: 2.5rem;
+}
+
+.skills__item-title2::before {
+  content: url(./assets/svg/video1.svg);
+}
+
+.skills__item-title3::before {
+  content: url(./assets/svg/image1.svg);
+}
+
+.skills__item-title4::before {
+  content: url(./assets/svg/mic1.svg);
+}
 
 /* portfolio */
