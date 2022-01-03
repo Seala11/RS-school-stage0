@@ -77,7 +77,7 @@ h1 {
   justify-content: flex-start;
   align-items: center;
   width: 50%;
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
   margin-bottom: 3.5rem;
 }
 
@@ -237,7 +237,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 6rem;
+  margin-bottom: 5.3rem;
 }
 
 .skill__item {
@@ -264,9 +264,9 @@ ul {
 }
 
 .skills__item-title1::before,
-.skills__item-title2::before, 
+.skills__item-title2::before,
 .skills__item-title3::before,
-.skills__item-title4::before{
+.skills__item-title4::before {
   display: block;
   content: url(./assets/svg/camera1.svg);
   padding-bottom: 2.5rem;
@@ -287,10 +287,44 @@ ul {
 /* portfolio */
 
 .portfolio__galery {
-  
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.5rem;
-  margin: 4rem 0 6rem;
+  margin: 4rem 0 5.8rem;
 }
+
+/* video */
+.video__player {
+  width: 100%;
+  margin-bottom: 5.8rem;
+}
+
+.video__image {
+  position: relative;
+  background-image: url(./assets/img/video-player.jpg);
+  background-size: cover;
+  height: 44rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video__play-btn {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  background-image: url(./assets/svg/play-btn1.svg);
+  background-size: cover;
+  z-index: 1;
+  width: 9.5rem;
+  height: 9.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.video__play-btn:hover {
+  transform: scale(1.1); 
+}
+
