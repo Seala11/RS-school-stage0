@@ -97,6 +97,8 @@ ul {
   list-style: none;
 }
 
+/* buttons */
+
 .button {
   width: 13.75rem;
   height: 3.438rem;
@@ -115,6 +117,17 @@ ul {
 
 .button--gold:hover {
   color: var(--white);
+}
+
+.button--transparent {
+  background-color: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.button--transparent:hover {
+  background-color: var(--gold);
+  color: var(--bg-dark);
 }
 
 /* TODO: before adding to cross-check change max-width to width remove border */
@@ -272,3 +285,12 @@ ul {
 }
 
 /* portfolio */
+
+.portfolio__galery {
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 4rem 0 6rem;
+}
