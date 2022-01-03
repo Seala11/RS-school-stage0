@@ -38,7 +38,7 @@ html {
 
 /* TODO: background-color should be black)) */
 body {
-  /* background-color: var(--bg-dark); */
+  background-color: var(--bg-dark);
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
@@ -55,6 +55,40 @@ h1 {
   color: var(--white);
 }
 
+.section__title {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: center;
+  color: var(--gold);
+}
+
+.section__lines {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.section__lines::after,
+.section__lines::before {
+  content: '';
+  position: absolute;
+    width: 25%;
+    height: 2px;
+    background-color: var(--gold);
+    /* top: 38px; */
+    /* left: 20%; */
+    bottom: 40px;
+    right: 0;
+}
+
+.section__lines::after {
+  left: 20%;
+}
+.section__lines::before {
+  right: 20%;
+}
+
 p {
   font-family: inherit;
 }
@@ -67,6 +101,7 @@ ul {
   width: 13.75rem;
   height: 3.438rem;
   font-family: inherit;
+  font-size: 1.25rem;
   border: none;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
@@ -82,11 +117,12 @@ ul {
   color: var(--white);
 }
 
-/* TODO: before adding to cross-check change max-width to width */
+/* TODO: before adding to cross-check change max-width to width remove border */
 .container {
   max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
+  border: 1px solid red;
 }
 
 /* header */
@@ -179,4 +215,25 @@ ul {
 
 .hero__button {
   margin-top: 1.1rem;
+}
+
+/* skills */
+
+.skills__item {
+}
+
+.skills__item-logo {
+}
+
+.skills__item-title {
+}
+
+.skills__item-text {
+}
+
+
+/* portfolio */
+
+.section__lines-portfolio::before, .section__lines-portfolio::after {
+  width: 22.5%;
 }
