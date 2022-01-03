@@ -325,6 +325,57 @@ ul {
 }
 
 .video__play-btn:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
+/* price */
+.price__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 5.8rem;
+}
+
+.price__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid var(--gold);
+  padding: 2rem 3rem 2.8rem;
+  width: 32%;
+}
+
+.price__title {
+  font-family: Merriweather;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 3.5rem;
+  text-align: center;
+  color: var(--white);
+  padding: 1rem;
+}
+
+.price__cost {
+  font-family: Merriweather;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 3rem;
+  text-align: center;
+  color: var(--gold);
+  padding-bottom: 1.2rem;
+}
+
+.price__desc {
+  padding-bottom: 2.5rem;
+}
+
+.price__desc > span {
+  display: block;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 2.25rem;
+}
