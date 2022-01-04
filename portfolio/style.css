@@ -440,3 +440,71 @@ ul {
   line-height: 2.5rem;
   color: var(--gold);
 }
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+}
+
+.rights-item {
+  padding-right: 1rem;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-family: inherit;
+  color: var(--white);
+  transition: 0.3s;
+}
+
+.footer__link:hover {
+  color: var(--gold);
+}
+
+.footer__icons {
+  display: flex;
+}
+
+.icon__fb,
+.icon__inst,
+.icon__pint,
+.icon__twit {
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: 0.3s;
+  cursor: pointer;
+  padding-left: 50px;
+}
+
+.icon__pint {
+  padding: 0;
+}
+
+.icon__inst {
+  background-image: url(./assets/svg/instagram.svg);
+}
+
+.icon__fb {
+  background-image: url(./assets/svg/fb.svg);
+}
+
+.icon__twit {
+  background-image: url(./assets/svg/twitter.svg);
+}
+
+.icon__pint {
+  background-image: url(./assets/svg/pinterest.svg);
+}
+
+.icon__fb:hover,
+.icon__inst:hover,
+.icon__pint:hover,
+.icon__twit:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
