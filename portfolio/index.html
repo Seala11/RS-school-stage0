@@ -32,7 +32,7 @@
         </ul>
       </nav>
       <div class="header__lang-switcher">
-        <button class="lang-switcher">
+        <button class="lang-switcher" type="button">
           <span class="lang-switcher--active">en</span> / ru
         </button>
       </div>
@@ -46,7 +46,7 @@
             happy moments of life together with professional photographer Alexa
             Rise
           </p>
-          <button class="button button--gold hero__button">Hire me</button>
+          <button class="button button--gold hero__button" type="button">Hire me</button>
         </div>
       </section>
 
@@ -93,10 +93,10 @@
           <h2 class="section__title">Portfolio</h2>
         </div>
         <div class="portfolio__buttons">
-          <button class="button button--transparent">Winter</button>
-          <button class="button button--transparent">Spring</button>
-          <button class="button button--transparent">Summer</button>
-          <button class="button button--transparent">Autumn</button>
+          <button class="button button--transparent" type="button">Winter</button>
+          <button class="button button--transparent" type="button">Spring</button>
+          <button class="button button--transparent" type="button">Summer</button>
+          <button class="button button--transparent" type="button">Autumn</button>
         </div>
         <div class="portfolio__galery">
           <img
@@ -150,7 +150,7 @@
         </div>
         <div class="video__player">
           <div class="video__image">
-            <button class="video__play-btn"></button>
+            <button class="video__play-btn" type="button"></button>
           </div>
         </div>
       </section>
@@ -170,7 +170,7 @@
               <span>Readiness 2-3 weeks</span>
               <span>Make up, visage</span>
             </p>
-            <button class="button button--gold">Order shooting</button>
+            <button class="button button--gold" type="button">Order shooting</button>
           </div>
           <div class="price__item">
             <h3 class="price__title">Premium</h3>
@@ -182,7 +182,7 @@
               <span>Readiness 1-2 weeks</span>
               <span>Make up, visage</span>
             </p>
-            <button class="button button--gold">Order shooting</button>
+            <button class="button button--gold" type="button">Order shooting</button>
           </div>
           <div class="price__item">
             <h3 class="price__title">Gold</h3>
@@ -194,7 +194,7 @@
               <span>Readiness 1 weeks</span>
               <span>Make up, visage, hairstyle</span>
             </p>
-            <button class="button button--gold">Order shooting</button>
+            <button class="button button--gold" type="button">Order shooting</button>
           </div>
         </div>
       </section>
@@ -202,10 +202,12 @@
       <section class="section container contacts" id="contacts">
         <div class="contacts__form">
           <h2 class="section__title contacts__title">Contact me</h2>
-          <input type="email" name="email" id="email" placeholder="Email" class="contacts__email">
+          <form action="" name="contact-form">
+            <input type="email" name="email" id="email" placeholder="Email" class="contacts__email">
           <input type="tel" name="tel" id="tel" placeholder="Phone" class="contacts__phone">
           <textarea name="message" id="message" cols="30" rows="10" placeholder="Message" class="contacts__message"></textarea>
-          <button class="button button--gold">Send message</button>
+          <button class="button button--gold button--submit" type="submit">Send message</button>
+          </form>
         </div>
       </section>
     </main>
@@ -218,10 +220,10 @@
       </div>
       <a href="https://rs.school/js-stage0/" class="footer__link">Rolling Scopes School</a>
       <div class="footer__icons icon">
-        <a href="#" class="icon__inst"></a>
-        <a href="#" class="icon__fb"></a>
-        <a href="#" class="icon__twit"></a>
-        <a href="#" class="icon__pint"></a></div>
+        <a href="#" class="icon__inst icons"></a>
+        <a href="#" class="icon__fb icons"></a>
+        <a href="#" class="icon__twit icons"></a>
+        <a href="#" class="icon__pint icons"></a></div>
     </footer>
   </body>
 </html>

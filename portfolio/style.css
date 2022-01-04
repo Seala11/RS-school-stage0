@@ -46,7 +46,7 @@ body {
 }
 
 .container {
-  width: 90rem;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
