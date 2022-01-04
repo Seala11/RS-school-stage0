@@ -45,8 +45,9 @@ body {
   line-height: 2.5rem;
 }
 
+/* For portfolio#1 layout only for width 1400px */
 .container {
-  max-width: 90rem;
+  width: 90rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
@@ -164,7 +165,7 @@ body {
   line-height: 3.125rem;
   color: var(--white);
   text-decoration: none;
-  padding: 0 1rem;
+  padding-left: 2rem;
 }
 
 .nav__link:hover {
@@ -177,12 +178,18 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 3.125rem;
-  padding-left: 1rem;
+  padding-left: 2rem;
   border: none;
   background-color: transparent;
   color: var(--white);
   text-decoration: none;
   cursor: pointer;
+}
+
+.lang__link {
+  text-decoration: none;
+  color: var(--white);
+  padding: 2px;
 }
 
 .lang-switcher--active {
@@ -212,7 +219,6 @@ body {
 }
 
 .hero__title {
-  margin-bottom: 0.625rem;
   font-family: 'Merriweather', sans-serif;
   font-size: 3.75rem;
   font-weight: 700;
@@ -316,11 +322,11 @@ body {
   height: 9.5rem;
   cursor: pointer;
   transition: 0.3s;
-  transform: scale(1);
 }
 
 .video__play-btn:hover {
-  transform: scale(1.1);
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 
 /* price */
@@ -421,7 +427,7 @@ body {
 .contacts__message {
   resize: none;
   height: 6.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   outline: none;
 }
 
@@ -461,23 +467,26 @@ body {
 
 .footer__icons {
   display: flex;
+  list-style: none;
 }
 
 .icon__fb,
 .icon__inst,
 .icon__pint,
 .icon__twit {
+  display: block;
   width: 2rem;
   height: 2rem;
   background-size: contain;
   background-repeat: no-repeat;
   transition: 0.3s;
   cursor: pointer;
-  padding-left: 3.125rem;
+  padding: 1rem;
+  margin-left: 1em;
 }
 
-.icon__pint {
-  padding: 0;
+.icon__pinst {
+  margin-right: 0;
 }
 
 .icon__inst {
