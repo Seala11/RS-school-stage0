@@ -389,7 +389,8 @@ body {
 
 .price__desc > span {
   display: block;
-  text-align: center;
+  width: max-content;
+  margin: 0 auto;
   font-family: Inter;
   font-size: 1.125rem;
   font-weight: 400;
@@ -556,16 +557,17 @@ body {
   .skills__item-title4::before {
     padding-bottom: 0.5rem;
   }
+
 }
 
-@media screen and (min-width: 930px) and (max-width: 1036px){
-    /* portfolio */
-    .portfolio__buttons {
-      width: 50%;
-    }
+@media screen and (min-width: 930px) and (max-width: 1036px) {
+  /* portfolio */
+  .portfolio__buttons {
+    width: 50%;
+  }
 }
 
-@media screen and (min-width: 677px) and (max-width: 930px){
+@media screen and (min-width: 677px) and (max-width: 930px) {
   /* portfolio */
   .portfolio__buttons {
     width: 70%;
@@ -645,6 +647,29 @@ body {
   .video__play-btn {
     width: 5rem;
     height: 5rem;
+  }
+
+   /* price */
+
+   .price__container {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 50px;
+    margin-bottom: 4.7rem;
+  }
+
+  .price__title {
+    padding: 0;
+  }
+  
+  .price__item {
+    width: 420px;
+    padding: 2.5rem 6rem 2.3rem;
+  }
+
+  .price__cost {
+    padding: 1.5rem;
   }
 }
 
