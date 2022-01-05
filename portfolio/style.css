@@ -627,13 +627,32 @@ body {
   .portfolio__galery {
     margin-bottom: 5rem;
   }
+
+  /* video */
+
+  .video {
+    padding: 0;
+  }
+
+  .video__player {
+    margin: 0.5rem 0 4.6rem;
+  }
+
+  .video__image {
+    height: 30rem;
+  }
+
+  .video__play-btn {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  /* portfolio
-  .portfolio__buttons {
-    width: 90%;
-  } */
+  /* video */
+  .video__image {
+    height: 26rem;
+  }
 }
 
 @media screen and (max-width: 479px) {
