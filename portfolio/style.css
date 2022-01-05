@@ -403,6 +403,7 @@ body {
   background-image: url(./assets/img/contacts.jpg);
   background-size: auto 43.75rem;
   background-position: center center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
 }
@@ -558,12 +559,21 @@ body {
     padding-bottom: 0.5rem;
   }
 
+  /* contacts */
+  .contacts__form {
+    width: 40%;
+  }
 }
 
 @media screen and (min-width: 930px) and (max-width: 1036px) {
   /* portfolio */
   .portfolio__buttons {
     width: 50%;
+  }
+
+  /* contacts */
+  .contacts__form {
+    width: 40%;
   }
 }
 
@@ -649,9 +659,9 @@ body {
     height: 5rem;
   }
 
-   /* price */
+  /* price */
 
-   .price__container {
+  .price__container {
     justify-content: center;
     align-items: center;
     width: 50%;
@@ -662,7 +672,7 @@ body {
   .price__title {
     padding: 0;
   }
-  
+
   .price__item {
     width: 420px;
     padding: 2.5rem 6rem 2.3rem;
@@ -670,6 +680,36 @@ body {
 
   .price__cost {
     padding: 1.5rem;
+  }
+
+  /* contacts */
+  .contacts {
+    height: 38rem;
+    background-size: auto 38rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contacts__title {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+
+  .contacts__form {
+    align-items: center;
+    width: 100%;
+    padding-bottom: 3rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 62%;
+  }
+
+  .button--submit {
+    margin-top: 1rem;
   }
 }
 
