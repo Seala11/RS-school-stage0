@@ -569,10 +569,35 @@ body {
   .hero__button {
     margin: 0;
   }
-}
 
-@media screen and (max-width: 767px) {
-  /* start of medium tablet styles */
+  /* skills */
+  .section__lines {
+    margin: 0.3em 0 2.7rem;
+  }
+
+  .skill__items {
+    justify-content: space-evenly;
+  }
+
+  .skills__item {
+    width: 43%;
+  }
+
+  .skills__item-title {
+    line-height: 2.5em;
+  }
+
+  .skills__item-text {
+    padding: 1rem 1rem 4.7rem;
+    line-height: normal;
+  }
+
+  .skills__item-title1::before,
+  .skills__item-title2::before,
+  .skills__item-title3::before,
+  .skills__item-title4::before {
+    padding-bottom: 0.5rem;
+  }
 }
 
 @media screen and (max-width: 479px) {
