@@ -34,6 +34,9 @@ html {
   --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
+
+  --fs-header: 3.75rem;
+  --fs-section-header: 2.5rem;
 }
 
 body {
@@ -45,16 +48,15 @@ body {
   line-height: 2.5rem;
 }
 
-/* For portfolio#1 layout only for width 1400px */
 .container {
-  width: 90rem;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
 
 .section__title {
   font-family: 'Merriweather', sans-serif;
-  font-size: 2.5rem;
+  font-size: var(--fs-section-header);
   font-weight: 700;
   line-height: 5rem;
   color: var(--gold);
@@ -125,12 +127,11 @@ body {
 
 /* header */
 .header__container {
-  display: flex;
-  align-items: center;
   height: 5.625rem;
   background: url('./assets/img/hero.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
+  padding-top: 1rem;
   margin-bottom: -1px;
 }
 
@@ -142,11 +143,18 @@ body {
   background-repeat: no-repeat;
   transition: 0.3s;
   cursor: pointer;
+  margin: 0.2em;
 }
 
 .header__logo:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+.nav__container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .nav {
@@ -220,7 +228,7 @@ body {
 
 .hero__title {
   font-family: 'Merriweather', sans-serif;
-  font-size: 3.75rem;
+  font-size: var(--fs-header);
   font-weight: 700;
   line-height: 7.5rem;
   color: var(--white);
@@ -511,4 +519,62 @@ body {
 .icon__twit:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+/* start of desktop styles */
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --fs-header: 2rem;
+    --fs-section-header: 2rem;
+  }
+
+  .text {
+    line-height: normal;
+    max-width: 80%;
+  }
+
+  br {
+    display: none;
+  }
+
+  /* nav and hero */
+
+  .nav__container {
+    width: 90%;
+  }
+
+  .header__container {
+    background-position: left -2.2rem;
+    background-size: auto 620px;
+  }
+
+  .hero {
+    background-position: left -7.7rem;
+    background-repeat: no-repeat;
+    background-size: auto 620px;
+    height: 575px;
+    width: 100%;
+  }
+
+  .hero__title {
+    margin: 1.8rem 0 -4rem;
+  }
+
+  .hero__intro-container {
+    margin-left: 2.5rem;
+    margin-bottom: 12rem;
+  }
+
+  .hero__button {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* start of medium tablet styles */
+}
+
+@media screen and (max-width: 479px) {
+  /* start of phone styles */
 }
