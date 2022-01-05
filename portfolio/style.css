@@ -294,6 +294,13 @@ body {
 }
 
 /* portfolio */
+.portfolio__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  gap: 5px;
+}
 
 .portfolio__galery {
   display: flex;
@@ -523,6 +530,48 @@ body {
 
 /* start of desktop styles */
 
+@media screen and (max-width: 1360px) {
+  /* skills */
+  .skill__items {
+    justify-content: space-evenly;
+    /* margin-bottom: 2rem; */
+  }
+
+  .skills__item {
+    width: 43%;
+  }
+
+  .skills__item-title {
+    line-height: 2.5em;
+  }
+
+  .skills__item-text {
+    padding: 1rem 1rem 4.7rem;
+    line-height: normal;
+  }
+
+  .skills__item-title1::before,
+  .skills__item-title2::before,
+  .skills__item-title3::before,
+  .skills__item-title4::before {
+    padding-bottom: 0.5rem;
+  }
+}
+
+@media screen and (min-width: 930px) and (max-width: 1036px){
+    /* portfolio */
+    .portfolio__buttons {
+      width: 50%;
+    }
+}
+
+@media screen and (min-width: 677px) and (max-width: 930px){
+  /* portfolio */
+  .portfolio__buttons {
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   :root {
     --fs-header: 2rem;
@@ -536,6 +585,10 @@ body {
 
   br {
     display: none;
+  }
+
+  .section__lines {
+    margin: 0.3em 0 2.7rem;
   }
 
   /* nav and hero */
@@ -570,34 +623,17 @@ body {
     margin: 0;
   }
 
-  /* skills */
-  .section__lines {
-    margin: 0.3em 0 2.7rem;
+  /* portfolio */
+  .portfolio__galery {
+    margin-bottom: 5rem;
   }
+}
 
-  .skill__items {
-    justify-content: space-evenly;
-  }
-
-  .skills__item {
-    width: 43%;
-  }
-
-  .skills__item-title {
-    line-height: 2.5em;
-  }
-
-  .skills__item-text {
-    padding: 1rem 1rem 4.7rem;
-    line-height: normal;
-  }
-
-  .skills__item-title1::before,
-  .skills__item-title2::before,
-  .skills__item-title3::before,
-  .skills__item-title4::before {
-    padding-bottom: 0.5rem;
-  }
+@media screen and (max-width: 768px) {
+  /* portfolio
+  .portfolio__buttons {
+    width: 90%;
+  } */
 }
 
 @media screen and (max-width: 479px) {
