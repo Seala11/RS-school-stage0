@@ -287,6 +287,14 @@ body {
 
 /* portfolio */
 
+.portfolio__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  gap: 5px;
+}
+
 .portfolio__galery {
   display: flex;
   flex-wrap: wrap;
