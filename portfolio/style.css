@@ -711,6 +711,27 @@ body {
   .button--submit {
     margin-top: 1rem;
   }
+
+  /* footer */
+  .footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .footer__text {
+    max-width: 100%;
+    line-height: inherit;
+  }
+
+  .icon__inst {
+    margin: 0;
+  }
+
+  .icons {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
