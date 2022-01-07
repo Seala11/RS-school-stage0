@@ -827,6 +827,17 @@ body {
     right: 3rem;
   }
 
+  /* sections */
+  .header__container {
+    background-position: center -2.2rem;
+    background-size: auto 700px;
+  }
+
+  .hero {
+    background-position: center -7.7rem;
+    background-size: auto 700px;
+  }
+
   .skills__item {
     width: 80%;
   }
@@ -836,8 +847,8 @@ body {
   }
 
   .portfolio__galery-item {
-    height: 400px;
-    width: auto;
+    height: auto;
+    width: 80%;
   }
 
   .video__image {
@@ -856,8 +867,16 @@ body {
     padding: 0;
   }
 
+  .contacts {
+    background-position: -20rem center;
+  }
+
   .form {
     width: 80%;
+  }
+
+  .contacts__message {
+    height: 12rem;
   }
 }
 
@@ -934,9 +953,12 @@ body {
     right: 1rem;
   }
 
+  .skills__item {
+    width: 90%;
+  }
+
   .portfolio__galery-item {
-    height: auto;
-    width: 100%;
+    width: 90%;
   }
 
   .price__container {
@@ -950,10 +972,14 @@ body {
   .skill__items {
     margin-bottom: 0;
   }
+
+  .form {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 300px) {
-.price__container {
+  .price__container {
     width: 100%;
-}
+  }
 }
