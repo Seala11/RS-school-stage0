@@ -3,7 +3,6 @@
   src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
 }
 
-/* merriweather-700 - latin */
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
@@ -205,7 +204,7 @@ body {
   transition: 0.3s;
 }
 
-/* header-mobile-nav */
+/* mobile navigation */
 
 .mobile-nav-toggle {
   display: none;
@@ -213,7 +212,7 @@ body {
 
 .hamburger-icon {
   position: absolute;
-  width: 50px;
+  width: 3.125rem;
   height: 3px;
   background: white;
   inset: 0 0 0 0;
@@ -565,13 +564,12 @@ body {
     contrast(87%);
 }
 
-/* start of desktop styles */
+/* media quieries desctop styles*/
 
 @media screen and (max-width: 1360px) {
   /* skills */
   .skill__items {
     justify-content: space-evenly;
-    /* margin-bottom: 2rem; */
   }
 
   .skills__item {
@@ -612,14 +610,10 @@ body {
   }
 }
 
-@media screen and (min-width: 677px) and (max-width: 930px) {
-  /* portfolio */
-  .portfolio__buttons {
-    width: 70%;
-  }
-}
+/* media quieries tablet styles*/
 
 @media screen and (max-width: 1024px) {
+  /* general styles */
   :root {
     --fs-header: 2rem;
     --fs-section-header: 2rem;
@@ -638,7 +632,7 @@ body {
     margin: 0.3em 0 2.7rem;
   }
 
-  /* nav and hero */
+  /* heder, nav and hero */
   .lang-switcher {
     padding: 0 80px 0 0;
   }
@@ -649,14 +643,14 @@ body {
 
   .header__container {
     background-position: left -2.2rem;
-    background-size: auto 620px;
+    background-size: auto 38.75rem;
   }
 
   .hero {
     background-position: left -7.7rem;
     background-repeat: no-repeat;
-    background-size: auto 620px;
-    height: 575px;
+    background-size: auto 38.75rem;
+    height: 36rem;
     width: 100%;
   }
 
@@ -691,9 +685,9 @@ body {
   }
 
   .nav__link {
-    font-size: 35px;
+    font-size: 2.2rem;
     font-weight: 400;
-    line-height: 73px;
+    line-height: 4.5rem;
     letter-spacing: 0em;
   }
 
@@ -717,7 +711,6 @@ body {
   }
 
   /* video */
-
   .video {
     padding: 0;
   }
@@ -736,12 +729,11 @@ body {
   }
 
   /* price */
-
   .price__container {
     justify-content: center;
     align-items: center;
     width: 50%;
-    gap: 50px;
+    gap: 3.125rem;
     margin-bottom: 4.7rem;
   }
 
@@ -750,7 +742,7 @@ body {
   }
 
   .price__item {
-    width: 420px;
+    width: 26.25rem;
     padding: 2.5rem 6rem 2.3rem;
   }
 
@@ -810,6 +802,13 @@ body {
   }
 }
 
+@media screen and (min-width: 677px) and (max-width: 930px) {
+  /* portfolio */
+  .portfolio__buttons {
+    width: 70%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   /* video */
   .video__image {
@@ -817,7 +816,14 @@ body {
   }
 }
 
+/* media quieries mobile styles*/
+
 @media screen and (max-width: 620px) {
+  /* general */
+  .section__lines {
+    width: 80%;
+  }
+
   /* hamburger menu and navigation */
   .nav__list {
     inset: 0 0 0 0;
@@ -827,34 +833,38 @@ body {
     right: 3rem;
   }
 
-  /* sections */
+  /* header, nav */
   .header__container {
     background-position: center -2.2rem;
-    background-size: auto 700px;
+    background-size: auto 43.75rem;
   }
 
   .hero {
     background-position: center -7.7rem;
-    background-size: auto 700px;
+    background-size: auto 43.75rem;
   }
 
+  /* skills */
   .skills__item {
     width: 80%;
   }
 
-  .section__lines {
-    width: 80%;
+  .skill__items {
+    margin-bottom: 0;
   }
 
+  /* portfolio */
   .portfolio__galery-item {
     height: auto;
     width: 80%;
   }
 
+  /* video */
   .video__image {
     height: 16rem;
   }
 
+  /* price */
   .price__container {
     width: 80%;
   }
@@ -867,6 +877,7 @@ body {
     padding: 0;
   }
 
+  /* contacts */
   .contacts {
     background-position: -20rem center;
   }
@@ -881,6 +892,7 @@ body {
 }
 
 @media screen and (max-width: 479px) {
+  /* nav, header, hero */
   .mobile-nav-toggle {
     right: 2rem;
   }
@@ -915,6 +927,7 @@ body {
     height: auto;
     align-items: center;
   }
+
   .hero__title {
     margin: 0;
   }
@@ -929,7 +942,6 @@ body {
   }
 
   /* footer */
-
   .footer {
     height: 14rem;
     justify-content: center;
@@ -937,6 +949,7 @@ body {
 }
 
 @media screen and (max-width: 400px) {
+  /* nav, hero and header */
   .nav__container {
     width: 100%;
   }
@@ -953,14 +966,17 @@ body {
     right: 1rem;
   }
 
+  /* skills */
   .skills__item {
     width: 90%;
   }
 
+  /* portfolio */
   .portfolio__galery-item {
     width: 90%;
   }
 
+  /* price */
   .price__container {
     width: 90%;
   }
@@ -969,10 +985,7 @@ body {
     padding: 1rem;
   }
 
-  .skill__items {
-    margin-bottom: 0;
-  }
-
+  /* contacts */
   .form {
     width: 90%;
   }
