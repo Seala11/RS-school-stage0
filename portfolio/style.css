@@ -902,6 +902,7 @@ body {
 
   .text {
     line-height: inherit;
+    text-align: center;
   }
 
   .hero__button {
@@ -914,4 +915,45 @@ body {
     height: 14rem;
     justify-content: center;
   }
+}
+
+@media screen and (max-width: 400px) {
+  .nav__container {
+    width: 100%;
+  }
+
+  .nav__list {
+    padding: min(13vh, 10rem) 2em;
+  }
+
+  .hero {
+    margin-bottom: 3rem;
+  }
+
+  .mobile-nav-toggle {
+    right: 1rem;
+  }
+
+  .portfolio__galery-item {
+    height: auto;
+    width: 100%;
+  }
+
+  .price__container {
+    width: 90%;
+  }
+
+  .price__item {
+    padding: 1rem;
+  }
+
+  .skill__items {
+    margin-bottom: 0;
+  }
+}
+
+@media screen and (max-width: 300px) {
+.price__container {
+    width: 100%;
+}
 }
