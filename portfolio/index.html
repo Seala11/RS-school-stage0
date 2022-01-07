@@ -17,28 +17,43 @@
     <header class="container header__container">
       <div class="nav__container">
         <div class="header__logo"></div>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__el">
-            <a class="nav__link" href="#skills">Skills</a>
-          </li>
-          <li class="nav__el">
-            <a class="nav__link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav__el"><a class="nav__link" href="#video">Video</a></li>
-          <li class="nav__el"><a class="nav__link" href="#price">Price</a></li>
-          <li class="nav__el">
-            <a class="nav__link" href="#contacts">Contacts</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__lang-switcher">
-        <div class="lang-switcher">
-          <a href="#" class="lang-switcher--active lang__link">en</a>
-          <span>/</span>
-          <a href="#" class="lang__link">ru</a>
+        <nav class="nav">
+          <button
+            id="nav-button"
+            class="mobile-nav-toggle"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+          </button>
+
+          <ul id="primary-nav" class="nav__list" data-visible="false">
+            <li class="nav__el">
+              <a class="nav__link" href="#skills">Skills</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#video">Video</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#price">Price</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#contacts">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__lang-switcher">
+          <div class="lang-switcher">
+            <a href="#" class="lang-switcher--active lang__link">en</a>
+            <span>/</span>
+            <a href="#" class="lang__link">ru</a>
+          </div>
         </div>
-      </div>
       </div>
     </header>
     <main>
@@ -260,7 +275,9 @@
           <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
         </p>
       </div>
-      <a href="https://rs.school/js-stage0/" class="footer__link">Rolling Scopes School</a>
+      <a href="https://rs.school/js-stage0/" class="footer__link"
+        >Rolling Scopes School</a
+      >
       <ul class="footer__icons icon">
         <li><a href="#" class="icon__inst icons"></a></li>
         <li><a href="#" class="icon__fb icons"></a></li>

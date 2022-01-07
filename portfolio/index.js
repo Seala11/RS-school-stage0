@@ -1,3 +1,8 @@
+const navigation = document.getElementById('primary-nav');
+const navToggle = document.getElementById('nav-button');
+const hamburgerIcon = document.querySelectorAll('.hamburger-icon')
+
+// buttons
 const handleClick = (event) => {
   let element = event.target;
 
@@ -17,6 +22,33 @@ const preventDefault = (event) => {
 if (document.addEventListener) {
   document.addEventListener('click', handleClick, false);
 }
+
+// menu navigation
+
+const navHandler = () => {
+  const visibility = navigation.getAttribute('data-visible');
+  if (visibility === 'false') {
+    navigation.setAttribute('data-visible', true);
+    navToggle.setAttribute('aria-expanded', true);
+
+
+    hamburgerIcon[0].classList.add('cross1');
+    hamburgerIcon[1].classList.add('cross2');
+    hamburgerIcon[2].classList.add('cross3');
+
+  } else {
+    navigation.setAttribute('data-visible', false);
+    navToggle.setAttribute('aria-expanded', false);
+
+    hamburgerIcon[0].classList.remove('cross1');
+    hamburgerIcon[1].classList.remove('cross2');
+    hamburgerIcon[2].classList.remove('cross3');
+  }
+  console.log(visibility);
+};
+
+navToggle.addEventListener('click', navHandler);
+// task complition:
 
 const total = `
 total: 110 / 100
