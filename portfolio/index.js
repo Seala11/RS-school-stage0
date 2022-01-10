@@ -1,6 +1,6 @@
 const navigation = document.getElementById('primary-nav');
 const navToggle = document.getElementById('nav-button');
-const hamburgerIcon = document.querySelectorAll('.hamburger-icon')
+const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
 
 // buttons prevent default
 const handleClick = (event) => {
@@ -45,6 +45,14 @@ const navHandler = () => {
   }
 };
 
+// close menu on link click;
+const navLinksHandler = (element) => {
+  if (element.target.classList.contains('nav__link')) {
+    navHandler();
+  }
+}
+
+navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);
 
 
