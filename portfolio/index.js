@@ -1,6 +1,17 @@
+//menu
 const navigation = document.getElementById('primary-nav');
 const navToggle = document.getElementById('nav-button');
 const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
+//portfolio gallery
+const portfolioBtns = document.querySelector('.portfolio__buttons');
+
+const SEASONS = ['winter', 'spring', 'summer', 'autumn'];
+
+const WINTER_ALT = ['mooden house in the forest on the lake in winter', 'little girl hugging a snowman', 'winter road coveren with snow', 'smiling woman with snow in her hands', 'two wooden houses on the road covered with snow', 'christmas portrait of two kids and parents'];
+const SPRING_ALT = ['spring sunset landscape', 'little girl with spring flowers', 'blooming tree', 'young couple on front of the blooming tree', 'alley with blooming trees', 'an elderly couple dancing'];
+const SUMMER_ALT = ['girl with book under the tree', 'a little boy with two calves', 'parents with little kid in the rye', 'summer landcape with tree and flowers', 'smiling woman with big dog', 'a hand holding summer flower'];
+const AUTUMN_ALT = ['kissing couple on wood background', 'sunrise landscape with the horse', 'little kid with gray hat playing on the ground', 'landscape with green tree', 'smiling couple', 'woman making picture on her phone'];
+
 
 // buttons prevent default
 const handleClick = (event) => {
@@ -30,11 +41,9 @@ const navHandler = () => {
     navigation.setAttribute('data-visible', true);
     navToggle.setAttribute('aria-expanded', true);
 
-
     hamburgerIcon[0].classList.add('cross1');
     hamburgerIcon[1].classList.add('cross2');
     hamburgerIcon[2].classList.add('cross3');
-
   } else {
     navigation.setAttribute('data-visible', false);
     navToggle.setAttribute('aria-expanded', false);
@@ -46,15 +55,38 @@ const navHandler = () => {
 };
 
 // close menu on link click;
-const navLinksHandler = (element) => {
-  if (element.target.classList.contains('nav__link')) {
+const navLinksHandler = (event) => {
+  if (event.target.classList.contains('nav__link')) {
     navHandler();
   }
-}
+};
+
+// changing portfolio images
+const portfolioHandler = (event) => {
+  const images = document.querySelectorAll('.portfolio__galery-item');
+
+  console.log(event.target.dataset);
+  if (event.target.dataset.season === SEASONS[0])
+    changeImage(SEASONS[0], images, WINTER_ALT);
+  if (event.target.dataset.season === SEASONS[1])
+    changeImage(SEASONS[1], images, SPRING_ALT);
+  if (event.target.dataset.season === SEASONS[2])
+    changeImage(SEASONS[2], images, SUMMER_ALT);
+  if (event.target.dataset.season === SEASONS[3])
+    changeImage(SEASONS[3], images, AUTUMN_ALT);
+};
+
+const changeImage = (season, images, alt) => {
+  images.forEach((img) => console.log(img.alt));
+  images.forEach((img, index) => {
+    img.src = `./assets/img/${season}/${index + 1}.jpg`;
+    img.alt = alt[index];
+  });
+};
 
 navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);
-
+portfolioBtns.addEventListener('click', portfolioHandler);
 
 // task complition:
 const total = `
@@ -83,4 +115,4 @@ total: 75 / 85
    - при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку +4 
 `;
 
-console.log(total);
+// console.log(total);
