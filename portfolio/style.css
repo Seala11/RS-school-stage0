@@ -124,6 +124,11 @@ body {
   color: var(--bg-dark);
 }
 
+.button--active {
+  background-color: var(--gold);
+  color: var(--bg-dark);
+}
+
 /* header */
 .header__container {
   height: 5.625rem;
