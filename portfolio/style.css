@@ -228,7 +228,7 @@ body {
 }
 
 .cross1 {
-  transform: translateY(14px) rotate(135deg);
+  transform: translateY(14px) rotate(45deg);
 }
 
 .cross2 {
@@ -236,7 +236,7 @@ body {
 }
 
 .cross3 {
-  transform: translateY(-14px) rotate(-135deg);
+  transform: translateY(-14px) rotate(-45deg);
 }
 
 /* hero */
