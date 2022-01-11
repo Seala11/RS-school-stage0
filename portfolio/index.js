@@ -123,6 +123,17 @@ const changeActiveButton = (btn) => {
   btn.classList.add('button--active');
 };
 
+const preloadImages = () => {
+  SEASONS.forEach((season) => {
+    for (let i = 0; i < 6; i++) {
+      const img = new Image();
+      img.src = `./assets/img/${season}/${i + 1}.jpg`;
+    }
+  });
+};
+
+
+preloadImages();
 navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);
 portfolioBtns.addEventListener('click', portfolioHandler);
