@@ -1,3 +1,5 @@
+import i18Obj from './translate.js';
+
 //menu
 const navigation = document.getElementById('primary-nav');
 const navToggle = document.getElementById('nav-button');
