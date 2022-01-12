@@ -4,6 +4,8 @@ import i18Obj from './translate.js';
 const navigation = document.getElementById('primary-nav');
 const navToggle = document.getElementById('nav-button');
 const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
+// lang-switcher
+const langSwitcher = document.querySelector('.lang-switcher');
 //portfolio gallery
 const portfolioBtns = document.querySelector('.portfolio__buttons');
 
@@ -90,6 +92,30 @@ const navLinksHandler = (event) => {
   }
 };
 
+// language swither
+
+const langSwitcherHandler = (event) => {
+  const arr = Array.from(event.target.parentNode.children).filter(item => item.classList.contains('lang__link'));
+
+  if (event.target.classList.contains('lang__link')) {
+    if (!event.target.classList.contains('lang-switcher--active')) {
+      arr.forEach(element => element.classList.remove('lang-switcher--active'))
+      event.target.classList.add('lang-switcher--active')
+      const lang = event.target.getAttribute('data-lang')
+      getTranslate(lang);
+    }
+  }
+}
+
+const getTranslate = (lang) => {
+  const dataEl = document.querySelectorAll('[data-i18]');
+  const vocab = i18Obj[lang];
+  dataEl.forEach(el => {
+    const attr = el.dataset.i18;
+    el.textContent = vocab[attr];
+  });
+}
+
 // changing portfolio images
 const portfolioHandler = (event) => {
   const images = document.querySelectorAll('.portfolio__galery-item');
@@ -138,6 +164,7 @@ const preloadImages = () => {
 preloadImages();
 navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);
+langSwitcher.addEventListener('click', langSwitcherHandler);
 portfolioBtns.addEventListener('click', portfolioHandler);
 
 // task complition:
