@@ -1,3 +1,5 @@
+'use strict';
+
 import i18Obj from './translate.js';
 
 //menu
@@ -5,7 +7,8 @@ const navigation = document.getElementById('primary-nav');
 const navToggle = document.getElementById('nav-button');
 const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
 // lang-switcher
-const langSwitcher = document.querySelector('.lang-switcher');
+const langSwitcherRu = document.getElementById('ru');
+const langSwitcherEn = document.getElementById('en');
 //portfolio gallery
 const portfolioBtns = document.querySelector('.portfolio__buttons');
 
@@ -49,7 +52,6 @@ const handleClick = (event) => {
   let element = event.target;
 
   if (
-    element.classList.contains('lang__link') ||
     element.classList.contains('button--submit') ||
     element.classList.contains('icons')
   ) {
@@ -93,27 +95,31 @@ const navLinksHandler = (event) => {
 };
 
 // language swither
-
 const langSwitcherHandler = (event) => {
-  const arr = Array.from(event.target.parentNode.children).filter(item => item.classList.contains('lang__link'));
-
-  if (event.target.classList.contains('lang__link')) {
-    if (!event.target.classList.contains('lang-switcher--active')) {
-      arr.forEach(element => element.classList.remove('lang-switcher--active'))
-      event.target.classList.add('lang-switcher--active')
-      const lang = event.target.getAttribute('data-lang')
-      getTranslate(lang);
-    }
+  const button = event.target;
+  const lang = event.target.id;
+  if (!button.classList.contains('lang-switcher--active')) {
+    buttonActiveToggle(langSwitcherEn, langSwitcherRu);
+    getTranslate(lang);
+    setLanguage(lang)
   }
-}
+};
+
+const buttonActiveToggle = (...elements) => {
+  elements.forEach((el) => el.classList.toggle('lang-switcher--active'));
+};
 
 const getTranslate = (lang) => {
   const dataEl = document.querySelectorAll('[data-i18]');
   const vocab = i18Obj[lang];
-  dataEl.forEach(el => {
+  dataEl.forEach((el) => {
     const attr = el.dataset.i18;
     el.textContent = vocab[attr];
   });
+};
+
+const setLanguage = (lang) => {
+  localStorage.setItem('language', `${lang}`);
 }
 
 // changing portfolio images
@@ -151,6 +157,7 @@ const changeActiveButton = (btn) => {
   btn.classList.add('button--active');
 };
 
+// image preload
 const preloadImages = () => {
   SEASONS.forEach((season) => {
     for (let i = 0; i < 6; i++) {
@@ -160,11 +167,27 @@ const preloadImages = () => {
   });
 };
 
+// local storage
+const langFromLocalStorage = () => {
+  return localStorage.getItem('language');
+};
 
+const loadAndUpdateLanguage = () => {
+  const lang = langFromLocalStorage();
+  if (lang === 'en') {
+    getTranslate('en')
+  } else {
+    getTranslate('ru');
+    buttonActiveToggle(langSwitcherEn, langSwitcherRu);
+  } 
+};
+
+loadAndUpdateLanguage();
 preloadImages();
 navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);
-langSwitcher.addEventListener('click', langSwitcherHandler);
+langSwitcherRu.addEventListener('click', langSwitcherHandler);
+langSwitcherEn.addEventListener('click', langSwitcherHandler);
 portfolioBtns.addEventListener('click', portfolioHandler);
 
 // task complition:
