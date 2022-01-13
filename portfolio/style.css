@@ -106,10 +106,9 @@ body {
 
 button:hover,
 button:focus,
-.button--active:hover
-{
+.button--active:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--gold);
-	transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
   transition: 0.25s ease 0.15s;
   color: var(--white);
 }
@@ -137,7 +136,7 @@ button:focus,
 .button--transparent:focus {
   transform: translateY(0);
   box-shadow: 0 0 0 0;
-  background: var(--gold)
+  background: var(--gold);
 }
 
 .button--active {
@@ -146,10 +145,9 @@ button:focus,
   transition: 0.25s ease 0.15s;
 }
 
-.button--active:hover
-{
+.button--active:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--gold);
-	transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
 }
 
 /* header */
@@ -404,6 +402,8 @@ button:focus,
 .video__play-btn:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+  transform: translateY(0);
+  box-shadow: 0 0 0 0;
 }
 
 /* price */
