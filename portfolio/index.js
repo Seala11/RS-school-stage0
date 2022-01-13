@@ -124,6 +124,7 @@ const setLanguage = (lang) => {
 
 // changing portfolio images
 const portfolioHandler = (event) => {
+  if (event.target.classList.contains('portfolio__buttons')) return;
   const images = document.querySelectorAll('.portfolio__galery-item');
   const btn = event.target;
   if (btn.dataset.season === SEASONS[0])
