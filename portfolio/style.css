@@ -174,6 +174,7 @@ button:focus {
   transition: 0.3s;
   cursor: pointer;
   margin: 0.2em;
+  margin-right: 4.4em;
 }
 
 .header__logo:hover {
@@ -182,13 +183,17 @@ button:focus {
 }
 
 .nav__container {
+  /* display: flex;
+  align-items: center;
+  margin: 0 auto; */
+
   display: flex;
   align-items: center;
-  margin: 0 auto;
+  justify-content: space-between;
 }
 
 .nav {
-  margin-left: auto;
+  /* margin-left: auto; */
 }
 
 .nav__list {
@@ -203,7 +208,11 @@ button:focus {
   line-height: 3.125rem;
   color: var(--white);
   text-decoration: none;
-  padding-left: 2rem;
+  padding-left: 4rem;
+}
+
+.nav__el:nth-of-type(1) {
+  padding: 0;
 }
 
 .nav__link:hover {
@@ -216,7 +225,7 @@ button:focus {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 3.125rem;
-  padding: 0 0 0 2rem;
+  /* padding: 0 0 0 2rem; */
   border: none;
   background-color: transparent;
   color: var(--white);
@@ -228,11 +237,43 @@ button:focus {
   text-decoration: none;
   color: var(--white);
   padding: 2px;
+  text-transform: uppercase;
 }
 
 .lang-switcher--active {
   color: var(--gold);
   transition: 0.3s;
+}
+
+/* // theme swithcer */
+
+.header__theme-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-switcher-svg {
+  width: 2.2rem;
+  aspect-ratio: 1;
+  background-image: url(./assets/svg/light-version.svg);
+  background-repeat: no-repeat;
+  border: 0;
+  background-color: transparent;
+  background-size: contain;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.theme-switcher-svg:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+
+.header__lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;
 }
 
 /* mobile navigation */
@@ -681,11 +722,16 @@ button:focus {
 
   /* heder, nav and hero */
   .lang-switcher {
-    padding: 0 80px 0 0;
+    /* padding: 0 80px 0 0; */
+    padding: 0;
+  }
+
+  .header__lang-switcher {
+    margin-right: 5.9rem;
   }
 
   .nav__container {
-    width: 90%;
+    width: 100%;
   }
 
   .header__container {
@@ -737,6 +783,7 @@ button:focus {
     font-weight: 400;
     line-height: 4.5rem;
     letter-spacing: 0em;
+    padding: 0;
   }
 
   .mobile-nav-toggle {
@@ -748,7 +795,7 @@ button:focus {
     border: 0;
     z-index: 9999;
     top: 2rem;
-    right: 4rem;
+    right: 2rem;
     width: 3rem;
     aspect-ratio: 1;
   }
@@ -896,6 +943,20 @@ button:focus {
   }
 
   /* header, nav */
+  .nav__container {
+    justify-content: flex-start;
+  }
+
+  .header__lang-switcher {
+    margin-right: 0;
+    gap: 1.25em;
+  }
+
+  .header__logo {
+    padding: 0;
+    margin-right: 1.25em;
+  }
+
   .header__container {
     background-position: center -2.2rem;
     background-size: auto 43.75rem;
@@ -955,8 +1016,14 @@ button:focus {
 
 @media screen and (max-width: 479px) {
   /* nav, header, hero */
+
+  .theme-switcher-svg {
+    width: 1.9rem;
+  }
+
   .mobile-nav-toggle {
-    right: 2rem;
+    right: 1rem;
+    top: 1.8rem;
   }
 
   .header__logo {
@@ -984,6 +1051,10 @@ button:focus {
     transform: translateY(-10px) rotate(-135deg);
   }
 
+  .nav__link {
+    font-size: 2rem;
+  }
+
   .hero__intro-container {
     margin: 0;
     height: auto;
@@ -995,7 +1066,6 @@ button:focus {
   }
 
   .text {
-    line-height: inherit;
     text-align: center;
   }
 
