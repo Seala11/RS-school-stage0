@@ -13,7 +13,7 @@
       url('./assets/fonts/merriweather-v28-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-/* dark */
+/* || Theme styles */
 
 .dark {
   --bg-primary: #000000;
@@ -65,25 +65,25 @@
   --nav-hover: #ffffff;
 
   --btn-primary: #ffffff;
-  --btn-primary-text: #1c1c1c;
+  --btn-primary-text: #1C1C1C;
   --btn-primary-hover: #bdae82;
-  --btn-ainamion: #1c1c1c;
+  --btn-ainamion: #1C1C1C;
 
   --btn-transparent: #bdae82;
   --btn-transparent-border: #bdae82;
-  --btn-transparent-text: #1c1c1c;
+  --btn-transparent-text: #1C1C1C;
   --btn-transparent-hover: #ffffff;
-  --btn-transparent-focus: #1c1c1c;
+  --btn-transparent-focus: #1C1C1C;
 
   --btn-price: #bdae82;
   --btn-price-text: #000000;
   --btn-price-hover: #ffffff;
 
   --form-bg: rgba(255, 255, 255, 0.5);
-  --form-text: #1c1c1c;
+  --form-text: #1C1C1C;
 }
 
-/* general styles */
+/* ||  General styles */
 
 html {
   box-sizing: border-box;
@@ -161,7 +161,7 @@ body {
   color: var(--text-paragraph);
 }
 
-/* buttons */
+/* || Buttons */
 
 .button {
   width: 13.75rem;
@@ -186,7 +186,7 @@ button:focus {
   box-shadow: 0 0 0 0;
 }
 
-/* button hero nad contact */
+/* button hero and contacts */
 .button--gold {
   background-color: var(--btn-primary);
   color: var(--btn-primary-text);
@@ -238,7 +238,7 @@ button:focus {
   color: var(--btn-price-hover)
 }
 
-/* header */
+/* || Header */
 .header__container {
   height: 5.625rem;
   background: var(--bg-hero);
@@ -258,7 +258,7 @@ button:focus {
   transition: 0.3s;
   cursor: pointer;
   margin: 0.2em;
-  margin-right: 4.4em;
+  margin-right: 2.7rem;
   filter: var(--icon-dark);
 }
 
@@ -320,7 +320,7 @@ button:focus {
   transition: 0.3s;
 }
 
-/* theme swithcer */
+/* || Theme swithcer */
 
 .header__theme-switcher {
   display: flex;
@@ -357,7 +357,7 @@ button:focus {
   gap: 1.9rem;
 }
 
-/* mobile navigation */
+/* || Mobile navigation */
 
 .mobile-nav-toggle {
   display: none;
@@ -392,7 +392,7 @@ button:focus {
   transform: translateY(-14px) rotate(-45deg);
 }
 
-/* hero */
+/* || Hero */
 
 .hero {
   display: flex;
@@ -426,7 +426,7 @@ button:focus {
   margin-top: 1.1rem;
 }
 
-/* skills */
+/* || Skills */
 
 .skill__items {
   width: 100%;
@@ -481,7 +481,8 @@ button:focus {
   content: url(./assets/svg/mic1.svg);
 }
 
-/* portfolio */
+/* ||  Portfolio */
+
 .portfolio__buttons {
   display: flex;
   flex-wrap: wrap;
@@ -498,7 +499,8 @@ button:focus {
   margin: 4rem 0 5.8rem;
 }
 
-/* video */
+/* || Video */
+
 .video__player {
   width: 100%;
   margin-bottom: 5.8rem;
@@ -535,7 +537,8 @@ button:focus {
   box-shadow: 0 0 0 0;
 }
 
-/* price */
+/* || Price */
+
 .price__container {
   display: flex;
   flex-wrap: wrap;
@@ -589,7 +592,8 @@ button:focus {
   line-height: 2.25rem;
 }
 
-/* contacts */
+/* || Contacts */
+
 .contacts {
   height: 43.75rem;
   background-image: var(--bg-contact);
@@ -652,7 +656,8 @@ button:focus {
   color: var(--form-text);
 }
 
-/* footer */
+/* || Footer */
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -727,7 +732,7 @@ button:focus {
     contrast(87%);
 }
 
-/* media quieries desctop styles*/
+/* || Media quieries desctop styles*/
 
 @media screen and (max-width: 1360px) {
   /* skills */
@@ -773,7 +778,7 @@ button:focus {
   }
 }
 
-/* media quieries tablet styles*/
+/* || Media quieries tablet styles*/
 
 @media screen and (max-width: 1024px) {
   /* general styles */
@@ -1012,7 +1017,7 @@ button:focus {
   }
 }
 
-/* media quieries mobile styles*/
+/* || Media quieries mobile styles*/
 
 @media screen and (max-width: 619px) {
   /* general */
@@ -1107,7 +1112,6 @@ button:focus {
 
 @media screen and (max-width: 479px) {
   /* nav, header, hero */
-
   .theme-switcher-svg {
     width: 1.9rem;
   }
