@@ -9,6 +9,8 @@ const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
 // lang-switcher
 const langSwitcherRu = document.getElementById('ru');
 const langSwitcherEn = document.getElementById('en');
+//theme-switcher
+const themeSwitcherBtn = document.querySelector('.header__theme-switcher');
 //portfolio gallery
 const portfolioBtns = document.querySelector('.portfolio__buttons');
 
@@ -101,7 +103,7 @@ const langSwitcherHandler = (event) => {
   if (!button.classList.contains('lang-switcher--active')) {
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
     getTranslate(lang);
-    setLanguage(lang)
+    setLanguage(lang);
   }
 };
 
@@ -120,7 +122,27 @@ const getTranslate = (lang) => {
 
 const setLanguage = (lang) => {
   localStorage.setItem('language', `${lang}`);
-}
+};
+
+// light-dark version switcher
+const themeHandler = (event) => {
+  const btn = event.target;
+  const version = btn.dataset.version
+  iconToggle(btn, version);
+  // themeVersionToggle(btn);
+};
+
+const iconToggle = (btn, version) => {
+  if (version === "dark") {
+    btn.classList.remove('sun-icon');
+    btn.classList.add('moon-icon');
+    btn.setAttribute('data-version', 'light')
+  } else {
+    btn.classList.remove('moon-icon');
+    btn.classList.add('sun-icon');
+    btn.setAttribute('data-version', 'dark')
+  }
+};
 
 // changing portfolio images
 const portfolioHandler = (event) => {
@@ -176,11 +198,11 @@ const langFromLocalStorage = () => {
 const loadAndUpdateLanguage = () => {
   const lang = langFromLocalStorage();
   if (lang === 'en') {
-    getTranslate('en')
+    getTranslate('en');
   } else {
     getTranslate('ru');
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
-  } 
+  }
 };
 
 loadAndUpdateLanguage();
@@ -189,6 +211,7 @@ navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);
 langSwitcherRu.addEventListener('click', langSwitcherHandler);
 langSwitcherEn.addEventListener('click', langSwitcherHandler);
+themeSwitcherBtn.addEventListener('click', themeHandler);
 portfolioBtns.addEventListener('click', portfolioHandler);
 
 // task complition:
