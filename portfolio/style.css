@@ -20,6 +20,10 @@
   --bg-hero: url('./assets/img/hero.jpg');
   --bg-contact: url('./assets/img/contacts.jpg');
   --icon-dark: none;
+  --logo-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+  --theme-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
 
   --text-hero: #ffffff;
   --text-title: #bdae82;
@@ -51,6 +55,8 @@
   --bg-hero: url('./assets/img/hero-light-version.jpg');
   --bg-contact: url('./assets/img/contacts-light.jpg');
   --icon-dark: invert(1%) sepia(1%) saturate(100%) hue-rotate(314deg) brightness(0%) contrast(80%);
+  --logo-hover: none;
+  --theme-hover: invert(100%) sepia(100%) saturate(0%) hue-rotate(138deg) brightness(102%) contrast(105%);
 
   --text-hero: #1C1C1C;
   --text-title: #1C1C1C;
@@ -257,8 +263,7 @@ button:focus {
 }
 
 .header__logo:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+  filter: var(--logo-hover);
 }
 
 .nav__container {
@@ -275,7 +280,7 @@ button:focus {
 .nav__link {
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 400;
   line-height: 3.125rem;
   color: var(--text-nav);
   text-decoration: none;
@@ -343,8 +348,7 @@ button:focus {
 }
 
 .theme-switcher-svg:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+  filter: var(--theme-hover)
 }
 
 .header__lang-switcher {
