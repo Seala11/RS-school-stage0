@@ -10,7 +10,7 @@ const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
 const langSwitcherRu = document.getElementById('ru');
 const langSwitcherEn = document.getElementById('en');
 //theme-switcher
-const themeSwitcherBtn = document.querySelector('.header__theme-switcher');
+const themeSwitcherBtn = document.querySelector('.theme-switcher-svg');
 //portfolio gallery
 const portfolioBtns = document.querySelector('.portfolio__buttons');
 
@@ -125,23 +125,41 @@ const setLanguage = (lang) => {
 };
 
 // light-dark version switcher
+
 const themeHandler = (event) => {
   const btn = event.target;
-  const version = btn.dataset.version
-  iconToggle(btn, version);
-  // themeVersionToggle(btn);
+  const version = btn.dataset.version;
+  if (version === 'dark') {
+    setLightMode();
+    addMoonIcon(btn);
+  } else {
+    setDarkMode();
+    addSunIcon(btn);
+  }
 };
 
-const iconToggle = (btn, version) => {
-  if (version === "dark") {
-    btn.classList.remove('sun-icon');
-    btn.classList.add('moon-icon');
-    btn.setAttribute('data-version', 'light')
-  } else {
-    btn.classList.remove('moon-icon');
-    btn.classList.add('sun-icon');
-    btn.setAttribute('data-version', 'dark')
-  }
+const setDarkMode = () => {
+  document.querySelector('body').classList.remove('light');
+  document.querySelector('body').classList.add('dark');
+  localStorage.setItem('themeVersion', 'dark');
+};
+
+const setLightMode = () => {
+  document.querySelector('body').classList.remove('dark');
+  document.querySelector('body').classList.add('light');
+  localStorage.setItem('themeVersion', 'light');
+};
+
+const addMoonIcon = (btn) => {
+  if (btn.classList.contains('sun-icon')) btn.classList.remove('sun-icon');
+  btn.classList.add('moon-icon');
+  btn.setAttribute('data-version', 'light');
+};
+
+const addSunIcon = (btn) => {
+  if (btn.classList.contains('moon-icon')) btn.classList.remove('moon-icon');
+  btn.classList.add('sun-icon');
+  btn.setAttribute('data-version', 'dark');
 };
 
 // changing portfolio images
@@ -195,17 +213,29 @@ const langFromLocalStorage = () => {
   return localStorage.getItem('language');
 };
 
-const loadAndUpdateLanguage = () => {
+const themeFromLocalStorage = () => {
+  return localStorage.getItem('themeVersion');
+};
+
+const loadLandAndTheme = () => {
   const lang = langFromLocalStorage();
+  const theme = themeFromLocalStorage();
   if (lang === 'en') {
     getTranslate('en');
   } else {
     getTranslate('ru');
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
   }
+
+  if (theme === 'dark') {
+    setDarkMode();
+  } else {
+    setLightMode();
+    addMoonIcon(themeSwitcherBtn, 'light');
+  }
 };
 
-loadAndUpdateLanguage();
+loadLandAndTheme();
 preloadImages();
 navigation.addEventListener('click', navLinksHandler);
 navToggle.addEventListener('click', navHandler);

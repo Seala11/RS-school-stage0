@@ -13,6 +13,70 @@
       url('./assets/fonts/merriweather-v28-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* dark */
+
+.dark {
+  --bg-primary: #000000;
+  --bg-hero: url('./assets/img/hero.jpg');
+  --bg-contact: url('./assets/img/contacts.jpg');
+  --icon-dark: none;
+
+  --text-hero: #ffffff;
+  --text-title: #bdae82;
+  --text-nav: #ffffff;
+  --text-paragraph: #ffffff;
+  --nav-hover: #bdae82;
+
+  --btn-primary: #bdae82;
+  --btn-primary-text: #000000;
+  --btn-primary-hover: #ffffff;
+  --btn-ainamion: #bdae82;
+
+  --btn-transparent: transparent;
+  --btn-transparent-border: #bdae82;
+  --btn-transparent-text: #bdae82;
+  --btn-transparent-hover: #ffffff;
+  --btn-transparent-focus: #bdae82;
+
+  --btn-price: #bdae82;
+  --btn-price-text: #000000;
+  --btn-price-hover: #ffffff;
+
+  --form-bg: rgba(0, 0, 0, 0.5);
+  --form-text: #bdae82;
+}
+
+.light {
+  --bg-primary: #ffffff;
+  --bg-hero: url('./assets/img/hero-light-version.jpg');
+  --bg-contact: url('./assets/img/contacts-light.jpg');
+  --icon-dark: invert(1%) sepia(1%) saturate(100%) hue-rotate(314deg) brightness(0%) contrast(80%);
+
+  --text-hero: #1C1C1C;
+  --text-title: #1C1C1C;
+  --text-nav: #1C1C1C;
+  --text-paragraph: #1C1C1C;
+  --nav-hover: #ffffff;
+
+  --btn-primary: #ffffff;
+  --btn-primary-text: #1c1c1c;
+  --btn-primary-hover: #bdae82;
+  --btn-ainamion: #1c1c1c;
+
+  --btn-transparent: #bdae82;
+  --btn-transparent-border: #bdae82;
+  --btn-transparent-text: #1c1c1c;
+  --btn-transparent-hover: #ffffff;
+  --btn-transparent-focus: #1c1c1c;
+
+  --btn-price: #bdae82;
+  --btn-price-text: #000000;
+  --btn-price-hover: #ffffff;
+
+  --form-bg: rgba(255, 255, 255, 0.5);
+  --form-text: #1c1c1c;
+}
+
 /* general styles */
 
 html {
@@ -30,7 +94,6 @@ html {
 }
 
 :root {
-  --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
 
@@ -39,11 +102,11 @@ html {
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-primary);
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
-  color: var(--white);
+  color: var(--text--article);
   line-height: 2.5rem;
 }
 
@@ -58,7 +121,7 @@ body {
   font-size: var(--fs-section-header);
   font-weight: 700;
   line-height: 5rem;
-  color: var(--gold);
+  color: var(--text-title);
   flex: 0 1 auto;
   padding: 0 1rem 0 1rem;
 }
@@ -84,11 +147,12 @@ body {
   content: '';
   width: 19em;
   flex: 1 1 auto;
-  border-bottom: solid 2px var(--gold);
+  border-bottom: solid 2px var(--text-title);
 }
 
 .text {
   font-family: inherit;
+  color: var(--text-paragraph);
 }
 
 /* buttons */
@@ -105,7 +169,7 @@ body {
 
 .button:hover,
 .button--active:hover {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--gold);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--btn-ainamion);
   transform: translateY(-0.25em);
   transition: 0.25s ease 0.15s;
   color: var(--white);
@@ -116,31 +180,33 @@ button:focus {
   box-shadow: 0 0 0 0;
 }
 
+/* button hero nad contact */
 .button--gold {
-  background-color: var(--gold);
-  color: var(--bg-dark);
-  border: 1px solid var(--gold);
+  background-color: var(--btn-primary);
+  color: var(--btn-primary-text);
+  border: 1px solid var(--btn-primary);
 }
 
 .button--gold:hover,
 .button--gold:focus {
-  color: var(--white);
+  color: var(--btn-primary-hover);
 }
 
 .button--transparent {
-  background-color: transparent;
-  color: var(--gold);
-  border: 1px solid var(--gold);
+  background-color: var(--btn-transparent);
+  color: var(--btn-transparent-text);
+  border: 1px solid var(--btn-transparent-border);
 }
 
 .button--transparent:hover {
-  color: var(--white);
+  color: var(--btn-transparent-hover);
 }
 
 .button--transparent:focus {
   transform: translateY(0);
   box-shadow: 0 0 0 0;
-  background: var(--gold);
+  background: var(--btn-transparent-focus);
+  border: 1px solid var(--btn-transparent-focus);
   color: var(--white);
 }
 
@@ -151,18 +217,30 @@ button:focus {
 }
 
 .button--active:hover {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--gold);
+  box-shadow: 0 0.5em 0.5em -0.4em var(--btn-ainamion);
   transform: translateY(-0.25em);
+}
+
+.button--price {
+  background-color: var(--btn-price);
+  color: var(--btn-price-text);
+  border: 1px solid var(--btn-price);
+}
+
+.button--price:hover,
+.button--price:focus {
+  color: var(--btn-price-hover)
 }
 
 /* header */
 .header__container {
   height: 5.625rem;
-  background: url('./assets/img/hero.jpg');
+  background: var(--bg-hero);
   background-repeat: no-repeat;
   background-position: center 0;
   padding-top: 1rem;
   margin-bottom: -1px;
+  transition: background 0.5s ease;
 }
 
 .header__logo {
@@ -175,6 +253,7 @@ button:focus {
   cursor: pointer;
   margin: 0.2em;
   margin-right: 4.4em;
+  filter: var(--icon-dark);
 }
 
 .header__logo:hover {
@@ -196,9 +275,9 @@ button:focus {
 .nav__link {
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: bold;
   line-height: 3.125rem;
-  color: var(--white);
+  color: var(--text-nav);
   text-decoration: none;
   padding-left: 4rem;
 }
@@ -208,7 +287,7 @@ button:focus {
 }
 
 .nav__link:hover {
-  color: var(--gold);
+  color: var(--nav-hover);
   transition: 0.3s;
 }
 
@@ -219,20 +298,20 @@ button:focus {
   line-height: 3.125rem;
   border: none;
   background-color: transparent;
-  color: var(--white);
+  color: var(--text-nav);
   text-decoration: none;
   cursor: pointer;
 }
 
 .lang__link {
   text-decoration: none;
-  color: var(--white);
+  color: var(--text-nav);
   padding: 2px;
   text-transform: uppercase;
 }
 
 .lang-switcher--active {
-  color: var(--gold);
+  color: var(--nav-hover);
   transition: 0.3s;
 }
 
@@ -284,7 +363,7 @@ button:focus {
   position: absolute;
   width: 3.125rem;
   height: 3px;
-  background: white;
+  background: var(--text-paragraph);
   inset: 0 0 0 0;
   transition: 350ms;
 }
@@ -314,10 +393,11 @@ button:focus {
 .hero {
   display: flex;
   align-items: center;
-  background-image: url('./assets/img/hero.jpg');
+  background-image: var(--bg-hero);
   background-position: center -5.625rem;
   background-repeat: no-repeat;
   height: 56.875rem;
+  transition: background 0.5s ease;
 }
 
 .hero__intro-container {
@@ -335,7 +415,7 @@ button:focus {
   font-size: var(--fs-header);
   font-weight: 700;
   line-height: 7.5rem;
-  color: var(--white);
+  color: var(--text-hero);
 }
 
 .hero__button {
@@ -364,7 +444,7 @@ button:focus {
   font-size: 1em;
   line-height: 2.2em;
   text-align: center;
-  color: var(--white);
+  color: var(--text-paragraph);
 }
 
 .skills__item-text {
@@ -373,7 +453,7 @@ button:focus {
   line-height: 2em;
   text-align: center;
   padding: 1rem;
-  color: var(--white);
+  color: var(--text-paragraph);
 }
 
 .skills__item-title1::before,
@@ -476,7 +556,7 @@ button:focus {
   font-weight: 700;
   line-height: 3.5rem;
   text-align: center;
-  color: var(--white);
+  color: var(--text-paragraph);
   padding: 1rem 0 1.5rem;
 }
 
@@ -492,6 +572,7 @@ button:focus {
 
 .price__desc {
   padding-bottom: 2.3rem;
+  color: var(--text-paragraph);
 }
 
 .price__desc > span {
@@ -507,12 +588,13 @@ button:focus {
 /* contacts */
 .contacts {
   height: 43.75rem;
-  background-image: url(./assets/img/contacts.jpg);
+  background-image: var(--bg-contact);
   background-size: auto 43.75rem;
   background-position: center center;
   background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
+  transition: 0.5s ease;
 }
 
 .contacts__title {
@@ -533,14 +615,14 @@ button:focus {
   margin: 0.65rem 0;
   width: 100%;
   border: 1px solid var(--gold);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--form-bg);
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.2;
   padding-left: 1rem;
-  color: var(--gold);
+  color: var(--form-text);
 }
 
 .contacts__phone,
@@ -563,7 +645,7 @@ button:focus {
   font-style: normal;
   font-weight: 400;
   line-height: 2.5rem;
-  color: var(--gold);
+  color: var(--form-text);
 }
 
 /* footer */
@@ -581,7 +663,7 @@ button:focus {
 .footer__link {
   text-decoration: none;
   font-family: inherit;
-  color: var(--white);
+  color: var(--text-paragraph);
   transition: 0.3s;
 }
 
@@ -615,18 +697,22 @@ button:focus {
 
 .icon__inst {
   background-image: url(./assets/svg/instagram.svg);
+  filter: var(--icon-dark);
 }
 
 .icon__fb {
   background-image: url(./assets/svg/fb.svg);
+  filter: var(--icon-dark);
 }
 
 .icon__twit {
   background-image: url(./assets/svg/twitter.svg);
+  filter: var(--icon-dark);
 }
 
 .icon__pint {
   background-image: url(./assets/svg/pinterest.svg);
+  filter: var(--icon-dark);
 }
 
 .icon__fb:hover,
@@ -768,7 +854,7 @@ button:focus {
     flex-direction: column;
     padding: min(13vh, 10rem) 4.5em;
     gap: 0.8em;
-    background: var(--bg-dark);
+    background: var(--bg-primary);
     transform: translateX(100%);
     transition: transform 350ms ease-in-out;
     z-index: 1000;
@@ -776,7 +862,7 @@ button:focus {
 
   .nav__list[data-visible='true'] {
     transform: translateX(0%);
-    box-shadow: 0px 0px 1000px 100px var(--bg-dark);
+    box-shadow: 0px 0px 1000px 100px var(--bg-primary);
   }
 
   .nav__link {
