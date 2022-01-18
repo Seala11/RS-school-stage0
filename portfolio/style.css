@@ -291,7 +291,7 @@ body {
 .skills__item-title {
   font-family: Inter;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.25rem;
   line-height: 2.2em;
   text-align: center;
   color: var(--white);
