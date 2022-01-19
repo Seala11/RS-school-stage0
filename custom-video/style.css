@@ -1,5 +1,103 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
+}
+
+/* merriweather-700 - latin */
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    url('./assests/fonts/merriweather-v28-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./assests/fonts/merriweather-v28-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* || General styles */
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-dark: #000000;
+  --gold: #bdae82;
+  --white: #ffffff;
+}
+
+body {
+  background-color: var(--bg-dark);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 2.5rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* || Header */
+
+.header__title {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 5rem;
+  color: var(--gold);
+  flex: 0 1 auto;
+  padding: 0 1rem 0 1rem;
+}
+
+.header--lines {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+.header--lines::after,
+.header--lines::before {
+  content: '';
+  width: 19em;
+  flex: 1 1 auto;
+  border-bottom: solid 2px var(--gold);
+}
+
+.text {
+  font-family: inherit;
+}
+
+/* || Footer */
+.footer {
+    justify-content: space-between;
+}
+
+.footer__link {
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  color: var(--white);
+  transition: 0.3s;
+  padding: 0 0.8rem;
+}
+
+.footer__link:hover {
+  color: var(--gold);
 }
