@@ -34,6 +34,8 @@ html {
   --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
+
+  --gold-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
 
 body {
@@ -51,6 +53,11 @@ body {
   max-width: 90rem;
   margin: 0 auto;
   padding: 0 1.25rem;
+}
+
+.button {
+    border: 0;
+    background-color: transparent;
 }
 
 /* || Header */
@@ -83,6 +90,46 @@ body {
 
 .text {
   font-family: inherit;
+}
+
+/* || Video-player */
+
+.player {
+    max-width: 87.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.player__video {
+    width: 100%;
+}
+
+.player__controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 50px;
+}
+
+.controls__play {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+}
+
+.controls__play:hover,
+.controls__play:active {
+    filter: var(--gold-filter);
+}
+
+.play-btn {
+    background-image: url(./assests/svg/play.svg);
+}
+
+.pause-btn {
+    background-image: url(./assests/svg/pause.svg);
 }
 
 /* || Footer */

@@ -18,7 +18,23 @@
       <div class="header--lines"><h1 class="header__title">Video</h1></div>
     </header>
 
-    <main class="main container"><section class="section"></section></main>
+    <main class="main container">
+      <section class="player">
+        <video
+          src="./assests/video/video.mp4"
+          poster="./assests/images/video-bg.jpg"
+          class="player__video"
+        >
+          Your browser does not support the video tag.
+        </video>
+        <div class="player__controls controls">
+            <!-- <div class="progress">
+                <div class="progress__filled"></div>
+            </div> -->
+            <button class="button controls__play play-btn" title="play"></button>
+        </div>
+      </section>
+    </main>
 
     <footer class="footer container">
       <div class="footer__rights rights">
