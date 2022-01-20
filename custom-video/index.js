@@ -42,8 +42,8 @@ const setVideoVolume = () => {
 };
 
 const volumeHandler = (event) => {
-  console.log(event.target.value);
   video.volume = event.target.value;
+
   if (video.volume === 0) {
     videoIsMuted = true;
   } else {
@@ -51,7 +51,10 @@ const volumeHandler = (event) => {
   }
 
   currentVolume = video.volume;
-  volumeMuteHandler();
+  rangeHandler(event.target, (event.target.value * 100));
+  event.target.value = video.volume;
+    //TODO: doesnt work
+//   volumeMuteHandler();
 };
 
 const volumeMuteHandler = () => {
@@ -115,8 +118,7 @@ const currentTime = () => {
 // Progress Bar
 const progressBarUpdating = () => {
   const currentProgress = Math.abs((video.currentTime / video.duration) * 100);
-  progressBarHandler(progressElement, currentProgress);
-  console.log(progressElement, currentProgress);
+  rangeHandler(progressElement, currentProgress);
   if (currentProgress === 100) playBtnToggle();
 };
 
@@ -124,11 +126,10 @@ const progressBarChange = (event) => {
   const progressTime =
     (event.offsetX / progressElement.offsetWidth) * video.duration;
   video.currentTime = progressTime;
-  progressBarHandler(event.target, event.target.value);
+  rangeHandler(event.target, event.target.value);
 };
 
-const progressBarHandler = (el, value) => {
-   console.log(el);
+const rangeHandler = (el, value) => {
    el.value = value;
    el.style.background = `linear-gradient( to right, #bdae82 0%, #bdae82 ${value}%, #c8c8c8 ${value}%, #c8c8c8 100% )`;
  };
@@ -140,7 +141,7 @@ video.addEventListener('timeupdate', currentTime);
 
 // volume events
 let volumeMousedown = false;
-volume.addEventListener('change', volumeHandler);
+volume.addEventListener('input', volumeHandler);
 volumeIcon.addEventListener('click', volumeMuteHandler);
 volume.addEventListener(
   'mousemove',
