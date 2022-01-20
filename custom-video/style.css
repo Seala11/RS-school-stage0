@@ -35,7 +35,8 @@ html {
   --gold: #bdae82;
   --white: #ffffff;
 
-  --gold-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  --gold-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg)
+    brightness(92%) contrast(87%);
 }
 
 body {
@@ -45,22 +46,31 @@ body {
   font-weight: 400;
   color: var(--white);
   line-height: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container {
   display: flex;
   justify-content: center;
   max-width: 90rem;
+  width: 100%;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
 
 .button {
-    border: 0;
-    background-color: transparent;
+  border: 0;
+  background-color: transparent;
 }
 
 /* || Header */
+
+.header {
+  min-height: 20vh;
+  height: 100%;
+}
 
 .header__title {
   font-family: 'Merriweather', sans-serif;
@@ -95,46 +105,50 @@ body {
 /* || Video-player */
 
 .player {
-    max-width: 87.5rem;
-    position: relative;
-    overflow: hidden;
+  max-width: 87.5rem;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
 .player__video {
-    width: 100%;
+  width: 100%;
 }
 
 .player__controls {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
 }
 
 .controls__play {
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 30px;
-    height: 30px;
-    transition: 0.3s;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  transition: 0.3s;
 }
 
 .controls__play:hover,
 .controls__play:active {
-    filter: var(--gold-filter);
+  filter: var(--gold-filter);
 }
 
 .play-btn {
-    background-image: url(./assests/svg/play.svg);
+  background-image: url(./assests/svg/play.svg);
 }
 
 .pause-btn {
-    background-image: url(./assests/svg/pause.svg);
+  background-image: url(./assests/svg/pause.svg);
 }
 
 /* || Footer */
 .footer {
-    justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 20vh;
+  height: 100%;
 }
 
 .footer__link {
