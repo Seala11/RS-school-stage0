@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="./assets/svg/favicon.ico" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./assets/svg/favicon.ico"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="./index.js" type="module" defer></script>
     <title>custom-video</title>
@@ -16,22 +20,27 @@
 
     <main class="main container">
       <section class="player">
-        <video
-          src="./assets/video/video.mp4"
-          poster="./assets/images/video-bg.jpg"
-          class="player__video"
-        >
+        <!-- poster="./assets/images/video-bg.jpg" -->
+        <video src="./assets/video/video.mp4" class="player__video">
           Your browser does not support the video tag.
         </video>
         <div class="player__controls controls">
-            <!-- <div class="progress">
-                <div class="progress__filled"></div>
-            </div> -->
-            <button class="button controls__play play-btn" title="play"></button>
-            <div class="time">
-                <span class="time__current">0:00</span> / <span class="time__duration">0:00</span>
-            </div>
-            <input type="range" class="controls__volume" min="0" max="1" step="0.01" value="0.1">
+          <button class="button controls__play play-btn" title="play"></button>
+          <div class="controls__time">
+            <span class="time__current">0:00</span> /
+            <span class="time__duration">0:00</span>
+          </div>
+          <div class="controls__volume">
+            <span class="volume__icon volume-on-btn"></span
+            ><input
+              type="range"
+              class="volume"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0.15"
+            />
+          </div>
         </div>
       </section>
     </main>
