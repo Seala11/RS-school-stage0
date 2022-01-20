@@ -7,8 +7,8 @@ const volume = player.querySelector('.volume');
 const volumeIcon = player.querySelector('.volume__icon');
 const currTimeElement = player.querySelector('.time__current');
 const durationTimeElement = player.querySelector('.time__duration');
-const progressElement = player.querySelector('.controls__progress');
-const progressBar = player.querySelector('.progress__filled');
+const progressElement = player.querySelector('.progress');
+// const progressBar = player.querySelector('.progress');
 
 let currentVolume = 0.15;
 let videoIsMuted = false;
@@ -46,24 +46,55 @@ const volumeHandler = (event) => {
   video.volume = event.target.value;
   if (video.volume === 0) {
     videoIsMuted = true;
-    volumeMuteHandler();
+  } else {
+    videoIsMuted = false;
   }
+
   currentVolume = video.volume;
+  volumeMuteHandler();
 };
 
-// TODO: doesnt change after unmuted
 const volumeMuteHandler = () => {
-  if (volumeIcon.classList.contains('volume-on-btn')) {
-    volumeIcon.classList.remove('volume-on-btn');
-    volumeIcon.classList.add('volume-mute-btn');
-    video.volume = 0;
-    videoIsMuted = 'true';
+  console.log('1. video is muted (start point): ' + videoIsMuted);
+  console.log('1. volume:' + video.volume);
+  if (videoIsMuted === 'true') {
+    unmuteVideo();
   } else {
-    volumeIcon.classList.remove('volume-mute-btn');
-    volumeIcon.classList.add('volume-on-btn');
-    video.volume = currentVolume;
-    videoIsMuted = 'false';
+    muteVideo();
   }
+  console.log('2. video is muted (end point): ' + videoIsMuted);
+  console.log('2. volume:' + video.volume);
+  console.log('___________________');
+};
+
+const muteVideo = () => {
+  console.log(
+    '3. icon volume on: ' + !volumeIcon.classList.contains('volume-on-btn')
+  );
+  console.log('(muteVideo - change to mute btn)');
+  console.log('3. volume:' + video.volume);
+  //   if (volumeIcon.classList.contains('volume-on-btn')) {
+  volumeIcon.classList.remove('volume-on-btn');
+  volumeIcon.classList.add('volume-mute-btn');
+  video.volume = 0;
+  videoIsMuted = 'true';
+  //   }
+  console.log('3.end volume:' + video.volume);
+};
+
+const unmuteVideo = () => {
+  console.log(
+    '4. icon volume on: ' + !volumeIcon.classList.contains('volume-on-btn')
+  );
+  console.log('(unmuteVideo - change to volume btn)');
+  console.log('4. volume:' + video.volume);
+  //   if (!volumeIcon.classList.contains('volume-on-btn')) {
+  volumeIcon.classList.remove('volume-mute-btn');
+  volumeIcon.classList.add('volume-on-btn');
+  video.volume = currentVolume;
+  videoIsMuted = 'false';
+
+  console.log('4.end volume:' + video.volume);
 };
 
 //Current time and duration
@@ -82,41 +113,53 @@ const currentTime = () => {
 };
 
 // Progress Bar
-
-const progressBarHandler = () => {
-  const currentProgress = (video.currentTime / video.duration) * 100;
-  progressBar.style.width = `${currentProgress}%`;
+const progressBarUpdating = () => {
+  const currentProgress = Math.abs((video.currentTime / video.duration) * 100);
+  progressBarHandler(progressElement, currentProgress);
+  console.log(progressElement, currentProgress);
   if (currentProgress === 100) playBtnToggle();
 };
 
-const progressBarUpdate = (event) => {
+const progressBarChange = (event) => {
   const progressTime =
     (event.offsetX / progressElement.offsetWidth) * video.duration;
   video.currentTime = progressTime;
+  progressBarHandler(event.target, event.target.value);
 };
 
+const progressBarHandler = (el, value) => {
+   console.log(el);
+   el.value = value;
+   el.style.background = `linear-gradient( to right, #bdae82 0%, #bdae82 ${value}%, #c8c8c8 ${value}%, #c8c8c8 100% )`;
+ };
+
+// general video events
 video.addEventListener('click', togglePlay);
 controlsPlayBtn.addEventListener('click', togglePlay);
 video.addEventListener('timeupdate', currentTime);
-video.addEventListener('timeupdate', progressBarHandler);
 
 // volume events
 let volumeMousedown = false;
 volume.addEventListener('change', volumeHandler);
 volumeIcon.addEventListener('click', volumeMuteHandler);
-volume.addEventListener('mousemove', (e) => volumeMousedown && volumeHandler(e));
+volume.addEventListener(
+  'mousemove',
+  (e) => volumeMousedown && volumeHandler(e)
+);
 volume.addEventListener('mousedown', () => {
-   volumeMousedown = true;
- });
- volume.addEventListener('mouseup', () => {
-   volumeMousedown = false;
- });
+  volumeMousedown = true;
+});
+volume.addEventListener('mouseup', () => {
+  volumeMousedown = false;
+});
 
 // progress events
+video.addEventListener('timeupdate', progressBarUpdating);
+
 let progressMousedown = false;
-progressElement.addEventListener('click', progressBarUpdate);
+progressElement.addEventListener('click', progressBarChange);
 progressElement.addEventListener('mousemove', (e) => {
-  progressMousedown && progressBarUpdate(e);
+  progressMousedown && progressBarChange(e);
 });
 progressElement.addEventListener('mousedown', () => {
   progressMousedown = true;
@@ -124,4 +167,5 @@ progressElement.addEventListener('mousedown', () => {
 progressElement.addEventListener('mouseup', () => {
   progressMousedown = false;
 });
+
 // showTask();

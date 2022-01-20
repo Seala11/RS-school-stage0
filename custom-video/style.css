@@ -38,6 +38,7 @@ html {
 
   --gold-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg)
     brightness(92%) contrast(87%);
+  --range-fill: linear-gradient( to right, #bdae82 0%, #bdae82 0%, #c8c8c8 0%, #c8c8c8 100% );
 }
 
 body {
@@ -181,14 +182,24 @@ body {
   height: 0.8rem;
   transition: 0.3s;
   background-color: var(--bg-dark-transparent);
-  cursor: e-resize;
   padding:0;
   margin: 0;
 }
 
-.progress__filled {
-  width: 0;
-  background-color: orange;
+.progress {
+  -webkit-appearance: none;
+  width: 100%;
+  background: linear-gradient( to right, #bdae82 0%, #bdae82 0%, #c8c8c8 0%, #c8c8c8 100% );
+}
+
+.progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1rem;
+  width: 1rem;
+  background-color: var(--white);
+  cursor: e-resize;
+  border-radius: 10px;
+  margin-top: -4px;
 }
 
 .player:hover .controls__progress {
