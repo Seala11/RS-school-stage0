@@ -13,6 +13,8 @@ const progressElement = player.querySelector('.progress');
 let currentVolume = 0.15;
 let videoIsMuted = false;
 
+//TODO: add initial button and poster to video
+
 const togglePlay = (event) => {
   console.log(videoIsMuted);
   if (video.paused) {
