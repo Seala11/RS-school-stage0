@@ -7,6 +7,8 @@ const volume = player.querySelector('.volume');
 const volumeIcon = player.querySelector('.volume__icon');
 const currTimeElement = player.querySelector('.time__current');
 const durationTimeElement = player.querySelector('.time__duration');
+const progressElement = player.querySelector('.controls__progress');
+const progressBar = player.querySelector('.progress__filled')
 
 let currentVolume = 0.15;
 let videoIsMuted = false;
@@ -36,6 +38,7 @@ const playBtnToggle = () => {
 
 //Volume
 // TODO: on hover if volume muted turnes on the volume (shouldnt)
+// only work with mouse, doesnt work on tachpad
 const setVideoVolume = () => {
    (videoIsMuted === 'true') ? video.volume = 0 : video.volume = currentVolume;
 }
@@ -74,10 +77,24 @@ const currentTime = () => {
    durationTimeElement.innerHTML = `${durationMinutes}:${durationSeconds < 10 ? '0' + durationSeconds : durationSeconds}`;
 }
 
+// Progress Bar
+
+const progressBarHandler = () => {
+   const currentProgress = (video.currentTime / video.duration) * 100;
+   progressBar.style.width = `${currentProgress}%`;
+   if (currentProgress === 100) playBtnToggle();
+}
+
+const progressBarUpdate = (event) => {
+   const progressTime = (event.offsetX / progressElement.offsetWidth) * video.duration;
+   video.currentTime = progressTime;
+}
+
 video.addEventListener('click', togglePlay);
 controlsPlayBtn.addEventListener('click', togglePlay);
 volume.addEventListener('mousemove', volumeHandler);
 volumeIcon.addEventListener('click', volumeMuteHandler);
 video.addEventListener('timeupdate', currentTime);
-
+video.addEventListener('timeupdate', progressBarHandler);
+progressElement.addEventListener('click', progressBarUpdate);
 // showTask();

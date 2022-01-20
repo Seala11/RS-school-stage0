@@ -25,8 +25,12 @@
           Your browser does not support the video tag.
         </video>
         <div class="player__controls controls">
-          <button class="button controls__play play-btn" title="play"></button>
+          <div class="controls__progress">
+            <div class="progress__filled"></div>
+          </div>
+          <div class="controls__container">
           <div class="controls__time">
+            <button class="button controls__play play-btn" title="play"></button>
             <span class="time__current">0:00</span> /
             <span class="time__duration">0:00</span>
           </div>
@@ -41,6 +45,8 @@
               value="0.15"
             />
           </div>
+          </div>
+          
         </div>
       </section>
     </main>

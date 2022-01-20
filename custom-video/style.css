@@ -34,6 +34,7 @@ html {
   --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
+  --bg-dark-transparent: rgba(0, 0, 0, 0.6);
 
   --gold-filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg)
     brightness(92%) contrast(87%);
@@ -118,6 +119,14 @@ body {
   height: 100%;
 }
 
+/* || Controls section */
+.controls__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 /* TODO: transform: translateY(100%) translateY(-5px); */
 .player__controls {
   display: flex;
@@ -126,13 +135,13 @@ body {
   justify-content: flex-start;
   flex-wrap: wrap;
   align-items: center;
-  height: 4rem;
-  /* transform: translateY(100%) translateY(-5px); */
+  height: 4.6rem;
+  transform: translateY(100%) translateY(-5px);
   transition: 0.3s;
-  /* background-color: rgba(0, 0, 0, 0.6); */
-  background-color: darkblue;
+  background-color: var(--bg-dark-transparent);
+  /* background-color: darkblue; */
   width: 100%;
-  padding: 0 1rem;
+  padding: 0;
   margin: 0;
 }
 
@@ -148,6 +157,7 @@ body {
   height: 30px;
   transition: 0.3s;
   padding: .5em;
+  background-position: center;
 }
 
 .controls__play:hover,
@@ -161,6 +171,28 @@ body {
 
 .pause-btn {
   background-image: url(./assets/svg/pause.svg);
+}
+
+/* || Controls Progress */
+.controls__progress {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 0.8rem;
+  transition: 0.3s;
+  background-color: var(--bg-dark-transparent);
+  cursor: pointer;
+  padding:0;
+  margin: 0;
+}
+
+.progress__filled {
+  width: 0;
+  background-color: orange;
+}
+
+.player:hover .controls__progress {
+  height: 20px;
 }
 
 /* || Controls Time */
@@ -184,6 +216,7 @@ body {
   transition: 0.3s;
   padding: .5em;
   cursor: pointer;
+  background-position: center;
 }
 
 .volume__icon:hover, .volume__icon:active {
