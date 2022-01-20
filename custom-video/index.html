@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="shortcut icon"
-      href="./assests/svg/favicon.ico"
+      href="./assets/svg/favicon.ico"
       type="image/x-icon"
     />
     <link rel="stylesheet" href="style.css" />
-    <script src="./index.js" defer></script>
+    <script src="./index.js" type="module" defer></script>
     <title>custom-video</title>
   </head>
   <body>
@@ -21,8 +21,8 @@
     <main class="main container">
       <section class="player">
         <video
-          src="./assests/video/video.mp4"
-          poster="./assests/images/video-bg.jpg"
+          src="./assets/video/video.mp4"
+          poster="./assets/images/video-bg.jpg"
           class="player__video"
         >
           Your browser does not support the video tag.
@@ -32,6 +32,10 @@
                 <div class="progress__filled"></div>
             </div> -->
             <button class="button controls__play play-btn" title="play"></button>
+            <div class="time">
+                <span class="current">0:00</span> / <span class="duration">0:00</span>
+            </div>
+            <input type="range" class="controls__volume" min="0" max="1" step="0.01" value="0.4">
         </div>
       </section>
     </main>
