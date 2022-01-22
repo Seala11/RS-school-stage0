@@ -1,3 +1,8 @@
+const navigation = document.getElementById('primary-nav');
+const navToggle = document.getElementById('nav-button');
+const hamburgerIcon = document.querySelectorAll('.hamburger-icon');
+
+// buttons prevent default
 const handleClick = (event) => {
   let element = event.target;
 
@@ -18,43 +23,64 @@ if (document.addEventListener) {
   document.addEventListener('click', handleClick, false);
 }
 
-const total = `
-total: 110 / 100
+// menu navigation
+const navHandler = () => {
+  const visibility = navigation.getAttribute('data-visible');
+  if (visibility === 'false') {
+    navigation.setAttribute('data-visible', true);
+    navToggle.setAttribute('aria-expanded', true);
 
-1. Вёрстка валидная +10
-2. Вёрстка семантическая +20
-    В коде странице присутствуют следующие элементы:
-    2.1 <header>, <main>, <footer> +2
-    2.2 шесть элементов <section> +2
-    2.3 только один заголовок <h1> +2
-    2.4 пять заголовков <h2>  +2
-    2.5 один элемент <nav> +2
-    2.6 два списка ul > li > a (панель навигации, ссылки на соцсети) +2
-    2.7 десять кнопок <button> +2
-    2.8 два инпута: <input type="email"> и <input type="tel"> +2
-    2.9 один элемент <textarea> +2
-    2.10 три атрибута placeholder +2
-3. Вёрстка соответствует макету +48
-    3.1 блок <header> +6
-    3.2 секция hero +6
-    3.3 секция skills +6
-    3.4 секция portfolio +6
-    3.5 секция video +6
-    3.6 секция price +6
-    3.7 секция contacts +6
-    3.8 блок <footer> +6
-4. Требования к css + 12
-    4.1 для построения сетки используются флексы +2
-    4.2 при уменьшении масштаба страницы браузера вёрстка размещается по центру, а не сдвигается в сторону +2
-    4.3 фоновый цвет тянется на всю ширину страницы +2
-    4.4 иконки добавлены в формате .svg +2
-    4.5 изображения добавлены в формате .jpg +2
-    4.6 есть favicon +2
-5. Интерактивность, реализуемая через css +20
-    5.1 плавная прокрутка по якорям +5
-    5.2 ссылки в футере ведут на гитхаб автора проекта и на страницу курса https://rs.school/js-stage0/ +5
-    5.3 интерактивность кнопки и иконки как в макете  +5
-    5.4 плавное изменение внешнего вида элемента при наведении и клике не влияющее на соседние элементы +5
+
+    hamburgerIcon[0].classList.add('cross1');
+    hamburgerIcon[1].classList.add('cross2');
+    hamburgerIcon[2].classList.add('cross3');
+
+  } else {
+    navigation.setAttribute('data-visible', false);
+    navToggle.setAttribute('aria-expanded', false);
+
+    hamburgerIcon[0].classList.remove('cross1');
+    hamburgerIcon[1].classList.remove('cross2');
+    hamburgerIcon[2].classList.remove('cross3');
+  }
+};
+
+// close menu on link click;
+const navLinksHandler = (element) => {
+  if (element.target.classList.contains('nav__link')) {
+    navHandler();
+  }
+}
+
+navigation.addEventListener('click', navLinksHandler);
+navToggle.addEventListener('click', navHandler);
+
+
+// task complition:
+const total = `
+total: 75 / 85
+
+1. Вёрстка соответствует макету. Ширина экрана 768px +48
+   - блок <header> +6
+   - секция hero +6
+   - секция skills +6
+   - секция portfolio +6
+   - секция video +6
+   - секция price +6
+   - секция contacts +6
+   - блок footer +6 
+2. Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки +15
+   - нет полосы прокрутки при ширине страницы от 1440рх до 768рх +5
+   - нет полосы прокрутки при ширине страницы от 768рх до 480рх +5
+   - нет полосы прокрутки при ширине страницы от 480рх до 320рх +5
+3. На ширине экрана 768рх и меньше реализовано адаптивное меню +22
+   - при ширине страницы 768рх панель навигации скрывается, появляется бургер-иконка +2   
+   - при нажатии на бургер-иконку справа плавно появляется адаптивное меню, бургер-иконка изменяется на крестик +4
+   - высота адаптивного меню занимает всю высоту экрана. При ширине экрана 768-620рх вёрстка меню соответствует макету, когда экран становится уже, меню занимает всю ширину экрана +4
+   - при нажатии на крестик адаптивное меню плавно скрывается уезжая за правую часть экрана, крестик превращается в бургер-иконку +4
+   - бургер-иконка, которая при клике превращается в крестик, создана при помощи css-анимаций без использования изображений +2
+   - ссылки в адаптивном меню работают, обеспечивая плавную прокрутку по якорям +2
+   - при клике по ссылке в адаптивном меню адаптивное меню плавно скрывается, крестик превращается в бургер-иконку +4 
 `;
 
 console.log(total);
