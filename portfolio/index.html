@@ -15,27 +15,44 @@
   </head>
   <body>
     <header class="container header__container">
-      <div class="header__logo"></div>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__el">
-            <a class="nav__link" href="#skills">Skills</a>
-          </li>
-          <li class="nav__el">
-            <a class="nav__link" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav__el"><a class="nav__link" href="#video">Video</a></li>
-          <li class="nav__el"><a class="nav__link" href="#price">Price</a></li>
-          <li class="nav__el">
-            <a class="nav__link" href="#contacts">Contacts</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__lang-switcher">
-        <div class="lang-switcher">
-          <a href="#" class="lang-switcher--active lang__link">en</a>
-          <span>/</span>
-          <a href="#" class="lang__link">ru</a>
+      <div class="nav__container">
+        <div class="header__logo"></div>
+        <nav class="nav">
+          <button
+            id="nav-button"
+            class="mobile-nav-toggle"
+            aria-controls="primary-nav"
+            aria-expanded="false"
+          >
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+            <span class="hamburger-icon"></span>
+          </button>
+
+          <ul id="primary-nav" class="nav__list" data-visible="false">
+            <li class="nav__el">
+              <a class="nav__link" href="#skills">Skills</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#video">Video</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#price">Price</a>
+            </li>
+            <li class="nav__el">
+              <a class="nav__link" href="#contacts">Contacts</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__lang-switcher">
+          <div class="lang-switcher">
+            <a href="#" class="lang-switcher--active lang__link">en</a>
+            <span>/</span>
+            <a href="#" class="lang__link">ru</a>
+          </div>
         </div>
       </div>
     </header>
@@ -55,7 +72,7 @@
       </section>
 
       <section class="section container skills" id="skills">
-        <div class="section__lines"><h2 class="section__title">Skills</h2></div>
+        <div class="section__lines section__lines-skills"><h2 class="section__title">Skills</h2></div>
         <div class="skill__items">
           <div class="skills__item">
             <h3 class="skills__item-title skills__item-title1">
@@ -168,7 +185,7 @@
       </section>
 
       <section class="section container price" id="price">
-        <div class="section__lines">
+        <div class="section__lines price__title">
           <h2 class="section__title">Price</h2>
         </div>
         <div class="price__container">
@@ -220,7 +237,11 @@
       <section class="section container contacts" id="contacts">
         <div class="contacts__form">
           <h2 class="section__title contacts__title">Contact me</h2>
+<<<<<<< HEAD
           <form name="contact-form">
+=======
+          <form name="contact-form" class="form">
+>>>>>>> portfolio-part2
             <input
               type="email"
               name="email"
@@ -252,13 +273,15 @@
     </main>
     <footer class="container footer">
       <div class="footer__rights rights">
-        <p class="text">
+        <p class="text footer__text">
           <span class="rights-item">©</span>
           <span class="rights-item">2022</span>
-          <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
+          <a href="https://github.com/Seala11" class="footer__link">github</a>
         </p>
       </div>
-      <a href="https://rs.school/js-stage0/" class="footer__link">Rolling Scopes School</a>
+      <a href="https://rs.school/js-stage0/" class="footer__link"
+        >Rolling Scopes School</a
+      >
       <ul class="footer__icons icon">
         <li><a href="#" class="icon__inst icons"></a></li>
         <li><a href="#" class="icon__fb icons"></a></li>
