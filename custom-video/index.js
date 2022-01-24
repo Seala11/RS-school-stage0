@@ -125,8 +125,9 @@ const progressBarUpdating = () => {
 };
 
 const progressBarChange = (event) => {
-  const progressTime =
-    (event.offsetX / progressElement.offsetWidth) * video.duration;
+  let currentMousePosition = parseInt(event.target.value) / 100;
+  const progressTime = Math.abs(currentMousePosition * video.duration)
+    // (event.offsetX / progressElement.offsetWidth) * video.duration; that works for click, not for input event
   video.currentTime = progressTime;
   rangeHandler(event.target, event.target.value);
 };
@@ -160,7 +161,7 @@ volume.addEventListener('mouseup', () => {
 video.addEventListener('timeupdate', progressBarUpdating);
 
 let progressMousedown = false;
-progressElement.addEventListener('click', progressBarChange);
+progressElement.addEventListener('input', progressBarChange);
 progressElement.addEventListener('mousemove', (e) => {
   progressMousedown && progressBarChange(e);
 });
