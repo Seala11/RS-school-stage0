@@ -134,6 +134,49 @@ body {
   object-fit: cover;
 }
 
+/* || Initial big play button  */
+.player__play-btn {
+  position: absolute;
+  background-image: url(./assets/svg/play-btn.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 10rem;
+  height: 10rem;
+  z-index: 9999;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.player__play-btn:hover, .player__play-btn:active {
+  transition: transform ease-in-out .5s;
+  transform: scale(1.2, 1.2);
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform ease-in-out .5s;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.3s, opacity 0.3s linear;
+}
+
+/* || Poster */
+.player__poster {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(./assets/images/video-bg.jpg) no-repeat center center;
+  background-size: cover;
+  z-index: 999;
+}
+
 /* || Controls section */
 .controls__container {
   display: flex;
@@ -155,30 +198,6 @@ body {
   padding: 0;
   margin: 0;
   margin-top: -6px;
-}
-
-.player__play-btn {
-  position: absolute;
-  background-image: url(./assets/svg/play-btn.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-  width: 10rem;
-  height: 10rem;
-  z-index: 9999;
-  cursor: pointer;
-}
-
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity .3s linear;
-}
-
-.hidden {
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s .3s, opacity .3s linear;
 }
 
 /* || Controls Play button */
@@ -231,15 +250,10 @@ body {
   height: 1rem;
   width: 1rem;
   background-color: var(--white);
-  cursor: e-resize;
+  cursor: pointer;
   border-radius: 10px;
-  margin-top: -2px;
   box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.55);
 }
-
-/* .player:hover .controls__progress {
-  height: 20px;
-} */
 
 /* || Controls Time */
 .controls__time {

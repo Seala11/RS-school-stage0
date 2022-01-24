@@ -10,8 +10,10 @@ const currTimeElement = player.querySelector('.time__current');
 const durationTimeElement = player.querySelector('.time__duration');
 const progressElement = player.querySelector('.progress');
 
-let currentVolume = 0.15;
-let videoIsMuted = false;
+let currentVolume = 0.15; // (initial volume 0,15) than saved each time if volume changed, to set after in case mute btn clicked
+let videoIsMuted = false; 
+let progressMousedown = false;
+let volumeMousedown = false;
 
 const togglePlay = (event) => {
   if (video.paused) {
@@ -26,8 +28,11 @@ const togglePlay = (event) => {
 // Initial play button
 const playVideoHandler = (event) => {
   togglePlay();
+  const poster = player.querySelector('.player__poster');
   event.target.classList.remove('visible');
   event.target.classList.add('hidden');
+  poster.classList.remove('visible');
+  poster.classList.add('hidden');
 }
 
 // Play and Pause Btn
@@ -42,7 +47,7 @@ const playBtnToggle = () => {
   }
 };
 
-//Volume
+// Volume
 const setVideoVolume = () => {
   videoIsMuted === 'true' ? (video.volume = 0) : (video.volume = currentVolume);
 };
@@ -59,7 +64,7 @@ const volumeHandler = (event) => {
   currentVolume = video.volume;
   rangeHandler(event.target, (event.target.value * 100));
   event.target.value = video.volume;
-  volumeMuteByRange(event); // change volume icon if range input is 0
+  volumeMuteByRange(event); // toggle volume icon if range input is 0 (mute and unmute)
 };
 
 const volumeMuteByRange = (event) => {
@@ -108,15 +113,15 @@ const currentTime = () => {
 };
 
 // Progress Bar
-const progressBarUpdating = () => {
+const progressBarUpdating = () => { // updates automatically if video is played
   const currentProgress = Math.abs((video.currentTime / video.duration) * 100);
   rangeHandler(progressElement, currentProgress);
   if (currentProgress === 100) playBtnToggle();
 };
 
-const progressBarChange = (event) => {
-  let currentMousePosition = parseInt(event.target.value) / 100;
-  const progressTime = Math.abs(currentMousePosition * video.duration)
+const progressBarChange = (event) => { // changed in case thumb is moved
+  let currentMousePosition = parseInt(event.target.value) / 100; // gives % of the bar progress
+  const progressTime = Math.abs(currentMousePosition * video.duration) // convert the % amount to time
     // (event.offsetX / progressElement.offsetWidth) * video.duration; that works for click, not for input event
   video.currentTime = progressTime;
   rangeHandler(event.target, event.target.value);
@@ -134,7 +139,6 @@ controlsPlayBtn.addEventListener('click', togglePlay);
 video.addEventListener('timeupdate', currentTime);
 
 // volume events
-let volumeMousedown = false;
 volume.addEventListener('input', volumeHandler);
 volumeIcon.addEventListener('click', volumeMuteHandler);
 volume.addEventListener(
@@ -150,8 +154,6 @@ volume.addEventListener('mouseup', () => {
 
 // progress events
 video.addEventListener('timeupdate', progressBarUpdating);
-
-let progressMousedown = false;
 progressElement.addEventListener('input', progressBarChange);
 progressElement.addEventListener('mousemove', (e) => {
   progressMousedown && progressBarChange(e);
