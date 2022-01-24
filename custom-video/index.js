@@ -26,7 +26,7 @@ const togglePlay = (event) => {
   playBtnToggle();
 };
 
-//Play and Pause Btn
+// Play and Pause Btn
 const playBtnToggle = () => {
   if (controlsPlayBtn.classList.contains('play-btn')) {
     controlsPlayBtn.classList.remove('play-btn');
@@ -55,51 +55,37 @@ const volumeHandler = (event) => {
   currentVolume = video.volume;
   rangeHandler(event.target, (event.target.value * 100));
   event.target.value = video.volume;
-    //TODO: doesnt work
-//   volumeMuteHandler();
+  volumeMuteByRange(event); // change volume icon if range input is 0
 };
 
+const volumeMuteByRange = (event) => {
+  if (event.target.value === '0') {
+    muteVideo()
+  } else {
+    unmuteVideo()
+  }
+} 
+
 const volumeMuteHandler = () => {
-  console.log('1. video is muted (start point): ' + videoIsMuted);
-  console.log('1. volume:' + video.volume);
   if (videoIsMuted === 'true') {
     unmuteVideo();
   } else {
     muteVideo();
   }
-  console.log('2. video is muted (end point): ' + videoIsMuted);
-  console.log('2. volume:' + video.volume);
-  console.log('___________________');
 };
 
 const muteVideo = () => {
-  console.log(
-    '3. icon volume on: ' + !volumeIcon.classList.contains('volume-on-btn')
-  );
-  console.log('(muteVideo - change to mute btn)');
-  console.log('3. volume:' + video.volume);
-  //   if (volumeIcon.classList.contains('volume-on-btn')) {
   volumeIcon.classList.remove('volume-on-btn');
   volumeIcon.classList.add('volume-mute-btn');
   video.volume = 0;
   videoIsMuted = 'true';
-  //   }
-  console.log('3.end volume:' + video.volume);
 };
 
 const unmuteVideo = () => {
-  console.log(
-    '4. icon volume on: ' + !volumeIcon.classList.contains('volume-on-btn')
-  );
-  console.log('(unmuteVideo - change to volume btn)');
-  console.log('4. volume:' + video.volume);
-  //   if (!volumeIcon.classList.contains('volume-on-btn')) {
   volumeIcon.classList.remove('volume-mute-btn');
   volumeIcon.classList.add('volume-on-btn');
   video.volume = currentVolume;
   videoIsMuted = 'false';
-
-  console.log('4.end volume:' + video.volume);
 };
 
 //Current time and duration
