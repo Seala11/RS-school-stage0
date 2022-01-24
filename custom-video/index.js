@@ -1,6 +1,7 @@
 import showTask from './task.js';
 
 const player = document.querySelector('.player');
+const playBtn = player.querySelector('.player__play-btn');
 const video = player.querySelector('.player__video');
 const controlsPlayBtn = player.querySelector('.controls__play');
 const volume = player.querySelector('.volume');
@@ -8,15 +9,11 @@ const volumeIcon = player.querySelector('.volume__icon');
 const currTimeElement = player.querySelector('.time__current');
 const durationTimeElement = player.querySelector('.time__duration');
 const progressElement = player.querySelector('.progress');
-// const progressBar = player.querySelector('.progress');
 
 let currentVolume = 0.15;
 let videoIsMuted = false;
 
-//TODO: add initial button and poster to video
-
 const togglePlay = (event) => {
-  console.log(videoIsMuted);
   if (video.paused) {
     video.play();
     setVideoVolume();
@@ -25,6 +22,13 @@ const togglePlay = (event) => {
   }
   playBtnToggle();
 };
+
+// Initial play button
+const playVideoHandler = (event) => {
+  togglePlay();
+  event.target.classList.remove('visible');
+  event.target.classList.add('hidden');
+}
 
 // Play and Pause Btn
 const playBtnToggle = () => {
@@ -125,6 +129,7 @@ const rangeHandler = (el, value) => {
 
 // general video events
 video.addEventListener('click', togglePlay);
+playBtn.addEventListener('click', playVideoHandler);
 controlsPlayBtn.addEventListener('click', togglePlay);
 video.addEventListener('timeupdate', currentTime);
 
