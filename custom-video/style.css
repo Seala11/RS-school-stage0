@@ -231,6 +231,7 @@ body {
 
 .pause-btn {
   background-image: url(./assets/svg/pause.svg);
+  display: block;
 }
 
 /* || Controls Progress */
@@ -303,6 +304,7 @@ body {
 
 .volume-mute-btn {
   background-image: url(./assets/svg/mute.svg);
+  display: block;
 }
 
 .volume {
