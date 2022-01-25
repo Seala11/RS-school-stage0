@@ -48,16 +48,16 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   background-color: var(--bg-dark);
   font-family: 'Inter', sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
   color: var(--white);
   line-height: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
 }
 
 .container {
@@ -157,6 +157,10 @@ body {
   transform: scale(1.2, 1.2);
 }
 
+.play-btn--centered {
+  margin-bottom: min(4rem, 30%);
+}
+
 .visible {
   visibility: visible;
   opacity: 1;
@@ -187,7 +191,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 1.25rem;
 }
 
 .player__controls {
@@ -196,7 +200,7 @@ body {
   flex-wrap: wrap;
   align-items: center;
   width: 100%;
-  min-height: 88px;
+  min-height: 5.5rem;
   height: 100%;
   background-color: var(--bg-dark-transparent);
   padding: 0;
@@ -208,8 +212,8 @@ body {
 .controls__play {
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 2rem;
+  height: 2rem;
   transition: 0.3s;
   padding: 0.5em;
   background-position: center;
@@ -280,8 +284,8 @@ body {
 .volume__icon {
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30px;
-  height: 30px;
+  width: 2rem;
+  height: 2rem;
   transition: 0.3s;
   padding: 0.5em;
   cursor: pointer;
@@ -304,6 +308,9 @@ body {
 .volume {
   -webkit-appearance: none;
   width: 100%;
+  display: flex;
+  align-items: center;
+  height: 0.6rem;
   margin: 0;
   background: linear-gradient(
     to right,
@@ -312,9 +319,6 @@ body {
     #c8c8c8 15%,
     #c8c8c8 100%
   );
-  display: flex;
-  align-items: center;
-  height: 0.6rem;
 }
 
 .volume:focus {
@@ -375,29 +379,22 @@ body {
   body {
     font-size: 1rem;
   }
-  
+
   .header__title {
     font-size: 2rem;
   }
 
   .player__controls {
-    min-height: 62px;
+    min-height: 4rem;
   }
 
-  .controls__play {
-    width: 20px;
-    height: 20px;
-  }
-
-  .controls__progress {
-    height: 0.3rem;
-  }
-
+  .controls__play,
   .volume__icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
+  .controls__progress, 
   .volume {
     height: 0.3rem;
   }

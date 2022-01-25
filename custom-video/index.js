@@ -2,6 +2,7 @@ import showTask from './task.js';
 
 const player = document.querySelector('.player');
 const playBtn = player.querySelector('.player__play-btn');
+const poster = player.querySelector('.player__poster');
 const video = player.querySelector('.player__video');
 const controlsPlayBtn = player.querySelector('.controls__play');
 const volume = player.querySelector('.volume');
@@ -19,20 +20,30 @@ const togglePlay = (event) => {
   if (video.paused) {
     video.play();
     setVideoVolume();
+    removePlayBtn();
+    if (poster.classList.contains('visible')) removePoster();
   } else {
     video.pause();
+    addPlayBtn();
   }
   playBtnToggle();
 };
 
 // Initial play button
-const playVideoHandler = (event) => {
-  togglePlay();
-  const poster = player.querySelector('.player__poster');
-  event.target.classList.remove('visible');
-  event.target.classList.add('hidden');
+const removePoster = () => {
   poster.classList.remove('visible');
   poster.classList.add('hidden');
+}
+
+const removePlayBtn = () => {
+  playBtn.classList.remove('visible');
+  playBtn.classList.add('hidden');
+}
+
+const addPlayBtn = () => {
+  playBtn.classList.remove('hidden');
+  playBtn.classList.add('visible');
+  if (!playBtn.classList.contains('play-btn--centered')) playBtn.classList.add('play-btn--centered');
 }
 
 // Play and Pause Btn
@@ -134,7 +145,7 @@ const rangeHandler = (el, value) => {
 
 // general video events
 video.addEventListener('click', togglePlay);
-playBtn.addEventListener('click', playVideoHandler);
+playBtn.addEventListener('click', togglePlay);
 controlsPlayBtn.addEventListener('click', togglePlay);
 video.addEventListener('timeupdate', currentTime);
 
@@ -165,4 +176,4 @@ progressElement.addEventListener('mouseup', () => {
   progressMousedown = false;
 });
 
-// showTask();
+showTask();
