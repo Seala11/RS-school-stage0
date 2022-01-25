@@ -370,3 +370,35 @@ body {
     width: 40%;
   }
 }
+
+@media screen and (max-width: 425px) {
+  body {
+    font-size: 1rem;
+  }
+  
+  .header__title {
+    font-size: 2rem;
+  }
+
+  .player__controls {
+    min-height: 62px;
+  }
+
+  .controls__play {
+    width: 20px;
+    height: 20px;
+  }
+
+  .controls__progress {
+    height: 0.3rem;
+  }
+
+  .volume__icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .volume {
+    height: 0.3rem;
+  }
+}
