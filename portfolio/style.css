@@ -3,7 +3,6 @@
   src: url('./assets/fonts/Inter-VariableFont_slnt\,wght.ttf');
 }
 
-/* merriweather-700 - latin */
 @font-face {
   font-family: 'Merriweather';
   font-style: normal;
@@ -34,6 +33,9 @@ html {
   --bg-dark: #000000;
   --gold: #bdae82;
   --white: #ffffff;
+
+  --fs-header: 3.75rem;
+  --fs-section-header: 2.5rem;
 }
 
 body {
@@ -45,16 +47,15 @@ body {
   line-height: 2.5rem;
 }
 
-/* For portfolio#1 layout only for width 1400px */
 .container {
-  width: 90rem;
+  max-width: 90rem;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
 
 .section__title {
   font-family: 'Merriweather', sans-serif;
-  font-size: 2.5rem;
+  font-size: var(--fs-section-header);
   font-weight: 700;
   line-height: 5rem;
   color: var(--gold);
@@ -125,12 +126,11 @@ body {
 
 /* header */
 .header__container {
-  display: flex;
-  align-items: center;
   height: 5.625rem;
   background: url('./assets/img/hero.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
+  padding-top: 1rem;
   margin-bottom: -1px;
 }
 
@@ -142,11 +142,18 @@ body {
   background-repeat: no-repeat;
   transition: 0.3s;
   cursor: pointer;
+  margin: 0.2em;
 }
 
 .header__logo:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+.nav__container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .nav {
@@ -178,7 +185,7 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 3.125rem;
-  padding-left: 2rem;
+  padding: 0 0 0 2rem;
   border: none;
   background-color: transparent;
   color: var(--white);
@@ -195,6 +202,41 @@ body {
 .lang-switcher--active {
   color: var(--gold);
   transition: 0.3s;
+}
+
+/* mobile navigation */
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.hamburger-icon {
+  position: absolute;
+  width: 3.125rem;
+  height: 3px;
+  background: white;
+  inset: 0 0 0 0;
+  transition: 350ms;
+}
+
+.hamburger-icon:nth-child(2) {
+  inset: 14px 0 0 0;
+}
+
+.hamburger-icon:nth-child(3) {
+  inset: 28px 0 0 0;
+}
+
+.cross1 {
+  transform: translateY(14px) rotate(45deg);
+}
+
+.cross2 {
+  background: transparent;
+}
+
+.cross3 {
+  transform: translateY(-14px) rotate(-45deg);
 }
 
 /* hero */
@@ -220,7 +262,7 @@ body {
 
 .hero__title {
   font-family: 'Merriweather', sans-serif;
-  font-size: 3.75rem;
+  font-size: var(--fs-header);
   font-weight: 700;
   line-height: 7.5rem;
   color: var(--white);
@@ -249,7 +291,7 @@ body {
 .skills__item-title {
   font-family: Inter;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.25rem;
   line-height: 2.2em;
   text-align: center;
   color: var(--white);
@@ -286,6 +328,13 @@ body {
 }
 
 /* portfolio */
+.portfolio__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  gap: 5px;
+}
 
 .portfolio__buttons {
   display: flex;
@@ -382,7 +431,8 @@ body {
 
 .price__desc > span {
   display: block;
-  text-align: center;
+  width: max-content;
+  margin: 0 auto;
   font-family: Inter;
   font-size: 1.125rem;
   font-weight: 400;
@@ -395,6 +445,7 @@ body {
   background-image: url(./assets/img/contacts.jpg);
   background-size: auto 43.75rem;
   background-position: center center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: flex-end;
 }
@@ -519,4 +570,442 @@ body {
 .icon__twit:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+}
+
+/* media quieries desctop styles*/
+
+@media screen and (max-width: 1360px) {
+  /* skills */
+  .skill__items {
+    justify-content: space-evenly;
+  }
+
+  .skills__item {
+    width: 43%;
+  }
+
+  .skills__item-title {
+    line-height: 2.5em;
+  }
+
+  .skills__item-text {
+    padding: 1rem 1rem 4.7rem;
+    line-height: normal;
+  }
+
+  .skills__item-title1::before,
+  .skills__item-title2::before,
+  .skills__item-title3::before,
+  .skills__item-title4::before {
+    padding-bottom: 0.5rem;
+  }
+
+  /* contacts */
+  .contacts__form {
+    width: 40%;
+  }
+}
+
+@media screen and (min-width: 930px) and (max-width: 1036px) {
+  /* portfolio */
+  .portfolio__buttons {
+    width: 50%;
+  }
+
+  /* contacts */
+  .contacts__form {
+    width: 40%;
+  }
+}
+
+/* media quieries tablet styles*/
+
+@media screen and (max-width: 1024px) {
+  /* general styles */
+  :root {
+    --fs-header: 2rem;
+    --fs-section-header: 2rem;
+  }
+
+  .text {
+    line-height: normal;
+    max-width: 80%;
+  }
+
+  br {
+    display: none;
+  }
+
+  .section__lines {
+    margin: 0.3em 0 2.7rem;
+  }
+
+  /* heder, nav and hero */
+  .lang-switcher {
+    padding: 0 80px 0 0;
+  }
+
+  .nav__container {
+    width: 90%;
+  }
+
+  .header__container {
+    background-position: left -2.2rem;
+    background-size: auto 38.75rem;
+  }
+
+  .hero {
+    background-position: left -7.7rem;
+    background-repeat: no-repeat;
+    background-size: auto 38.75rem;
+    height: 36rem;
+    width: 100%;
+  }
+
+  .hero__title {
+    margin: 1.8rem 0 -4rem;
+  }
+
+  .hero__intro-container {
+    margin-left: 2.5rem;
+    margin-bottom: 12rem;
+  }
+
+  .hero__button {
+    margin: 0;
+  }
+
+  /* hamburger menu and navigation */
+  .nav__list {
+    position: fixed;
+    inset: 0 0 0 20%;
+    flex-direction: column;
+    padding: min(13vh, 10rem) 4.5em;
+    gap: 0.8em;
+    background: var(--bg-dark);
+    transform: translateX(100%);
+    transition: transform 350ms ease-in-out;
+    z-index: 1000;
+  }
+
+  .nav__list[data-visible='true'] {
+    transform: translateX(0%);
+    box-shadow: 0px 0px 1000px 100px var(--bg-dark);
+  }
+
+  .nav__link {
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 4.5rem;
+    letter-spacing: 0em;
+  }
+
+  .mobile-nav-toggle {
+    display: block;
+    position: fixed;
+    font-size: 1.2rem;
+    font-weight: 400;
+    background-color: transparent;
+    border: 0;
+    z-index: 9999;
+    top: 2rem;
+    right: 4rem;
+    width: 3rem;
+    aspect-ratio: 1;
+  }
+
+  /* portfolio */
+  .portfolio__galery {
+    margin-bottom: 5rem;
+  }
+
+  /* video */
+  .video {
+    padding: 0;
+  }
+
+  .video__player {
+    margin: 0.5rem 0 4.6rem;
+  }
+
+  .video__image {
+    height: 30rem;
+  }
+
+  .video__play-btn {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  /* price */
+  .price__container {
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    gap: 3.125rem;
+    margin-bottom: 4.7rem;
+  }
+
+  .price__title {
+    padding: 0;
+  }
+
+  .price__item {
+    width: 26.25rem;
+    padding: 2.5rem 6rem 2.3rem;
+  }
+
+  .price__cost {
+    padding: 1.5rem;
+  }
+
+  /* contacts */
+  .contacts {
+    height: 38rem;
+    background-size: auto 38rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contacts__title {
+    margin: 0;
+    padding-bottom: 1rem;
+  }
+
+  .contacts__form {
+    align-items: center;
+    width: 100%;
+    padding-bottom: 3rem;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 62%;
+  }
+
+  .button--submit {
+    margin-top: 1rem;
+  }
+
+  /* footer */
+  .footer {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .footer__text {
+    max-width: 100%;
+    line-height: inherit;
+  }
+
+  .icon__inst {
+    margin: 0;
+  }
+
+  .icons {
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 677px) and (max-width: 930px) {
+  /* portfolio */
+  .portfolio__buttons {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* video */
+  .video__image {
+    height: 26rem;
+  }
+}
+
+/* media quieries mobile styles*/
+
+@media screen and (max-width: 619px) {
+  /* general */
+  .section__lines {
+    width: 80%;
+  }
+
+  .section__lines-skills {
+    margin-top: 3rem;
+  }
+
+  /* hamburger menu and navigation */
+  .nav__list {
+    inset: 0 0 0 0;
+  }
+
+  .mobile-nav-toggle {
+    right: 3rem;
+  }
+
+  /* header, nav */
+  .header__container {
+    background-position: center -2.2rem;
+    background-size: auto 43.75rem;
+  }
+
+  .hero {
+    background-position: center -7.7rem;
+    background-size: auto 43.75rem;
+  }
+
+  /* skills */
+  .skills__item {
+    width: 80%;
+  }
+
+  .skill__items {
+    margin-bottom: 0;
+  }
+
+  /* portfolio */
+  .portfolio__galery-item {
+    height: auto;
+    width: 80%;
+  }
+
+  /* video */
+  .video__image {
+    height: 16rem;
+  }
+
+  /* price */
+  .price__container {
+    width: 80%;
+  }
+
+  .price__item {
+    width: 100%;
+  }
+
+  .price__cost {
+    padding: 0;
+  }
+
+  /* contacts */
+  .contacts {
+    background-position: -20rem center;
+  }
+
+  .form {
+    width: 80%;
+  }
+
+  .contacts__message {
+    height: 12rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  /* nav, header, hero */
+  .mobile-nav-toggle {
+    right: 2rem;
+  }
+
+  .header__logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .hamburger-icon {
+    width: 2.5rem;
+  }
+
+  .hamburger-icon:nth-child(3) {
+    inset: 20px 0 0 0;
+  }
+
+  .hamburger-icon:nth-child(2) {
+    inset: 10px 0 0 0;
+  }
+
+  .cross1 {
+    transform: translateY(10px) rotate(135deg);
+  }
+
+  .cross3 {
+    transform: translateY(-10px) rotate(-135deg);
+  }
+
+  .hero__intro-container {
+    margin: 0;
+    height: auto;
+    align-items: center;
+  }
+
+  .hero__title {
+    margin: 0;
+  }
+
+  .text {
+    line-height: inherit;
+    text-align: center;
+  }
+
+  .hero__button {
+    margin-top: 2rem;
+  }
+
+  /* footer */
+  .footer {
+    height: 14rem;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /* nav, hero and header */
+  .nav__container {
+    width: 100%;
+  }
+
+  .nav__list {
+    padding: min(13vh, 10rem) 2em;
+  }
+
+  .hero {
+    margin-bottom: 3rem;
+  }
+
+  .mobile-nav-toggle {
+    right: 1rem;
+  }
+
+  /* skills */
+  .skills__item {
+    width: 90%;
+  }
+
+  /* portfolio */
+  .portfolio__galery-item {
+    width: 90%;
+  }
+
+  /* price */
+  .price__container {
+    width: 90%;
+  }
+
+  .price__item {
+    padding: 1rem;
+  }
+
+  /* contacts */
+  .form {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .price__container {
+    width: 100%;
+  }
 }

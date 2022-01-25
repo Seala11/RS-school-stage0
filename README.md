@@ -1,4 +1,4 @@
-# seala11-JSFEPRESCHOOL
-Private repository for @seala11
+# [Seala11](https://github.com/Seala11) private repo
 
-Portfolio [part1](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/)
+# Stage 0
+1. Portfolio task - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/)
