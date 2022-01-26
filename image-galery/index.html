@@ -1,33 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/svg/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <script src="./index.js" type="module" defer ></script>
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/svg/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" type="module" defer></script>
+
     <title>image-galery</title>
-</head>
-<body>
-    <header class="header container">
-        <h1 class="header__title">Unsplash API</h1>
-        <div class="header__search-box"></div>
-        <input type="text" name="search" id="search" placeholder="Search...">
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__title title">
+            <span class="title__img"></span>
+          <h1 class="title__text">
+            Unsplash API
+          </h1>
+        </div>
+        <div class="header__search-box search-box">
+            <input type="text" name="search" id="search" placeholder="Search..." class="search-box__input"/>
+            <button class="search-box__btn"></button>
+        </div>
+      </div>
     </header>
     <main class="main container"></main>
     <footer class="footer container">
-        <div class="footer__rights rights">
-            <p class="text">
-              <span class="rights-item">©</span>
-              <span class="rights-item">2022</span>
-              <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
-            </p>
-          </div>
-          <a href="https://rs.school/js-stage0/" class="footer__link"
-            >Rolling Scopes School</a
-          >
+      <div class="footer__rights rights">
+        <p class="text">
+          <span class="rights-item">©</span>
+          <span class="rights-item">2022</span>
+          <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
+        </p>
+      </div>
+      <a href="https://rs.school/js-stage0/" class="footer__link"
+        >Rolling Scopes School</a
+      >
     </footer>
-</body>
+  </body>
 </html>
