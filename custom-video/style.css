@@ -219,11 +219,8 @@ body {
   padding: 0.5em;
   background-position: center;
   cursor: pointer;
-<<<<<<< HEAD
-  margin-right: 1rem
-=======
+  margin-right: 1rem;
   display: block !important;
->>>>>>> b7d5ae06c404d33b26499d3ac10bd4598caf3eda
 }
 
 .controls__play:hover,
@@ -294,11 +291,8 @@ body {
   padding: 0.5em;
   cursor: pointer;
   background-position: center;
-<<<<<<< HEAD
-  margin-right: 1rem
-=======
+  margin-right: 1rem;
   display: block !important;
->>>>>>> b7d5ae06c404d33b26499d3ac10bd4598caf3eda
 }
 
 .volume__icon:hover,
