@@ -131,6 +131,7 @@ body {
 .player__video {
   width: inherit;
   height: 80%;
+  z-index: 0;
 }
 
 .player__video[poster] {
@@ -202,10 +203,10 @@ body {
   width: 100%;
   min-height: 5.5rem;
   height: 100%;
-  background-color: var(--bg-dark-transparent);
   padding: 0;
   margin: 0;
   margin-top: -6px;
+  z-index: 1;
 }
 
 /* || Controls Play button */
@@ -218,6 +219,7 @@ body {
   padding: 0.5em;
   background-position: center;
   cursor: pointer;
+  margin-right: 1rem
 }
 
 .controls__play:hover,
@@ -236,7 +238,6 @@ body {
 
 /* || Controls Progress */
 .controls__progress {
-  position: relative;
   display: flex;
   width: 100%;
   height: 0.6rem;
@@ -270,7 +271,6 @@ body {
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  gap: 1rem;
 }
 
 /* || Controls Volume */
@@ -278,7 +278,6 @@ body {
   width: 30%;
   padding: 0.5rem;
   display: flex;
-  gap: 1rem;
   align-items: center;
 }
 
@@ -291,6 +290,7 @@ body {
   padding: 0.5em;
   cursor: pointer;
   background-position: center;
+  margin-right: 1rem
 }
 
 .volume__icon:hover,
@@ -388,6 +388,7 @@ body {
 
   .player__controls {
     min-height: 4rem;
+    margin-top: -1px;
   }
 
   .controls__play,
