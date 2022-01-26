@@ -1,0 +1,67 @@
+/* comfortaa-regular - latin */
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+         url('./assets/fonts/comfortaa-v34-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./assets/fonts/comfortaa-v34-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+  /* comfortaa-600 - latin */
+  @font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+         url('./assets/fonts/comfortaa-v34-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('./assets/fonts/comfortaa-v34-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+
+html {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-white: #ffffff;
+  --text-prime: #000000;
+  --orange: #ffa500;
+  --orange-filter: filter: invert(71%) sepia(34%) saturate(4529%) hue-rotate(360deg) brightness(104%) contrast(102%);
+}
+
+body {
+    font-family: 'Comfortaa', cursive;
+    color: var(--text-prime);
+    max-width: 1340px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__title {
+    font-family: 'Comfortaa', cursive;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+} 
+
+
