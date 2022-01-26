@@ -219,7 +219,11 @@ body {
   padding: 0.5em;
   background-position: center;
   cursor: pointer;
+<<<<<<< HEAD
   margin-right: 1rem
+=======
+  display: block !important;
+>>>>>>> b7d5ae06c404d33b26499d3ac10bd4598caf3eda
 }
 
 .controls__play:hover,
@@ -233,7 +237,7 @@ body {
 
 .pause-btn {
   background-image: url(./assets/svg/pause.svg);
-  display: block;
+  display: block !important;
 }
 
 /* || Controls Progress */
@@ -290,7 +294,11 @@ body {
   padding: 0.5em;
   cursor: pointer;
   background-position: center;
+<<<<<<< HEAD
   margin-right: 1rem
+=======
+  display: block !important;
+>>>>>>> b7d5ae06c404d33b26499d3ac10bd4598caf3eda
 }
 
 .volume__icon:hover,
@@ -304,7 +312,7 @@ body {
 
 .volume-mute-btn {
   background-image: url(./assets/svg/mute.svg);
-  display: block;
+  display: block !important;
 }
 
 .volume {
