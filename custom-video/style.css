@@ -218,6 +218,7 @@ body {
   padding: 0.5em;
   background-position: center;
   cursor: pointer;
+  display: block !important;
 }
 
 .controls__play:hover,
@@ -231,7 +232,7 @@ body {
 
 .pause-btn {
   background-image: url(./assets/svg/pause.svg);
-  display: block;
+  display: block !important;
 }
 
 /* || Controls Progress */
@@ -291,6 +292,7 @@ body {
   padding: 0.5em;
   cursor: pointer;
   background-position: center;
+  display: block !important;
 }
 
 .volume__icon:hover,
@@ -304,7 +306,7 @@ body {
 
 .volume-mute-btn {
   background-image: url(./assets/svg/mute.svg);
-  display: block;
+  display: block !important;
 }
 
 .volume {
