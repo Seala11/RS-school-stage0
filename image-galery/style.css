@@ -130,6 +130,15 @@ body {
   filter: var(--orange-filter);
 }
 
+/* || Main image section */
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
 /* || Footer */
 
 .footer {
@@ -138,6 +147,9 @@ body {
   bottom: 0;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
+  background-color: var(--bg-white);
+  border-top: 3px solid var(--orange);
 }
 
 .footer__container {
