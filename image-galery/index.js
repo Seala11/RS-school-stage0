@@ -4,6 +4,18 @@ const userInput = document.getElementById('search');
 const mainSection = document.querySelector('.main');
 const searchBtn = document.querySelector('.search-box__btn');
 
+const ERRORS_MESSAGE = {
+  401: 'Unauthorised request',
+  404: 'Your search did not match any image',
+  else: 'Oops! Something went wrong...',
+};
+
+const ERRORS = {
+  401: ' Invalid access key',
+  404: ' The image that you are looking for does not found',
+  else: 'Something went wrong, status code: ',
+};
+
 const inputHandler = (event) => {
   if (event.key === 'Enter') searchHandler();
 };
@@ -23,27 +35,21 @@ const makeRequest = async (searchKey) => {
 
     if (status === 200) {
       const data = await response.json();
-      if (data.total === 0) showError('', ERRORS['404']);
+      if (data.total === 0) showError('', ERRORS_MESSAGE['404']);
       loadImages(data);
     } else if (status === 401) {
-      showError(status, ERRORS[status]);
-      throw Error('Invalid access key');
+      showError(status, ERRORS_MESSAGE[status]);
+      throw Error(status + ERRORS[status]);
     } else if (response.status === 404) {
-      console.log(status, 'The image that you are looking for does not exist');
-      showError(status, ERRORS[status]);
+      showError(status, ERRORS_MESSAGE[status]);
+      throw Error(status + ERRORS[status]);
     } else {
-      console.log('Something went wrong, status code: ' + response.status);
-      showError(status, ERRORS['else']);
+      showError(status, ERRORS_MESSAGE['else']);
+      throw Error(ERRORS['else'] + status);
     }
   } catch (error) {
     console.log(error);
   }
-};
-
-const ERRORS = {
-  401: 'Unauthorised request',
-  404: 'You search did not match any image.',
-  else: 'Oops! Something went wrong...',
 };
 
 const loadImages = (data) => {
