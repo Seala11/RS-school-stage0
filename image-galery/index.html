@@ -14,7 +14,6 @@
     <title>image-galery</title>
   </head>
   <body>
-
     <header class="header">
       <div class="container header__container">
         <div class="header__title title">
@@ -22,14 +21,16 @@
           <h1 class="title__text">Unsplash API</h1>
         </div>
         <div class="header__search-box search-box">
+          <button class="search-box__btn btn-loupe"></button>
           <input
             type="text"
             name="search"
             id="search"
             placeholder="Search..."
             class="search-box__input"
+            autocomplete="off"
           />
-          <button class="search-box__btn"></button>
+          <button class="search-box__btn btn-cross hidden"></button>
         </div>
       </div>
     </header>
@@ -43,9 +44,10 @@
           <span class="rights-item">2022</span>
           <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
         </div>
-        <a href="https://rs.school/js-stage0/" class="footer__link link-rss"
-          ></a
-        >
+        <a
+          href="https://rs.school/js-stage0/"
+          class="footer__link link-rss"
+        ></a>
       </div>
     </footer>
   </body>
