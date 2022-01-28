@@ -20,10 +20,10 @@
   --bg-hero: url('./assets/img/hero.jpg');
   --bg-contact: url('./assets/img/contacts.jpg');
   --icon-dark: none;
-  --logo-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-  contrast(87%);
-  --theme-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-  contrast(87%);
+  --logo-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg)
+    brightness(92%) contrast(87%);
+  --theme-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg)
+    brightness(92%) contrast(87%);
 
   --text-hero: #ffffff;
   --text-title: #bdae82;
@@ -42,6 +42,8 @@
   --btn-transparent-hover: #ffffff;
   --btn-transparent-focus: #bdae82;
 
+  --btn-active: #bdae82;
+
   --btn-price: #bdae82;
   --btn-price-text: #000000;
   --btn-price-hover: #ffffff;
@@ -54,33 +56,37 @@
   --bg-primary: #ffffff;
   --bg-hero: url('./assets/img/hero-light-version.jpg');
   --bg-contact: url('./assets/img/contacts-light.jpg');
-  --icon-dark: invert(1%) sepia(1%) saturate(100%) hue-rotate(314deg) brightness(0%) contrast(80%);
+  --icon-dark: invert(1%) sepia(1%) saturate(100%) hue-rotate(314deg)
+    brightness(0%) contrast(80%);
   --logo-hover: none;
-  --theme-hover: invert(100%) sepia(100%) saturate(0%) hue-rotate(138deg) brightness(102%) contrast(105%);
+  --theme-hover: invert(100%) sepia(100%) saturate(0%) hue-rotate(138deg)
+    brightness(102%) contrast(105%);
 
-  --text-hero: #1C1C1C;
-  --text-title: #1C1C1C;
-  --text-nav: #1C1C1C;
-  --text-paragraph: #1C1C1C;
+  --text-hero: #1c1c1c;
+  --text-title: #1c1c1c;
+  --text-nav: #1c1c1c;
+  --text-paragraph: #1c1c1c;
   --nav-hover: #ffffff;
 
   --btn-primary: #ffffff;
-  --btn-primary-text: #1C1C1C;
+  --btn-primary-text: #1c1c1c;
   --btn-primary-hover: #bdae82;
-  --btn-ainamion: #1C1C1C;
+  --btn-ainamion: #1c1c1c;
 
   --btn-transparent: #bdae82;
   --btn-transparent-border: #bdae82;
-  --btn-transparent-text: #1C1C1C;
+  --btn-transparent-text: #1c1c1c;
   --btn-transparent-hover: #ffffff;
-  --btn-transparent-focus: #1C1C1C;
+  --btn-transparent-focus: #1c1c1c;
+
+  --btn-active: #1c1c1c;
 
   --btn-price: #bdae82;
   --btn-price-text: #000000;
   --btn-price-hover: #ffffff;
 
   --form-bg: rgba(255, 255, 255, 0.5);
-  --form-text: #1C1C1C;
+  --form-text: #1c1c1c;
 }
 
 /* ||  General styles */
@@ -218,7 +224,7 @@ button:focus {
 
 .button--active {
   color: var(--white);
-  background: var(--gold);
+  background: var(--btn-active);
   transition: 0.25s ease 0.15s;
 }
 
@@ -235,7 +241,7 @@ button:focus {
 
 .button--price:hover,
 .button--price:focus {
-  color: var(--btn-price-hover)
+  color: var(--btn-price-hover);
 }
 
 /* || Header */
@@ -344,11 +350,11 @@ button:focus {
 }
 
 .moon-icon {
-  background-image: url(./assets/svg/dark-version.svg)
+  background-image: url(./assets/svg/dark-version.svg);
 }
 
 .theme-switcher-svg:hover {
-  filter: var(--theme-hover)
+  filter: var(--theme-hover);
 }
 
 .header__lang-switcher {
@@ -445,7 +451,7 @@ button:focus {
 .skills__item-title {
   font-family: Inter;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.25rem;
   line-height: 2.2em;
   text-align: center;
   color: var(--text-paragraph);
@@ -962,6 +968,7 @@ button:focus {
   .contacts__title {
     margin: 0;
     padding-bottom: 1rem;
+    text-align: center;
   }
 
   .contacts__form {
@@ -986,6 +993,10 @@ button:focus {
     flex-direction: column;
     justify-content: flex-start;
     padding: 1rem;
+  }
+
+  .rights-item {
+    padding: 0;
   }
 
   .footer__text {
@@ -1022,7 +1033,7 @@ button:focus {
 @media screen and (max-width: 619px) {
   /* general */
   .section__lines {
-    width: 80%;
+    width: 90%;
   }
 
   .section__lines-skills {
@@ -1195,17 +1206,17 @@ button:focus {
 
   /* skills */
   .skills__item {
-    width: 90%;
+    width: 100%;
   }
 
   /* portfolio */
   .portfolio__galery-item {
-    width: 90%;
+    width: 100%;
   }
 
   /* price */
   .price__container {
-    width: 90%;
+    width: 100%;
   }
 
   .price__item {
@@ -1214,7 +1225,13 @@ button:focus {
 
   /* contacts */
   .form {
-    width: 90%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .contacts__title {
+    line-height: 1.5;
   }
 }
 
