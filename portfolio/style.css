@@ -1158,11 +1158,11 @@ button:focus {
   }
 
   .cross1 {
-    transform: translateY(10px) rotate(135deg);
+    transform: translateY(10px) rotate(45deg);
   }
 
   .cross3 {
-    transform: translateY(-10px) rotate(-135deg);
+    transform: translateY(-10px) rotate(-45deg);
   }
 
   .nav__link {
