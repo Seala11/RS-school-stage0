@@ -103,7 +103,6 @@ const langSwitcherHandler = (event) => {
   if (!button.classList.contains('lang-switcher--active')) {
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
     getTranslate(lang);
-    setLanguage(lang);
   }
 };
 
@@ -121,6 +120,7 @@ const getTranslate = (lang) => {
     el.textContent = vocab[attr];
     if (el.placeholder) el.placeholder = vocab[attr]
   });
+  setLanguage(lang);
 };
 
 const setLanguage = (lang) => {
@@ -223,14 +223,14 @@ const themeFromLocalStorage = () => {
 const loadLandAndTheme = () => {
   const lang = langFromLocalStorage();
   const theme = themeFromLocalStorage();
-  if (lang === 'en') {
+  if (lang === 'en' || lang === null) {
     getTranslate('en');
   } else {
     getTranslate('ru');
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
   }
 
-  if (theme === 'dark') {
+  if (theme === 'dark' || theme === null) {
     setDarkMode();
   } else {
     setLightMode();
