@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="./index.js" defer></script>
+    <script type="module" src="./index.js" defer></script>
     <title>Portfolio</title>
     <link
       rel="shortcut icon"
@@ -13,7 +13,7 @@
       type="image/x-icon"
     />
   </head>
-  <body>
+  <body class="dark">
     <header class="container header__container">
       <div class="nav__container">
         <div class="header__logo"></div>
@@ -31,27 +31,30 @@
 
           <ul id="primary-nav" class="nav__list" data-visible="false">
             <li class="nav__el">
-              <a class="nav__link" href="#skills">Skills</a>
+              <a class="nav__link" href="#skills" data-i18="skills">Skills</a>
             </li>
             <li class="nav__el">
-              <a class="nav__link" href="#portfolio">Portfolio</a>
+              <a class="nav__link" href="#portfolio" data-i18="portfolio">Portfolio</a>
             </li>
             <li class="nav__el">
-              <a class="nav__link" href="#video">Video</a>
+              <a class="nav__link" href="#video" data-i18="video">Video</a>
             </li>
             <li class="nav__el">
-              <a class="nav__link" href="#price">Price</a>
+              <a class="nav__link" href="#price" data-i18="price">Price</a>
             </li>
             <li class="nav__el">
-              <a class="nav__link" href="#contacts">Contacts</a>
+              <a class="nav__link" href="#contacts" data-i18="contacts">Contacts</a>
             </li>
           </ul>
         </nav>
         <div class="header__lang-switcher">
           <div class="lang-switcher">
-            <a href="#" class="lang-switcher--active lang__link">en</a>
+            <a href="#" class="lang-switcher--active lang__link" id="en">en</a>
             <span>/</span>
-            <a href="#" class="lang__link">ru</a>
+            <a href="#" class="lang__link" id="ru">ru</a>
+          </div>
+          <div class="header__theme-switcher">
+            <button class="theme-switcher-svg sun-icon" data-version="dark"></button>
           </div>
         </div>
       </div>
@@ -59,49 +62,50 @@
     <main>
       <section class="container hero">
         <div class="hero__intro-container">
-          <h1 class="hero__title">Alexa Rise</h1>
-          <p class="text">
+          <h1 class="hero__title" data-i18="hero-title">Alexa Rise</h1>
+          <p class="text" data-i18="hero-text">
             Save sincere emotions, romantic feelings and <br />
             happy moments of life together with professional photographer Alexa
             Rise
           </p>
-          <button class="button button--gold hero__button" type="button">
+          <button class="button button--gold hero__button" type="button" data-i18="hire">
             Hire me
           </button>
         </div>
+
       </section>
 
       <section class="section container skills" id="skills">
-        <div class="section__lines section__lines-skills"><h2 class="section__title">Skills</h2></div>
+        <div class="section__lines section__lines-skills"><h2 class="section__title" data-i18="skills">Skills</h2></div>
         <div class="skill__items">
           <div class="skills__item">
-            <h3 class="skills__item-title skills__item-title1">
+            <h3 class="skills__item-title skills__item-title1" data-i18="skill-title-1">
               Digital photography
             </h3>
-            <p class="skills__item-text">
+            <p class="skills__item-text" data-i18="skill-text-1">
               High-quality photos in the studio<br />
               and on the nature
             </p>
           </div>
           <div class="skills__item">
-            <h3 class="skills__item-title skills__item-title2">
+            <h3 class="skills__item-title skills__item-title2" data-i18="skill-title-2">
               Video shooting
             </h3>
-            <p class="skills__item-text">
+            <p class="skills__item-text" data-i18="skill-text-2">
               Capture your moments so that<br />
               they always stay with you
             </p>
           </div>
           <div class="skills__item">
-            <h3 class="skills__item-title skills__item-title3">Retouch</h3>
-            <p class="skills__item-text">
+            <h3 class="skills__item-title skills__item-title3" data-i18="skill-title-3">Retouch</h3>
+            <p class="skills__item-text" data-i18="skill-text-3">
               I strive to make photography<br />
               surpass reality
             </p>
           </div>
           <div class="skills__item">
-            <h3 class="skills__item-title skills__item-title4">Audio</h3>
-            <p class="skills__item-text">
+            <h3 class="skills__item-title skills__item-title4" data-i18="skill-title-4">Audio</h3>
+            <p class="skills__item-text" data-i18="skill-text-4">
               Professional sounds recording<br />
               for video, advertising, portfolio
             </p>
@@ -111,60 +115,60 @@
 
       <section class="section container portfolio" id="portfolio">
         <div class="section__lines section__lines-portfolio">
-          <h2 class="section__title">Portfolio</h2>
+          <h2 class="section__title" data-i18="portfolio">Portfolio</h2>
         </div>
         <div class="portfolio__buttons">
-          <button class="button button--transparent" type="button">
+          <button class="button button--transparent" type="button" data-season="winter" data-i18="winter">
             Winter
           </button>
-          <button class="button button--transparent" type="button">
+          <button class="button button--transparent" type="button" data-season="spring" data-i18="spring">
             Spring
           </button>
-          <button class="button button--transparent" type="button">
+          <button class="button button--transparent" type="button" data-season="summer" data-i18="summer">
             Summer
           </button>
-          <button class="button button--transparent" type="button">
+          <button class="button button--transparent" type="button" data-season="autumn" data-i18="autumn">
             Autumn
           </button>
         </div>
         <div class="portfolio__galery">
           <img
-            src="./assets/img/portfolio-img.jpg"
+            src="./assets/img/autumn/1.jpg"
             alt="kissing couple on wood background"
             class="portfolio__galery-item"
             width="450"
             height="560"
           />
           <img
-            src="./assets/img/portfolio-img-1.jpg"
+            src="./assets/img/autumn/2.jpg"
             alt="sunrise landscape with the horse"
             class="portfolio__galery-item"
             width="450"
             height="560"
           />
           <img
-            src="./assets/img/portfolio-img-2.jpg"
+            src="./assets/img/autumn/3.jpg"
             alt="little kid with gray hat playing on the ground"
             class="portfolio__galery-item"
             width="450"
             height="560"
           />
           <img
-            src="./assets/img/portfolio-img-3.jpg"
+            src="./assets/img/autumn/4.jpg"
             alt="landscape with green tree"
             class="portfolio__galery-item"
             width="450"
             height="560"
           />
           <img
-            src="./assets/img/portfolio-img-4.jpg"
+            src="./assets/img/autumn/5.jpg"
             alt="smiling couple"
             class="portfolio__galery-item"
             width="450"
             height="560"
           />
           <img
-            src="./assets/img/portfolio-img-5.jpg"
+            src="./assets/img/autumn/6.jpg"
             alt="woman making picture on her phone"
             class="portfolio__galery-item"
             width="450"
@@ -175,7 +179,7 @@
 
       <section class="section container video" id="video">
         <div class="section__lines">
-          <h2 class="section__title">Video</h2>
+          <h2 class="section__title" data-i18="video">Video</h2>
         </div>
         <div class="video__player">
           <div class="video__image">
@@ -185,21 +189,21 @@
       </section>
 
       <section class="section container price" id="price">
-        <div class="section__lines price__title">
-          <h2 class="section__title">Price</h2>
+        <div class="section__lines">
+          <h2 class="section__title" data-i18="price">Price</h2>
         </div>
         <div class="price__container">
           <div class="price__item">
             <h3 class="price__title">Standart</h3>
             <h4 class="price__cost">500 $</h4>
             <p class="price__desc">
-              <span>One location</span>
-              <span>120 photos in color</span>
-              <span>12 photos in retouch</span>
-              <span>Readiness 2-3 weeks</span>
-              <span>Make up, visage</span>
+              <span data-i18="price-descripton-1-span-1">One location</span>
+              <span data-i18="price-descripton-1-span-2">120 photos in color</span>
+              <span data-i18="price-descripton-1-span-3">12 photos in retouch</span>
+              <span data-i18="price-descripton-1-span-4">Readiness 2-3 weeks</span>
+              <span data-i18="price-descripton-1-span-5">Make up, visage</span>
             </p>
-            <button class="button button--gold" type="button">
+            <button class="button button--price" type="button" data-i18="order">
               Order shooting
             </button>
           </div>
@@ -207,13 +211,13 @@
             <h3 class="price__title">Premium</h3>
             <h4 class="price__cost">700 $</h4>
             <p class="price__desc">
-              <span>One or two location</span>
-              <span>200 photos in color</span>
-              <span>20 photos in retouch</span>
-              <span>Readiness 1-2 weeks</span>
-              <span>Make up, visage</span>
+              <span data-i18="price-descripton-2-span-1">One or two location</span>
+              <span data-i18="price-descripton-2-span-2">200 photos in color</span>
+              <span data-i18="price-descripton-2-span-3">20 photos in retouch</span>
+              <span data-i18="price-descripton-2-span-4">Readiness 1-2 weeks</span>
+              <span data-i18="price-descripton-2-span-5">Make up, visage</span>
             </p>
-            <button class="button button--gold" type="button">
+            <button class="button button--price" type="button" data-i18="order">
               Order shooting
             </button>
           </div>
@@ -221,13 +225,13 @@
             <h3 class="price__title">Gold</h3>
             <h4 class="price__cost">1000 $</h4>
             <p class="price__desc">
-              <span>Three locations or more</span>
-              <span>300 photos in color</span>
-              <span>50 photos in retouch</span>
-              <span>Readiness 1 weeks</span>
-              <span>Make up, visage, hairstyle</span>
+              <span data-i18="price-descripton-3-span-1">Three locations or more</span>
+              <span data-i18="price-descripton-3-span-2">300 photos in color</span>
+              <span data-i18="price-descripton-3-span-3">50 photos in retouch</span>
+              <span data-i18="price-descripton-3-span-4">Readiness 1 weeks</span>
+              <span data-i18="price-descripton-3-span-5">Make up, visage, hairstyle</span>
             </p>
-            <button class="button button--gold" type="button">
+            <button class="button button--price" type="button" data-i18="order">
               Order shooting
             </button>
           </div>
@@ -236,7 +240,7 @@
 
       <section class="section container contacts" id="contacts">
         <div class="contacts__form">
-          <h2 class="section__title contacts__title">Contact me</h2>
+          <h2 class="section__title contacts__title" data-i18="contact-me">Contact me</h2>
           <form name="contact-form" class="form">
             <input
               type="email"
@@ -251,6 +255,7 @@
               id="tel"
               placeholder="Phone"
               class="contacts__phone"
+              data-i18="phone"
             />
             <textarea
               name="message"
@@ -259,8 +264,9 @@
               rows="10"
               placeholder="Message"
               class="contacts__message"
+              data-i18="message"
             ></textarea>
-            <button class="button button--gold button--submit" type="submit">
+            <button class="button button--gold button--submit" type="submit" data-i18="send-message">
               Send message
             </button>
           </form>
