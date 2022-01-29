@@ -1,6 +1,7 @@
 'use strict';
 
 import i18Obj from './translate.js';
+import showTack from './task.js';
 
 //menu
 const navigation = document.getElementById('primary-nav');
@@ -57,12 +58,8 @@ const handleClick = (event) => {
     element.classList.contains('button--submit') ||
     element.classList.contains('icons')
   ) {
-    preventDefault(event);
+    event.preventDefault();
   }
-};
-
-const preventDefault = (event) => {
-  event.preventDefault();
 };
 
 if (document.addEventListener) {
@@ -75,18 +72,18 @@ const navHandler = () => {
   if (visibility === 'false') {
     navigation.setAttribute('data-visible', true);
     navToggle.setAttribute('aria-expanded', true);
-
-    hamburgerIcon[0].classList.add('cross1');
-    hamburgerIcon[1].classList.add('cross2');
-    hamburgerIcon[2].classList.add('cross3');
+    iconToggle();
   } else {
     navigation.setAttribute('data-visible', false);
     navToggle.setAttribute('aria-expanded', false);
-
-    hamburgerIcon[0].classList.remove('cross1');
-    hamburgerIcon[1].classList.remove('cross2');
-    hamburgerIcon[2].classList.remove('cross3');
+    iconToggle();
   }
+};
+
+const iconToggle = () => {
+  hamburgerIcon[0].classList.toggle('cross1');
+  hamburgerIcon[1].classList.toggle('cross2');
+  hamburgerIcon[2].classList.toggle('cross3');
 };
 
 // close menu on link click;
@@ -103,6 +100,7 @@ const langSwitcherHandler = (event) => {
   if (!button.classList.contains('lang-switcher--active')) {
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
     getTranslate(lang);
+    setLanguage(lang);
   }
 };
 
@@ -112,15 +110,13 @@ const buttonActiveToggle = (...elements) => {
 
 const getTranslate = (lang) => {
   const dataEl = document.querySelectorAll('[data-i18]');
-  
   const vocab = i18Obj[lang];
+
   dataEl.forEach((el) => {
-    
     const attr = el.dataset.i18;
     el.textContent = vocab[attr];
-    if (el.placeholder) el.placeholder = vocab[attr]
+    if (el.placeholder) el.placeholder = vocab[attr];
   });
-  setLanguage(lang);
 };
 
 const setLanguage = (lang) => {
@@ -128,29 +124,22 @@ const setLanguage = (lang) => {
 };
 
 // light-dark version switcher
-
 const themeHandler = (event) => {
   const btn = event.target;
   const version = btn.dataset.version;
   if (version === 'dark') {
-    setLightMode();
+    setMode('dark', 'light');
     addMoonIcon(btn);
   } else {
-    setDarkMode();
+    setMode('light', 'dark');
     addSunIcon(btn);
   }
 };
 
-const setDarkMode = () => {
-  document.querySelector('body').classList.remove('light');
-  document.querySelector('body').classList.add('dark');
-  localStorage.setItem('themeVersion', 'dark');
-};
-
-const setLightMode = () => {
-  document.querySelector('body').classList.remove('dark');
-  document.querySelector('body').classList.add('light');
-  localStorage.setItem('themeVersion', 'light');
+const setMode = (removeMode, addMode) => {
+  document.querySelector('html').classList.remove(removeMode);
+  document.querySelector('html').classList.add(addMode);
+  localStorage.setItem('themeVersion', addMode);
 };
 
 const addMoonIcon = (btn) => {
@@ -212,29 +201,21 @@ const preloadImages = () => {
 };
 
 // local storage
-const langFromLocalStorage = () => {
-  return localStorage.getItem('language');
-};
-
-const themeFromLocalStorage = () => {
-  return localStorage.getItem('themeVersion');
-};
-
 const loadLandAndTheme = () => {
-  const lang = langFromLocalStorage();
-  const theme = themeFromLocalStorage();
-  if (lang === 'en' || lang === null) {
+  const lang = localStorage.getItem('language');
+  const theme = localStorage.getItem('themeVersion');
+  if (lang === 'en') {
     getTranslate('en');
   } else {
     getTranslate('ru');
     buttonActiveToggle(langSwitcherEn, langSwitcherRu);
   }
 
-  if (theme === 'dark' || theme === null) {
-    setDarkMode();
+  if (theme === 'dark') {
+    setMode('light', 'dark');
   } else {
-    setLightMode();
-    addMoonIcon(themeSwitcherBtn, 'light');
+    setMode('dark', 'light');
+    addMoonIcon(themeSwitcherBtn);
   }
 };
 
@@ -246,28 +227,4 @@ langSwitcherRu.addEventListener('click', langSwitcherHandler);
 langSwitcherEn.addEventListener('click', langSwitcherHandler);
 themeSwitcherBtn.addEventListener('click', themeHandler);
 portfolioBtns.addEventListener('click', portfolioHandler);
-
-// task complition:
-const total = `
-total: 75 / 85
-
-1. Смена изображений в секции portfolio +25  
-   - при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием +20
-   - кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными +5
-2. Перевод страницы на два языка +25  
-   - при клике по надписи ru англоязычная страница переводится на русский язык +10
-   - при клике по надписи en русскоязычная страница переводится на английский язык +10
-   - надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем +5
-3. Переключение светлой и тёмной темы +25  
-   - На страницу добавлен переключатель при клике по которому: 
-      - тёмная тема приложения сменяется светлой +10
-      - светлая тема приложения сменяется тёмной +10
-      - после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне) +5
-4. Дополнительный функционал: выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы +5  
-5. Дополнительный функционал: сложные эффекты для кнопок при наведении и/или клике +5       
-   - Box-shadow Button [Демо](https://codepen.io/wwer91/pen/wRWJme)
-
-P.S: Я изменила расположение ссылок в навигации, таким образом навигация по блокам визуально отделена от настроек сайта(темы и язвка). В ТЗ указано, что "разрешены и даже приветствуются правки размеров и расположения криво нарисованных блоков".
-`;
-
-console.log(total);
+showTack();
