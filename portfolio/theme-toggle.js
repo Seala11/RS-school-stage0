@@ -1,4 +1,4 @@
-// set light-dark version on load without blink;
+// set light-dark version on load without blink
 const toggleModeFromTo = (curMode, setMode) => {
   document.querySelector('html').classList.remove(curMode);
   document.querySelector('html').classList.add(setMode);
