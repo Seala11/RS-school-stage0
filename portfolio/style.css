@@ -226,6 +226,7 @@ button:focus {
   color: var(--white);
   background: var(--btn-active);
   transition: 0.25s ease 0.15s;
+  border: 1px solid var(--btn-active);
 }
 
 .button--active:hover {
