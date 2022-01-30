@@ -191,7 +191,7 @@ body {
   border-radius: 10px;
   opacity: 1;
   transition: 0.5s;
-  box-shadow: 0 0 4px 1000px rgb(57 57 57 / 50%);
+  box-shadow: 0 0 4px 100vw rgb(57 57 57 / 50%);
   display: none;
 }
 
@@ -202,7 +202,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 1rem;
+  padding: 0 1rem;
   order: 1;
 }
 
@@ -255,8 +255,8 @@ body {
 .modal__image {
   display: block;
   margin: 1rem 0;
-  max-width: 70vw;
-  max-height: 70vh;
+  max-width: 60vw;
+  max-height: 60vh;
   width: auto;
   height: auto;
   order: 2;
