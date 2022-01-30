@@ -1,18 +1,27 @@
 import showTask from './task.js';
 
+// input section
 const userInput = document.getElementById('search');
-const mainSection = document.querySelector('.main');
 const searchBtn = document.querySelector('.btn-loupe');
 const clearBtn = document.querySelector('.btn-cross');
+//main section
+const mainSection = document.getElementById('main');
+const sectionGalery = document.getElementById('section-galery');
+// modal pop up
+const modal = document.querySelector('.main__modal');
+const modalCloseBtn = modal.querySelector('.modal__close-btn');
+const modalDownloadBtn = modal.querySelector('.modal__download-btn');
 
 const ERROR_MESSAGE = {
-  401: 'Unauthorised request',
-  404: 'Your search did not match any image',
+  401: 'Unauthorised request.',
+  403: 'Sorry. Try again later.',
+  404: 'Your search did not match any image.',
   else: 'Oops! Something went wrong...',
 };
 
 const ERROR = {
   401: ' Invalid access key',
+  403: ' For applications in demo mode, the Unsplash API currently places a limit of 50 requests per hour. Looks like you are out of limit. Try again in one hour.',
   404: ' The image that you are looking for does not found',
   else: 'Something went wrong, status code: ',
 };
@@ -40,9 +49,13 @@ const makeRequest = async (searchKey) => {
 
     if (status === 200) {
       const data = await response.json();
+      console.log(data);
       if (data.total === 0) showError('', ERROR_MESSAGE['404']);
       loadImages(data);
     } else if (status === 401) {
+      showError(status, ERROR_MESSAGE[status]);
+      throw Error(status + ERROR[status]);
+    } else if (response.status === 403) {
       showError(status, ERROR_MESSAGE[status]);
       throw Error(status + ERROR[status]);
     } else if (response.status === 404) {
@@ -62,22 +75,62 @@ const loadImages = (data) => {
     let image = document.createElement('div');
     image.className = 'main__img';
     image.style.backgroundImage = `url(${element.urls.raw}&w=1366&h=768)`;
-    mainSection.appendChild(image);
+    image.addEventListener('click', () => imageOpen(element));
+    sectionGalery.appendChild(image);
   });
 };
 
-const clearMainSection = () => {
-  mainSection.innerHTML = '';
+// modal handler
+const imageOpen = (element) => {
+  console.log(element);
+  modal.classList.add('modal__open');
+  sectionGalery.classList.add('block-hidden');
+  // set image inside modal
+  const imgEl = document.querySelector('.modal__image');
+  imgEl.src = `${element.urls.raw}&w=1366&h=768`;
+  imgEl.alt = element.alt_description;
+  imgEl.width = `${element.width}`;
+  imgEl.height = element.height * 0.2;
+  modal.appendChild(imgEl);
+
+  //add modal description
+  const descripEl = document.querySelector('.modal__desc');
+  const userName = descripEl.querySelector('.desc_user');
+  const userImg = descripEl.querySelector('.user_img');
+  const descPhoto = descripEl.querySelector('.desc_photo');
+
+  element.user.name === null ? userName.innerText = '' : userName.innerText = element.user.name
+  userName.href = element.user.links.html;
+  element.user.profile_image.medium === null ? userImg.style.backgroundImage = `url(./assets/svg/no-image.jpg)` : userImg.style.backgroundImage = `url(${element.user.profile_image.medium})`;
+  userImg.style.backgroundImage = `url(${element.user.profile_image.medium})`;
+  element.description === null ? descPhoto.innerText = '' : descPhoto.innerText = `"${element.description}"`;
+
+  // add download btn
+  modalDownloadBtn.href = element.links.download;
+  modalDownloadBtn.addEventListener('click', () => {
+    console.log(modalDownloadBtn.href);
+  });
 };
 
+const closeModal = () => {
+  modal.classList.remove('modal__open');
+  sectionGalery.classList.remove('block-hidden');
+};
+
+const clearMainSection = () => {
+  sectionGalery.innerHTML = '';
+};
+
+// error handling
 const showError = (status, message) => {
   let error = document.createElement('div');
   error.className = 'main__img';
+  error.style.cursor = 'default'
   error.innerHTML = `
     <h1>${status > 0 ? status : ''}</h1>
     <p>${message}</p>
     `;
-  mainSection.appendChild(error);
+  sectionGalery.appendChild(error);
 };
 
 // clear Input and reset the search data (dataInput)
@@ -112,4 +165,6 @@ userInput.addEventListener('input', clearBtnToggle);
 userInput.addEventListener('keydown', inputHandler);
 searchBtn.addEventListener('click', searchHandler);
 clearBtn.addEventListener('click', clearInput);
+modalCloseBtn.addEventListener('click', closeModal);
+
 // showTask();

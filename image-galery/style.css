@@ -46,6 +46,7 @@ html {
 body {
   font-family: 'Comfortaa', cursive;
   color: var(--text-prime);
+  position: relative;
 }
 
 .container {
@@ -113,13 +114,9 @@ body {
   outline: none;
 }
 
-.search-box__btn {
-  position: absolute;
-  top: 24%;
+.button {
   border: none;
   background-color: transparent;
-  width: 1rem;
-  height: 1rem;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -128,24 +125,33 @@ body {
   opacity: 1;
 }
 
+.search-box__btn {
+  position: absolute;
+  top: 24%;
+  width: 1rem;
+  height: 1rem;
+}
+
 .search-box__btn:hover,
-.search-box__btn:active {
+.search-box__btn:active,
+.modal__close-btn:hover,
+.modal__close-btn:active {
   filter: var(--orange-filter);
 }
 
 .btn-loupe {
-    left: 3%;
-    background-image: url(./assets/svg/search.svg);
+  left: 3%;
+  background-image: url(./assets/svg/search.svg);
 }
 
 .btn-cross {
-    right: 3%;
-    background-image: url(./assets/svg/close.svg);
+  right: 3%;
+  background-image: url(./assets/svg/close.svg);
 }
 
 .hidden {
-    visibility: hidden;
-    opacity: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 
 /* || Main image section */
@@ -158,6 +164,11 @@ body {
   margin-bottom: 4rem;
 }
 
+.section {
+  width: 100%;
+  margin-bottom: 0;
+}
+
 .main__img {
   max-width: 23.75rem;
   width: 100%;
@@ -167,6 +178,132 @@ body {
   background-size: cover;
   border-radius: 0.2rem;
   text-align: center;
+  cursor: zoom-in;
+}
+
+.main__modal {
+  position: absolute;
+  top: 1rem;
+  z-index: 999;
+  width: 95%;
+  height: fit-content;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 1;
+  transition: 0.5s;
+  box-shadow: 0 0 4px 1000px rgb(57 57 57 / 50%);
+  display: none;
+}
+
+/* buttons in modal */
+.modal__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  order: 1;
+}
+
+.modal__close-btn {
+  border: none;
+  background-color: transparent;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background-image: url(./assets/svg/close.svg);
+  left: 1rem;
+  top: 1rem;
+  transition: 0.3s ease-in;
+}
+
+.modal__download-btn {
+  width: 5rem;
+  height: 1rem;
+  border: 1px solid var(--lightgray);
+  padding: 1rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-family: inherit;
+  text-decoration: none;
+  color: black;
+}
+
+.modal__download-btn:hover,
+.modal__download-btn:active {
+  border: 1px solid orange;
+}
+
+.modal__open {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.block-hidden {
+  display: none;
+}
+
+.modal__image {
+  display: block;
+  margin: 1rem 0;
+  max-width: 70vw;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  order: 2;
+}
+
+.modal__desc {
+  order: 3;
+  padding: 1rem 1rem 4rem 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desc_user {
+  text-decoration: none;
+  color: black;
+  font-family: inherit;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.desc_user:hover,
+.desc_user:active {
+  color: orange;
+}
+
+.desc_photo {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 60%;
+}
+
+.user_img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin-right: 1rem;
 }
 
 /* || Footer */
@@ -219,6 +356,27 @@ body {
   .header__container {
     flex-direction: column;
     align-items: center;
+  }
+
+  .modal__header {
+    padding: 1rem 0;
+  }
+
+  .modal__image {
+    max-width: 90vw;
+  }
+
+  .modal__desc {
+    max-width: 90vw;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem 1rem 2rem 1rem;
+  }
+
+  .desc_photo {
+    max-width: 100%;
+    padding-top: 2rem;
+    text-align: center;
   }
 
   .footer__container {
