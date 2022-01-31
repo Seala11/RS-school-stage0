@@ -83,7 +83,7 @@ const loadImages = (data) => {
 // modal handler
 const modalHandler = (element) => {
   modal.classList.add('modal__open');
-  sectionGalery.classList.add('block-hidden');
+  document.querySelector("html").classList.add('block-hidden')
 
   // set image inside modal
   modalImageHandler(element);
@@ -130,7 +130,7 @@ const modalDescHandler = (element) => {
 
 const closeModal = () => {
   modal.classList.remove('modal__open');
-  sectionGalery.classList.remove('block-hidden');
+  document.querySelector("html").classList.remove('block-hidden')
 };
 
 const clearMainSection = () => {
