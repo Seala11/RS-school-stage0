@@ -41,6 +41,16 @@ html {
     flex-wrap: wrap;
   }
 
+  /* || main */
+
+  /* || grid section */
+  .grid {
+      display: flex;
+      flex-wrap: wrap;
+      height: 300px;
+      width: 400px;
+  }
+
   /* || header */
   .header {
       text-align: center;
