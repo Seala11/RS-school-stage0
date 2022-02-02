@@ -35,20 +35,75 @@ html {
   
   .header__container,
   .footer__container {
+    height: fit-content;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
   }
 
+  .header__container {
+    justify-content: center;
+  }
+
   /* || main */
 
   /* || grid section */
+  .main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
+    height: auto;
+  }
+
   .grid {
-      display: flex;
-      flex-wrap: wrap;
-      height: 300px;
-      width: 400px;
+    display: grid;
+    grid-template-columns: repeat(4, 7rem);
+    grid-template-rows: repeat(4, 7rem);
+    grid-gap: 0.5rem;
+    width: 50%;
+    justify-content: center;
+    align-items: center;
+    perspective: 800px;
+  }
+
+  .card {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+    transform: rotateY(0deg);
+  }
+
+  .card-flip {
+    transform: rotateY(180deg);
+  }
+
+  .card-back,
+  .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+  }
+
+  .card-face {
+    border: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .card-back {
+    background-color: blue;
+    backface-visibility: hidden;
   }
 
   /* || header */
@@ -61,15 +116,6 @@ html {
   }
 
   /* || Footer */
-
-.footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-  }
   
   .footer__container {
     width: 100%;
