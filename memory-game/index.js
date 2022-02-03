@@ -1,13 +1,14 @@
 import showTask from './task.js';
 // 0. add favicon)
 // 2. Игра завершается, когда открыты все карточки
-// 3. По окончанию игры выводится её результат - количество ходов, которые понадобились для завершения игры
 // 4. Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр
-// 5. По клику на карточку – она переворачивается плавно, если пара не совпадает – обе карточки переварачиваются
 
 const gameSection = document.querySelector('.grid');
 const playerScoreCounter = document.querySelector('.controls__score-counter');
-const playerMovesCounter = document.querySelector('.controls__moves-counter')
+const playerMovesCounter = document.querySelector('.controls__moves-counter');
+let currentScore = 0; 
+let currentMoves = 0;
+let winningScore; // depends on the level (amount of cards)
 
 // ===== load images to game section =====
 // TODO: make 3 levels different module for each data
@@ -42,6 +43,7 @@ const loadRandomData = () => {
 
 const cardGenerator = () => {
   const cards = loadRandomData();
+  winningScore = cards.length / 2 * 10;
   cards.forEach((card, index) => {
     // create a card element with face and back;
     const cardEl = document.createElement('div');
@@ -137,18 +139,23 @@ const clearPlayerChoice = () => {
 };
 
 // ================ SCORE UPDATE & MOVES UPDATES ======================
-let currentScore = 0;
-let currentMoves = 0;
-
 const scoreUpdate = () => {
   currentScore += 10;
   playerScoreCounter.textContent = currentScore;
+  if (currentScore === winningScore) showWinMessage(); 
 };
 
 const movesUpdate = () => {
   currentMoves += 1;
   playerMovesCounter.textContent = currentMoves;
-}
+};
+
+// ================ WIN SECTION ======================
+const showWinMessage = () => {
+  alert('you win');
+  // gameSection.appendChild
+} 
+
 
 cardGenerator();
 
