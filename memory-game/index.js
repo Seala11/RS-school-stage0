@@ -96,12 +96,12 @@ const cardHandler = (event) => {
     // if there are no opened cards, save the name of the first card
     firstCardName = cardName;
   } else {
-    // if we already have one card opened, check if they match and set timer for the second card animation to be done
+    // if we already have one card opened, check if they match and set timer for the second card animation to be done (600ms)
     let matched = checkIfMatch(cardName);
     console.log(matched);
     matched === false
-      ? setTimeout(flipCardsBack, 1200) // double time for 2 cards stayed both opened for 600ms
-      : setTimeout(removeMatchedCards, 600);
+      ? setTimeout(flipCardsBack, 1400) // more time for 2 cards stayed both opened for 800ms
+      : setTimeout(removeMatchedCards, 1000); // add 400ms before cards disapppear
   }
 };
 
