@@ -6,7 +6,8 @@ import showTask from './task.js';
 const gameSection = document.querySelector('.grid');
 const playerScoreCounter = document.querySelector('.controls__score-counter');
 const playerMovesCounter = document.querySelector('.controls__moves-counter');
-let currentScore = 0; 
+const gameRestartSection = document.querySelector('.game__restart');
+let currentScore = 0;
 let currentMoves = 0;
 let winningScore; // depends on the level (amount of cards)
 
@@ -33,8 +34,17 @@ const getImages = () => [
   { src: './assets/images/red3.jpg', name: 'bird' },
 ];
 
+const getImages2 = () => [
+  { src: './assets/images/zebra.jpg', name: 'zebra' },
+  { src: './assets/images/bug2.jpg', name: 'bug' },
+  { src: './assets/images/cat3.jpg', name: 'cat' },
+  { src: './assets/images/zebra.jpg', name: 'zebra' },
+  { src: './assets/images/bug2.jpg', name: 'bug' },
+  { src: './assets/images/cat3.jpg', name: 'cat' }
+]
+
 const loadRandomData = () => {
-  const images = getImages();
+  const images = getImages2();
   images.sort(() => Math.random() - 0.5);
   return images;
 };
@@ -43,7 +53,7 @@ const loadRandomData = () => {
 
 const cardGenerator = () => {
   const cards = loadRandomData();
-  winningScore = cards.length / 2 * 10;
+  winningScore = (cards.length / 2) * 10;
   cards.forEach((card, index) => {
     // create a card element with face and back;
     const cardEl = document.createElement('div');
@@ -142,7 +152,7 @@ const clearPlayerChoice = () => {
 const scoreUpdate = () => {
   currentScore += 10;
   playerScoreCounter.textContent = currentScore;
-  if (currentScore === winningScore) showWinMessage(); 
+  if (currentScore === winningScore) showWinMessage();
 };
 
 const movesUpdate = () => {
@@ -152,10 +162,19 @@ const movesUpdate = () => {
 
 // ================ WIN SECTION ======================
 const showWinMessage = () => {
-  alert('you win');
-  // gameSection.appendChild
-} 
+  const restartBtn = gameRestartSection.querySelector('.button--restart');
+  winSectionStyleToggle()
+  restartBtn.addEventListener('click', () => {
+    winSectionStyleToggle();
+    cardGenerator();
+  });
+};
 
+const winSectionStyleToggle = () => {
+  gameSection.innerHTML = '';
+  gameSection.classList.toggle('hidden');
+  gameRestartSection.classList.toggle('hidden');
+}
 
 cardGenerator();
 
