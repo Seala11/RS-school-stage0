@@ -16,9 +16,9 @@
 /* || Theme styles */
 
 .dark {
-  --bg-primary: #000000;
-  --bg-hero: url('assets/img/hero.jpg');
-  --bg-contact: url('assets/img/contacts.jpg');
+  --bg-primary: #000000; 
+  --bg-hero: url("https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/assets/img/hero.jpg");
+  --bg-contact: url("https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/assets/img/contacts.jpg");
   --icon-dark: none;
   --logo-hover: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg)
     brightness(92%) contrast(87%);
@@ -54,8 +54,8 @@
 
 .light {
   --bg-primary: #ffffff;
-  --bg-hero: url('assets/img/hero-light-version.jpg');
-  --bg-contact: url('assets/img/contacts-light.jpg');
+  --bg-hero: url("https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/assets/img/hero-light-version.jpg");
+  --bg-contact: url("https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/assets/img/contacts-light.jpg");
   --icon-dark: invert(1%) sepia(1%) saturate(100%) hue-rotate(314deg)
     brightness(0%) contrast(80%);
   --logo-hover: none;
