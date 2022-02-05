@@ -208,6 +208,7 @@ button:focus {
   background-color: var(--btn-transparent);
   color: var(--btn-transparent-text);
   border: 1px solid var(--btn-transparent-border);
+  margin: 5px;
 }
 
 .button--transparent:hover {
@@ -308,6 +309,7 @@ button:focus {
   font-size: 1.25rem;
   font-weight: 600;
   line-height: 3.125rem;
+  padding-right: 1.9rem;
   border: none;
   background-color: transparent;
   color: var(--text-nav);
@@ -337,7 +339,7 @@ button:focus {
 
 .theme-switcher-svg {
   width: 2.2rem;
-  aspect-ratio: 1;
+  height: 2.2rem;
   background-repeat: no-repeat;
   border: 0;
   background-color: transparent;
@@ -361,7 +363,6 @@ button:focus {
 .header__lang-switcher {
   display: flex;
   align-items: center;
-  gap: 1.9rem;
 }
 
 /* || Mobile navigation */
@@ -370,21 +371,28 @@ button:focus {
   display: none;
 }
 
+.hamburger {
+  position: relative;
+}
+
 .hamburger-icon {
   position: absolute;
   width: 3.125rem;
   height: 3px;
   background: var(--text-paragraph);
-  inset: 0 0 0 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   transition: 350ms;
 }
 
 .hamburger-icon:nth-child(2) {
-  inset: 14px 0 0 0;
+  top: 14px;
 }
 
 .hamburger-icon:nth-child(3) {
-  inset: 28px 0 0 0;
+  top: 28px;
 }
 
 .cross1 {
@@ -488,30 +496,28 @@ button:focus {
   content: url(./assets/svg/mic1.svg);
 }
 
-/* ||  Portfolio */
+/* || Portfolio */
 
 .portfolio__buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   width: 90%;
-  gap: 5px;
-}
-
-.portfolio__buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 90%;
-  gap: 5px;
 }
 
 .portfolio__galery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin: 4rem 0 5.8rem;
+  margin: 3.5rem 0 5.8rem;
+}
+
+.portfolio__galery-item {
+  margin: 0.5rem;
+  max-width: 450px;
+  max-height: 560px;
+  width: 100%;
+  height: 100%;
 }
 
 /* || Video */
@@ -830,7 +836,7 @@ button:focus {
 
   /* heder, nav and hero */
   .lang-switcher {
-    padding: 0;
+    padding-right: 1.9rem;
   }
 
   .header__lang-switcher {
@@ -874,10 +880,12 @@ button:focus {
   /* hamburger menu and navigation */
   .nav__list {
     position: fixed;
-    inset: 0 0 0 20%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 20%;
     flex-direction: column;
     padding: min(13vh, 10rem) 4.5em;
-    gap: 0.8em;
     background: var(--bg-primary);
     transform: translateX(100%);
     transition: transform 350ms ease-in-out;
@@ -897,6 +905,10 @@ button:focus {
     padding: 0;
   }
 
+  .nav__el, .nav__el:nth-of-type(1) {
+    padding-bottom: 0.8em;
+  }
+
   .mobile-nav-toggle {
     display: block;
     position: fixed;
@@ -905,10 +917,9 @@ button:focus {
     background-color: transparent;
     border: 0;
     z-index: 9999;
-    top: 2rem;
+    top: 1.9rem;
     right: 2rem;
     width: 3rem;
-    aspect-ratio: 1;
   }
 
   .mobile-nav-toggle:hover {
@@ -949,7 +960,6 @@ button:focus {
     justify-content: center;
     align-items: center;
     width: 50%;
-    gap: 3.125rem;
     margin-bottom: 4.7rem;
   }
 
@@ -960,6 +970,12 @@ button:focus {
   .price__item {
     width: 26.25rem;
     padding: 2.5rem 6rem 2.3rem;
+    
+  }
+
+  .price__item:nth-child(1),
+  .price__item:nth-child(2) {
+    margin-bottom: 3.125rem;
   }
 
   .price__cost {
@@ -1051,7 +1067,7 @@ button:focus {
 
   /* hamburger menu and navigation */
   .nav__list {
-    inset: 0 0 0 0;
+    left: 0;
   }
 
   .mobile-nav-toggle {
@@ -1065,7 +1081,6 @@ button:focus {
 
   .header__lang-switcher {
     margin-right: 0;
-    gap: 1.25em;
   }
 
   .header__logo {
@@ -1134,6 +1149,7 @@ button:focus {
   /* nav, header, hero */
   .theme-switcher-svg {
     width: 1.9rem;
+    height: 1.9rem;
   }
 
   .mobile-nav-toggle {
@@ -1151,11 +1167,11 @@ button:focus {
   }
 
   .hamburger-icon:nth-child(3) {
-    inset: 20px 0 0 0;
+    top: 20px;
   }
 
   .hamburger-icon:nth-child(2) {
-    inset: 10px 0 0 0;
+    top: 10px;
   }
 
   .cross1 {
