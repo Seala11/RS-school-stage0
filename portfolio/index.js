@@ -139,6 +139,18 @@ const themeHandler = (event) => {
 const setMode = (removeMode, addMode) => {
   document.querySelector('html').classList.remove(removeMode);
   document.querySelector('html').classList.add(addMode);
+
+  // change bg images with js, because in safari changing through css var didnt work:
+  const heroEl = document.querySelectorAll(`.hero-${removeMode}`);
+  heroEl.forEach((el) => {
+    el.classList.remove(`hero-${removeMode}`);
+    el.classList.add(`hero-${addMode}`);
+  });
+
+  const contacts = document.querySelector('.contacts');
+  contacts.classList.remove(`contacts-${removeMode}`);
+  contacts.classList.add(`contacts-${addMode}`);
+
   localStorage.setItem('themeVersion', addMode);
 };
 
