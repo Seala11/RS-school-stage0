@@ -514,10 +514,10 @@ button:focus {
 
 .portfolio__galery-item {
   margin: 0.5rem;
-  max-width: 450px;
-  max-height: 560px;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
 
 /* || Video */
@@ -1109,8 +1109,7 @@ button:focus {
 
   /* portfolio */
   .portfolio__galery-item {
-    height: auto;
-    width: 80%;
+    max-width: 80%;
   }
 
   /* video */
@@ -1236,7 +1235,7 @@ button:focus {
 
   /* portfolio */
   .portfolio__galery-item {
-    width: 100%;
+    max-width: 100%;
   }
 
   /* price */
