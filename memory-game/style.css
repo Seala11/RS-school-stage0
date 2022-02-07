@@ -61,6 +61,7 @@ body {
 .game__controls {
   display: flex;
   padding-bottom: 1rem;
+  /* flex: 3; */
 }
 
 .controls {
@@ -94,6 +95,7 @@ body {
   justify-content: center;
   align-items: center;
   perspective: 800px;
+  /* flex: 2; */
 }
 
 .card {
@@ -138,6 +140,18 @@ body {
   opacity: 0;
 }
 
+/* || Game start */
+.game__start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.button__level {
+  margin: 2rem 0;
+}
+
 /* || Won section */
 .game__restart {
   display: flex;
@@ -145,6 +159,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  /* flex: 2; */
 }
 
 .title--restart {
@@ -208,4 +223,11 @@ body {
 .link-rss:hover,
 .link-rss:active {
   filter: var(--prime-filter);
+}
+
+@media screen and (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(4, 4rem);
+    grid-template-rows: repeat(4, 4rem);
+}
 }

@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <script src="./index.js" type="module" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" defer type="module"></script>
     <title>Memory game</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header container header__container">
-        <h1 class="header__title">Memory Game</h1>
+      <h1 class="header__title">Memory Game</h1>
     </header>
 
     <main class="main container">
-        <section class="game__controls">
-            <h2 class="controls">Score: <span class="controls__score-counter">0</span></h2>
-            <h2 class="controls">Moves: <span class="controls__moves-counter">0</span></h2>
-        </section>
-        <section class="game__section grid"></section>
-        <section class="game__restart hidden">
-            <h2 class="header__title title--restart">You won!</h2>
-            <button class="button button--restart">Play again</button>
-        </section>
+      <section class="game__controls">
+        <h2 class="controls">
+          Score: <span class="controls__score-counter">0</span>
+        </h2>
+        <h2 class="controls">
+          Moves: <span class="controls__moves-counter">0</span>
+        </h2>
+      </section>
+      <section class="game__start">
+        <h2>Choose your level</h2>
+        <button class="button button__level" id="easy">Easy</button>
+        <button class="button button__level" id="medium">Medium</button
+        ><button class="button button__level" id="hard">Hard</button>
+      </section>
+      <section class="game__section grid"></section>
+      <section class="game__restart hidden">
+        <h2 class="header__title title--restart">You won!</h2>
+        <button class="button button--restart">Play again</button>
+      </section>
     </main>
 
     <footer class="footer container footer__container">
-          <div class="footer__rights rights">
-            <span class="rights-item">©</span>
-            <span class="rights-item">2022</span>
-            <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
-          </div>
-          <a
-            href="https://rs.school/js-stage0/"
-            class="footer__link link-rss"
-          ></a>
-      </footer>
-</body>
+      <div class="footer__rights rights">
+        <span class="rights-item">©</span>
+        <span class="rights-item">2022</span>
+        <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
+      </div>
+      <a href="https://rs.school/js-stage0/" class="footer__link link-rss"></a>
+    </footer>
+  </body>
 </html>

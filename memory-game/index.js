@@ -1,6 +1,6 @@
 import showTask from './task.js';
-// 0. add favicon)
-// 2. Игра завершается, когда открыты все карточки
+import loadRandomData from './levels.js';
+// 0. add favicon
 // 4. Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр
 
 const gameSection = document.querySelector('.grid');
@@ -11,48 +11,10 @@ let currentScore = 0;
 let currentMoves = 0;
 let winningScore; // depends on the level (amount of cards)
 
-// ===== load images to game section =====
-// TODO: make 3 levels different module for each data
-// resize images
-// this one is 4 on 4
-const getImages = () => [
-  { src: './assets/images/zebra.jpg', name: 'zebra' },
-  { src: './assets/images/bug2.jpg', name: 'bug' },
-  { src: './assets/images/cat3.jpg', name: 'cat' },
-  { src: './assets/images/shark4.jpg', name: 'shark' },
-  { src: './assets/images/dog5.jpg', name: 'dog' },
-  { src: './assets/images/yellow3.jpg', name: 'lion' },
-  { src: './assets/images/white2.jpg', name: 'cat-white' },
-  { src: './assets/images/red3.jpg', name: 'bird' },
-  { src: './assets/images/zebra.jpg', name: 'zebra' },
-  { src: './assets/images/bug2.jpg', name: 'bug' },
-  { src: './assets/images/cat3.jpg', name: 'cat' },
-  { src: './assets/images/shark4.jpg', name: 'shark' },
-  { src: './assets/images/dog5.jpg', name: 'dog' },
-  { src: './assets/images/yellow3.jpg', name: 'lion' },
-  { src: './assets/images/white2.jpg', name: 'cat-white' },
-  { src: './assets/images/red3.jpg', name: 'bird' },
-];
-
-const getImages2 = () => [
-  { src: './assets/images/zebra.jpg', name: 'zebra' },
-  { src: './assets/images/bug2.jpg', name: 'bug' },
-  { src: './assets/images/cat3.jpg', name: 'cat' },
-  { src: './assets/images/zebra.jpg', name: 'zebra' },
-  { src: './assets/images/bug2.jpg', name: 'bug' },
-  { src: './assets/images/cat3.jpg', name: 'cat' }
-]
-
-const loadRandomData = () => {
-  const images = getImages2();
-  images.sort(() => Math.random() - 0.5);
-  return images;
-};
-
 // ============= CARD GENERATOR SECTION ================
 
-const cardGenerator = () => {
-  const cards = loadRandomData();
+const cardGenerator = (level) => {
+  const cards = loadRandomData(level);
   winningScore = (cards.length / 2) * 10;
   cards.forEach((card, index) => {
     // create a card element with face and back;
@@ -166,7 +128,8 @@ const showWinMessage = () => {
   winSectionStyleToggle()
   restartBtn.addEventListener('click', () => {
     winSectionStyleToggle();
-    cardGenerator();
+    // TODO: restart score and movements and save them to local storage
+    startGame()
   });
 };
 
@@ -176,6 +139,25 @@ const winSectionStyleToggle = () => {
   gameRestartSection.classList.toggle('hidden');
 }
 
-cardGenerator();
+// ===================== App starts =======================
+// we need to ask what level to load
+// 1. easy 3 pairs = 2 * 3
+// 2. medium 6 pairs = 3 * 4
+// 3. hard 9 pairs = 3 * 6
+// TODO: add to each level different style grid
+// show on screen
+const levelSection = document.querySelector('.game__start');
+const startGame = () => {
+  if (levelSection.classList.contains('hidden')) levelSection.classList.remove('hidden');
+  const level = document.querySelectorAll('.button__level');
+  level.forEach(element => element.addEventListener('click', (event) => loadLevelBoard(event.target.id)))
+}
+
+const loadLevelBoard = (level) => {
+  levelSection.classList.add('hidden');
+  cardGenerator(level);
+}
+
+startGame();
 
 // showTask();
