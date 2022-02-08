@@ -88,14 +88,27 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 7rem);
-  grid-template-rows: repeat(4, 7rem);
   grid-gap: 0.5rem;
   width: 50%;
   justify-content: center;
   align-items: center;
   perspective: 800px;
   /* flex: 2; */
+}
+
+.grid--easy {
+  grid-template-columns: repeat(3, 7rem);
+  grid-template-rows: repeat(2, 7rem);
+}
+
+.grid--medium {
+  grid-template-columns: repeat(4, 7rem);
+  grid-template-rows: repeat(3, 7rem);
+}
+
+.grid--hard {
+  grid-template-columns: repeat(6, 7rem);
+  grid-template-rows: repeat(3, 7rem);
 }
 
 .card {
@@ -149,7 +162,7 @@ body {
 }
 
 .button__level {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 /* || Won section */
@@ -225,9 +238,36 @@ body {
   filter: var(--prime-filter);
 }
 
-@media screen and (max-width: 600px) {
-  .grid {
-    grid-template-columns: repeat(4, 4rem);
-    grid-template-rows: repeat(4, 4rem);
+@media screen and (max-width: 768px) {
+  .grid--easy {
+    grid-template-columns: repeat(2, 7rem);
+    grid-template-rows: repeat(3, 7rem);
+  }
+  
+  .grid--medium {
+    grid-template-columns: repeat(3, 7rem);
+    grid-template-rows: repeat(4, 7rem);
+  }
+  
+  .grid--hard {
+    grid-template-columns: repeat(3, 7rem);
+    grid-template-rows: repeat(6, 7rem);
+  }
 }
+
+@media screen and (max-width: 425px) {
+  .grid--easy {
+    grid-template-columns: repeat(2, 25vw);
+    grid-template-rows: repeat(3, 25vw);
+  }
+  
+  .grid--medium {
+    grid-template-columns: repeat(3, 25vw);
+    grid-template-rows: repeat(4, 25vw);
+  }
+  
+  .grid--hard {
+    grid-template-columns: repeat(3, 25vw);
+    grid-template-rows: repeat(6, 25vw);
+  }
 }

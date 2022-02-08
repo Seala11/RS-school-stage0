@@ -50,9 +50,7 @@ const levelData = {
 
 const loadRandomData = (level) => {
     const images = levelData[level];
-    console.log(images)
     images.sort(() => Math.random() - 0.5);
-    console.log(images)
     return images;
   };
 

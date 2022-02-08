@@ -1,9 +1,12 @@
-import showTask from './task.js';
-import loadRandomData from './levels.js';
+import showTask from './assets/scripts/task.js';
+import loadRandomData from './assets/scripts/loadLevelsData.js';
+import showWinMessage from './assets/scripts/winSection.js';
+
 // 0. add favicon
 // 4. Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр
+// TODO: make header looks like (memory game   score   menu);
 
-const gameSection = document.querySelector('.grid');
+const gameSection = document.getElementById('grid');
 const playerScoreCounter = document.querySelector('.controls__score-counter');
 const playerMovesCounter = document.querySelector('.controls__moves-counter');
 const gameRestartSection = document.querySelector('.game__restart');
@@ -12,10 +15,12 @@ let currentMoves = 0;
 let winningScore; // depends on the level (amount of cards)
 
 // ============= CARD GENERATOR SECTION ================
-
 const cardGenerator = (level) => {
   const cards = loadRandomData(level);
   winningScore = (cards.length / 2) * 10;
+  gameSection.classList.remove('hidden');
+  gameSection.classList.add('grid');
+  gameSection.classList.add(`grid--${level}`);
   cards.forEach((card, index) => {
     // create a card element with face and back;
     const cardEl = document.createElement('div');
@@ -41,7 +46,6 @@ const cardGenerator = (level) => {
 };
 
 // ================== CARD FLIPPING LOGIC ==================
-
 let firstCardName; // the first card id to check the match
 let currentCardsId = []; // to check if those are different cards
 let currentCards = []; // to remove the style from chosen elements
@@ -68,7 +72,6 @@ const cardHandler = (event) => {
   } else {
     // if we already have one card opened, check if they match and set timer for the second card animation to be done (600ms)
     let matched = checkIfMatch(cardName);
-    console.log(matched);
     matched === false
       ? setTimeout(flipCardsBack, 1400) // more time for 2 cards stayed both opened for 800ms
       : setTimeout(removeMatchedCards, 1000); // add 400ms before cards disapppear
@@ -90,7 +93,6 @@ const checkIfMatch = (secondCardName) => {
 
 const flipCardsBack = () => {
   currentCards.forEach((el) => flipToggle(el));
-  console.log('flipback');
   // after flip back elements, remove chosen elements so the player continue
   // the timer needed to flip animation be done;
   setTimeout(clearPlayerChoice, 600);
@@ -98,7 +100,6 @@ const flipCardsBack = () => {
 
 const removeMatchedCards = () => {
   currentCards.forEach((el) => el.classList.add('fixed'));
-  console.log('matched');
   scoreUpdate();
   // after fixing elements, remove chosen elements so the player continue
   clearPlayerChoice();
@@ -107,7 +108,6 @@ const removeMatchedCards = () => {
 const clearPlayerChoice = () => {
   currentCards = [];
   currentCardsId = [];
-  console.log('done');
 };
 
 // ================ SCORE UPDATE & MOVES UPDATES ======================
@@ -122,22 +122,32 @@ const movesUpdate = () => {
   playerMovesCounter.textContent = currentMoves;
 };
 
-// ================ WIN SECTION ======================
-const showWinMessage = () => {
-  const restartBtn = gameRestartSection.querySelector('.button--restart');
-  winSectionStyleToggle()
-  restartBtn.addEventListener('click', () => {
-    winSectionStyleToggle();
-    // TODO: restart score and movements and save them to local storage
-    startGame()
-  });
+// here was a local storage
+// ===================== Local storage ====================
+const heightScore = JSON.parse(localStorage.getItem('highScores')) || [];
+console.log(heightScore);
+const MAX_HEIGH_SCORE = 10; // the value of scores to show in te table;
+
+export const saveScoreToLocalStorage = () => {
+  let lastScore = Math.floor(currentScore - currentMoves / 10);
+  const score = {
+    score: lastScore,
+    moves: currentMoves,
+  };
+  heightScore.push(score);
+  heightScore.sort((a, b) => b.score - a.score);
+  heightScore.splice(5);
+  localStorage.setItem('highScores', JSON.stringify(heightScore));
+  console.log(heightScore);
+  restartScore();
 };
 
-const winSectionStyleToggle = () => {
-  gameSection.innerHTML = '';
-  gameSection.classList.toggle('hidden');
-  gameRestartSection.classList.toggle('hidden');
-}
+const restartScore = () => {
+  currentScore = 0;
+  currentMoves = 0;
+  playerScoreCounter.textContent = currentScore;
+  playerMovesCounter.textContent = currentMoves;
+};
 
 // ===================== App starts =======================
 // we need to ask what level to load
@@ -147,16 +157,26 @@ const winSectionStyleToggle = () => {
 // TODO: add to each level different style grid
 // show on screen
 const levelSection = document.querySelector('.game__start');
-const startGame = () => {
-  if (levelSection.classList.contains('hidden')) levelSection.classList.remove('hidden');
+
+export const startGame = () => {
+  // show choose level message and remove restart section if the game starts again
+  if (levelSection.classList.contains('hidden'))
+    levelSection.classList.remove('hidden');
+  if (!gameRestartSection.classList.contains('hidden'))
+    gameRestartSection.classList.add('hidden');
+
   const level = document.querySelectorAll('.button__level');
-  level.forEach(element => element.addEventListener('click', (event) => loadLevelBoard(event.target.id)))
-}
+  level.forEach((element) =>
+    element.addEventListener('click', (event) =>
+      loadLevelBoard(event.target.id)
+    )
+  );
+};
 
 const loadLevelBoard = (level) => {
   levelSection.classList.add('hidden');
   cardGenerator(level);
-}
+};
 
 startGame();
 
