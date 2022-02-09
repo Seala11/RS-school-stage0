@@ -33,7 +33,6 @@ const levelData = {
         { src: './assets/images/yellow3.jpg', name: 'lion' },
         { src: './assets/images/white2.jpg', name: 'cat-white' },
         { src: './assets/images/red3.jpg', name: 'bird' },
-        { src: './assets/images/green5.jpg', name: 'green' },
         { src: './assets/images/zebra.jpg', name: 'zebra' },
         { src: './assets/images/bug2.jpg', name: 'bug' },
         { src: './assets/images/cat3.jpg', name: 'cat' },
@@ -42,11 +41,11 @@ const levelData = {
         { src: './assets/images/yellow3.jpg', name: 'lion' },
         { src: './assets/images/white2.jpg', name: 'cat-white' },
         { src: './assets/images/red3.jpg', name: 'bird' },
-        { src: './assets/images/green5.jpg', name: 'green' }
       ]
 }
 
-// ===== load images to game section depending on the level =====
+// ===== load images to game section depending on the level ======
+
 
 const loadRandomData = (level) => {
     const images = levelData[level];

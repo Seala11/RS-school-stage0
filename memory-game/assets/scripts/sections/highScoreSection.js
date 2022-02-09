@@ -1,5 +1,4 @@
-import { mainSection } from '../../index.js';
-import showHomeSection from './homeSection.js';
+import {mainSection, showHomeSection} from '../sections/homeSection.js';
 
 const highScoresData = JSON.parse(localStorage.getItem('highScores')) || [];
 
@@ -7,7 +6,7 @@ const highScoresData = JSON.parse(localStorage.getItem('highScores')) || [];
 // by clicking button 'HIGH SCORE" on home section
 const highScoresSectionHandler = () => {
   // show high score title
-  // name and score from best 10 games
+  // name and score from player best 10 games
   // go home btn
   const highScoreSection = document.createElement('div');
   highScoreSection.classList.add('section');
@@ -24,13 +23,6 @@ const highScoresSectionHandler = () => {
     })
     .join('');
     console.log(scores);
-
-  //   list.forEach((element) => {
-  //     const li = document.createElement('li');
-  //     li.innerText = element;
-  //     li.classList.add('list__item');
-  //     scores.appendChild(li);
-  //   });
   highScoreSection.appendChild(scores);
 
   const goHomeBtn = document.createElement('button');
