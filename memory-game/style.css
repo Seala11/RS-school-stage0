@@ -25,6 +25,7 @@ body {
   background-color: var(--bg-color);
   font-family: sans-serif;
   color: var(--text-prime);
+  height: 100vh;
 }
 
 .container {
@@ -35,8 +36,7 @@ body {
 
 .header__container,
 .footer__container {
-  min-height: 10vh;
-  height: fit-content;
+  height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,6 @@ body {
 .header__container {
   justify-content: center;
 }
-
 
 /* || header */
 .header {
@@ -76,14 +75,20 @@ body {
   align-items: center;
 }
 
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* || grid section */
 .main {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  min-height: 80vh;
-  height: auto;
+  height: 80%;
 }
 
 .grid {
@@ -188,12 +193,15 @@ body {
   border: 2px solid var(--text-prime);
   background-color: var(--bg-color);
   color: var(--text-prime);
-  width: 5rem;
-  height: 2rem;
+  width: 7rem;
+  height: 3rem;
+  margin: 1rem;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.button:hover, .button:active {
+.button:hover,
+.button:active {
   background-color: var(--text-prime);
   color: var(--bg-color);
 }
@@ -202,9 +210,17 @@ body {
   display: none;
 }
 
+/* || High score section */
+.list {
+  list-style: none;
+  padding-top: 1rem;
+}
+
+.list__item {
+  padding-bottom: 1rem;
+}
 
 /* || Footer */
-
 .footer__container {
   width: 100%;
 }
@@ -243,12 +259,12 @@ body {
     grid-template-columns: repeat(2, 7rem);
     grid-template-rows: repeat(3, 7rem);
   }
-  
+
   .grid--medium {
     grid-template-columns: repeat(3, 7rem);
     grid-template-rows: repeat(4, 7rem);
   }
-  
+
   .grid--hard {
     grid-template-columns: repeat(3, 7rem);
     grid-template-rows: repeat(6, 7rem);
@@ -260,12 +276,12 @@ body {
     grid-template-columns: repeat(2, 25vw);
     grid-template-rows: repeat(3, 25vw);
   }
-  
+
   .grid--medium {
     grid-template-columns: repeat(3, 25vw);
     grid-template-rows: repeat(4, 25vw);
   }
-  
+
   .grid--hard {
     grid-template-columns: repeat(3, 25vw);
     grid-template-rows: repeat(6, 25vw);

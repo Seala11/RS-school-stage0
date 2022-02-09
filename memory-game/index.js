@@ -1,11 +1,9 @@
 import showTask from './assets/scripts/task.js';
 import loadRandomData from './assets/scripts/loadLevelsData.js';
 import showWinMessage from './assets/scripts/winSection.js';
+import showHomeSection from './assets/scripts/homeSection.js';
 
-// 0. add favicon
-// 4. Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр
-// TODO: make header looks like (memory game   score   menu);
-
+export const mainSection = document.querySelector('.main');
 const gameSection = document.getElementById('grid');
 const playerScoreCounter = document.querySelector('.controls__score-counter');
 const playerMovesCounter = document.querySelector('.controls__moves-counter');
@@ -122,11 +120,10 @@ const movesUpdate = () => {
   playerMovesCounter.textContent = currentMoves;
 };
 
-// here was a local storage
-// ===================== Local storage ====================
+// ===================== LOCAL STORAGE ====================
 const heightScore = JSON.parse(localStorage.getItem('highScores')) || [];
 console.log(heightScore);
-const MAX_HEIGH_SCORE = 10; // the value of scores to show in te table;
+const MAX_HEIGH_SCORE = 10; // the value of scores to show in the high score table;
 
 export const saveScoreToLocalStorage = () => {
   let lastScore = Math.floor(currentScore - currentMoves / 10);
@@ -149,16 +146,9 @@ const restartScore = () => {
   playerMovesCounter.textContent = currentMoves;
 };
 
-// ===================== App starts =======================
-// we need to ask what level to load
-// 1. easy 3 pairs = 2 * 3
-// 2. medium 6 pairs = 3 * 4
-// 3. hard 9 pairs = 3 * 6
-// TODO: add to each level different style grid
-// show on screen
+// ===================== CHOOSE LEVEL Section ================
 const levelSection = document.querySelector('.game__start');
-
-export const startGame = () => {
+export const chooseLevelHandler = () => {
   // show choose level message and remove restart section if the game starts again
   if (levelSection.classList.contains('hidden'))
     levelSection.classList.remove('hidden');
@@ -171,11 +161,17 @@ export const startGame = () => {
       loadLevelBoard(event.target.id)
     )
   );
-};
+}
 
 const loadLevelBoard = (level) => {
   levelSection.classList.add('hidden');
   cardGenerator(level);
+};
+
+// ===================== App starts ======================
+export const startGame = () => {
+  // show play game and high score buttons ?rules
+  showHomeSection();
 };
 
 startGame();
