@@ -3,9 +3,9 @@ import { showHomeSection } from './assets/scripts/sections/homeSection.js';
 
 // ===================== App starts ======================
 const startGame = () => {
-  // show play game and high score buttons ?rules
+  // show play game and high score buttons
   showHomeSection();
-  // showTask();
+  showTask();
 };
 
 startGame();
