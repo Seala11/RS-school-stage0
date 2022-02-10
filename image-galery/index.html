@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="./assets/svg/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" type="module" defer></script>
+    <title>image-galery</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__title title">
+          <span class="title__img"></span>
+          <h1 class="title__text">Unsplash API</h1>
+        </div>
+        <div class="header__search-box search-box">
+          <button class="button search-box__btn btn-loupe"></button>
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search..."
+            class="search-box__input"
+            autocomplete="off"
+          />
+          <button class="button search-box__btn btn-cross hidden"></button>
+        </div>
+      </div>
+    </header>
+
+    <main class="main container" id="main">
+      <div class="main__modal container">
+        <div class="modal__header">
+          <button class="button modal__close-btn"></button>
+          <a
+            download
+            target="_blank"
+            href="#"
+            class="button modal__download-btn"
+            >Download</a
+          >
+        </div>
+        <img class="modal__image" />
+        <div class="modal__desc">
+          <div class="user">
+            <div class="user_img"></div>
+            <a class="desc_user"></a>
+          </div>
+          <p class="desc_photo"></p>
+        </div>
+      </div>
+      <section class="main container section" id="section-galery"></section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__container">
+        <div class="footer__rights rights">
+          <span class="rights-item">©</span>
+          <span class="rights-item">2022</span>
+          <a href="https://github.com/Seala11" class="footer__link">Seala11</a>
+        </div>
+        <a
+          href="https://rs.school/js-stage0/"
+          class="footer__link link-rss"
+        ></a>
+      </div>
+    </footer>
+  </body>
+</html>

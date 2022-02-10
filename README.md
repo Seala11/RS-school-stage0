@@ -1,2 +1,8 @@
-The final website demo - [link](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/memory-game/)
-Here is the [task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30-8.md)
+# [Seala11](https://github.com/Seala11) private repo
+
+# Stage 0
+1. Portfolio task - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/)
+2. Custom video player - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/custom-video/)
+3. Image galery (Unsplash API) - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/image-galery/)
+4. Memory game - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/memory-game/)
+
