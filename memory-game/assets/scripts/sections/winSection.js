@@ -1,6 +1,6 @@
 import { mainSection, showHomeSection} from './homeSection.js';
 import chooseLevelHandler from './chooseLevelSection.js';
-import { gameSection } from './gameSection.js';
+import { gameSection, goHomeButtom } from './gameSection.js';
 import { controlsBar } from '../componenets/gameControls.js';
 import { saveScoreToLocalStorage } from '../componenets/localStorage.js';
 
@@ -8,6 +8,7 @@ import { saveScoreToLocalStorage } from '../componenets/localStorage.js';
 const showWinMessage = () => {
   mainSection.removeChild(controlsBar);
   mainSection.removeChild(gameSection);
+  mainSection.removeChild(goHomeButtom);
 
   const winSection = document.createElement('div');
   winSection.classList.add('game__restart');

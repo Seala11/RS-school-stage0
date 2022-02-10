@@ -1,12 +1,13 @@
-import { mainSection } from './homeSection.js';
+import { mainSection, showHomeSection } from './homeSection.js';
 import loadRandomData from '../componenets/loadLevelsData.js';
-import { addGameControlsSection } from '../componenets/gameControls.js';
+import { addGameControlsSection, controlsBar } from '../componenets/gameControls.js';
 import { chosenLevel as level } from '../sections/chooseLevelSection.js';
-import { cardHandler } from "../componenets/cardLogic.js"
+import { cardHandler } from "../componenets/cardLogic.js";
 
 let winningScore;
 let gameSection;
 let cardEvent;
+let goHomeButtom;
 
 // ============= GAME SECTION ================
 // show cards by choosen level TODO: add go home or restart button
@@ -42,8 +43,21 @@ const cardGenerator = (level) => {
       card = event;
       cardHandler()});
   });
+  
+  goHomeButtom = document.createElement('button')
+  goHomeButtom.classList.add('button', 'home-button');
+  // goHomeButtom.style.margin = '0'
+  goHomeButtom.innerText = 'Go Home';
 
   mainSection.appendChild(gameSection);
+  mainSection.appendChild(goHomeButtom);
+
+  goHomeButtom.addEventListener('click', () => {
+    mainSection.removeChild(gameSection);
+    mainSection.removeChild(goHomeButtom);
+    mainSection.removeChild(controlsBar);
+    showHomeSection()
+  })
 };
 
-export { winningScore, gameSection, cardEvent, cardGenerator };
+export { winningScore, gameSection, cardEvent, goHomeButtom, cardGenerator };

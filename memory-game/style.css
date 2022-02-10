@@ -25,7 +25,8 @@ body {
   background-color: var(--bg-color);
   font-family: sans-serif;
   color: var(--text-prime);
-  height: max(660px, 100vh);
+  /* height: max(660px, 100vh); */
+  height: 100vh;
 }
 
 .container {
@@ -36,7 +37,7 @@ body {
 
 .header__container,
 .footer__container {
-  height: 10%;
+  min-height: 10%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -92,10 +93,10 @@ body {
 /* || grid section */
 .main {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
   align-items: center;
-  height: 80%;
+  min-height: 80%;
 }
 
 .grid {
@@ -109,8 +110,8 @@ body {
 }
 
 .grid--easy {
-  grid-template-columns: repeat(3, 7rem);
-  grid-template-rows: repeat(2, 7rem);
+  grid-template-columns: repeat(3, 6rem);
+  grid-template-rows: repeat(2, 6rem);
 }
 
 .grid--medium {
@@ -165,6 +166,10 @@ body {
   opacity: 0;
 }
 
+.home-button {
+  order: 3;
+}
+
 /* || Game start */
 .game__start {
   display: flex;
@@ -213,10 +218,6 @@ body {
   color: var(--bg-color);
 }
 
-.hidden {
-  display: none;
-}
-
 /* || High score section */
 .list {
   list-style: none;
@@ -263,8 +264,8 @@ body {
 
 @media screen and (max-width: 768px) {
   .grid--easy {
-    grid-template-columns: repeat(2, 7rem);
-    grid-template-rows: repeat(3, 7rem);
+    grid-template-columns: repeat(2, 6rem);
+    grid-template-rows: repeat(3, 6rem);
   }
 
   .grid--medium {
@@ -279,8 +280,17 @@ body {
 }
 
 @media screen and (max-width: 540px) {
-  body {
+  /* body {
     height: max(480px, 100vh);
+  } */
+
+  .header__title {
+    font-size: 1.2rem;
+  }
+
+  .controls {
+    padding: 0 0.5rem 1rem 0.5rem;
+    font-size: 1rem;
   }
 
   .grid--hard {
