@@ -1,5 +1,5 @@
-import {mainSection, showHomeSection} from '../sections/homeSection.js';
-import {highScore} from "../componenets/localStorage.js"
+import { mainSection, showHomeSection } from '../sections/homeSection.js';
+import { highScore } from '../componenets/localStorage.js';
 
 // ==================== High Score Section =======================
 // by clicking button 'HIGH SCORE" on home section
@@ -15,14 +15,17 @@ const highScoresSectionHandler = () => {
   highScoresTitle.innerText = 'High Scores';
   highScoreSection.appendChild(highScoresTitle);
 
-  const scores = document.createElement('ul');
-  scores.classList.add('list');
+  const scores = document.createElement('table');
   if (highScore.length === 0) {
-    scores.innerHTML = `<li class="list__item">Finish a game and your score will appear here</li>`;
+    scores.innerHTML = `<tr><td style="text-align: center">Finish the game and your score will appear here</td></tr>`;
   } else {
     scores.innerHTML = highScore
       .map((score) => {
-        return `<li class="list__item">Score: ${score.score}, Moves: ${score.moves}</li>`;
+        return `
+        <tr>
+        <td> Score: ${score.score}</td>
+        <td> Moves: ${score.moves}</td>
+        </tr>`;
       })
       .join('');
   }
@@ -31,7 +34,7 @@ const highScoresSectionHandler = () => {
 
   const goHomeBtn = document.createElement('button');
   goHomeBtn.classList.add('button');
-  goHomeBtn.innerText = 'go home';
+  goHomeBtn.innerText = 'Go home';
   highScoreSection.appendChild(goHomeBtn);
 
   mainSection.appendChild(highScoreSection);

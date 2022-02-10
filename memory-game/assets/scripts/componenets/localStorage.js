@@ -14,7 +14,6 @@ const saveScoreToLocalStorage = () => {
   highScore.sort((a, b) => b.score - a.score);
   highScore.splice(MAX_HEIGH_SCORE);
   localStorage.setItem('highScores', JSON.stringify(highScore));
-  console.log(highScore);
   restartScore();
 };
 

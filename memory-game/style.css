@@ -37,6 +37,10 @@ html {
 :root {
   --bg-color: #fad87f;
   --text-prime: #666153;
+  --light-blue: #e1f4f5;
+  --blue: #87d1d8;
+  --pink: #f492bc;
+  --white: #ffffff;
   --prime-filter: invert(78%) sepia(26%) saturate(1220%) hue-rotate(290deg)
     brightness(99%) contrast(94%);
   --hover: #f492bc;
@@ -231,16 +235,17 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--text-prime);
+  border: 2px solid var(--white);
   border-radius: 4px;
-  background-color: var(--bg-color);
-  color: var(--text-prime);
+  background-color: var(--blue);
+  color: var(--white);
   width: 10rem;
   height: 3rem;
   margin: 1rem;
   transition: all 0.3s ease;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
   font-family: inherit;
 }
 
@@ -257,14 +262,22 @@ body {
 }
 
 /* || High score section */
-.list {
-  list-style: none;
-  padding-top: 1rem;
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem;
 }
 
-.list__item {
-  padding-bottom: 1rem;
-  text-align: center;
+td, th {
+  border: 3px solid var(--light-blue);
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: var(--light-blue);
 }
 
 /* || Footer */

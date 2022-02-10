@@ -14,7 +14,7 @@ const showWinMessage = () => {
   const winSection = document.createElement('div');
   winSection.classList.add('game__restart');
   winSection.innerHTML = `
-   <h2 class="header__title title--restart">You won!</h2>
+   <h2 class="header__title title--restart">You win!</h2>
    <h3>Your score is ${currentScore}.</h3>
    <button class="button button--restart">Play again</button>
    <button class="button button--home">Go home</button>
