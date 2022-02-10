@@ -1,8 +1,11 @@
 import { mainSection, showHomeSection } from './homeSection.js';
 import loadRandomData from '../componenets/loadLevelsData.js';
-import { addGameControlsSection, controlsBar } from '../componenets/gameControls.js';
+import {
+  addGameControlsSection,
+  controlsBar,
+} from '../componenets/gameControls.js';
 import { chosenLevel as level } from '../sections/chooseLevelSection.js';
-import { cardHandler } from "../componenets/cardLogic.js";
+import { cardHandler, restartScore } from '../componenets/cardLogic.js';
 
 let winningScore;
 let gameSection;
@@ -41,10 +44,11 @@ const cardGenerator = (level) => {
     // add events to the card
     cardEl.addEventListener('click', (event) => {
       card = event;
-      cardHandler()});
+      cardHandler();
+    });
   });
-  
-  goHomeButtom = document.createElement('button')
+
+  goHomeButtom = document.createElement('button');
   goHomeButtom.classList.add('button', 'home-button');
   goHomeButtom.innerText = 'Go Home';
 
@@ -55,8 +59,9 @@ const cardGenerator = (level) => {
     mainSection.removeChild(gameSection);
     mainSection.removeChild(goHomeButtom);
     mainSection.removeChild(controlsBar);
-    showHomeSection()
-  })
+    showHomeSection();
+    restartScore();
+  });
 };
 
 export { winningScore, gameSection, cardEvent, goHomeButtom, cardGenerator };
