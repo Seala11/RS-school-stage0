@@ -8,10 +8,12 @@ const chooseLevelHandler = () => {
   const levelSection = document.createElement('div');
   levelSection.classList.add('section');
   levelSection.innerHTML = `
-    <h2 class="section__title">Choose your level</h2>
+    <h2 class="section__title">Select level</h2>
+    <div class="section__buttons">
     <button class="button button__level" id="easy">Easy</button>
     <button class="button button__level" id="medium">Medium</button>
     <button class="button button__level" id="hard">Hard</button>
+    </div>
     `;
   mainSection.appendChild(levelSection);
 
