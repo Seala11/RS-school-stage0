@@ -1,3 +1,22 @@
+/* cabin-regular - latin */
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./assets/fonts/cabin-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./assets/fonts/cabin-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* cabin-600 - latin */
+@font-face {
+  font-family: 'Cabin';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('./assets/fonts/cabin-v18-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./assets/fonts/cabin-v18-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
 /* || General styles */
 
 html {
@@ -14,18 +33,16 @@ html {
 }
 
 :root {
-  --bg-color: #5b81e9;
-  --text-prime: #ffffff;
-  --prime-filter: invert(71%) sepia(34%) saturate(4529%) hue-rotate(360deg)
-    brightness(104%) contrast(102%);
-  --hover: orange;
+  --bg-color: #fad87f;
+  --text-prime: #666153;
+  --prime-filter: invert(78%) sepia(26%) saturate(1220%) hue-rotate(290deg) brightness(99%) contrast(94%);
+  --hover: #f492bc;
 }
 
 body {
   background-color: var(--bg-color);
-  font-family: sans-serif;
+  font-family: 'Cabin', sans-serif;
   color: var(--text-prime);
-  /* height: max(660px, 100vh); */
   height: 100vh;
 }
 
@@ -55,6 +72,7 @@ body {
 
 .header__title {
   font-size: 2rem;
+  font-weight: 600;
 }
 
 /* || header controls */
@@ -88,6 +106,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* || level section */
+.section__title {
+  font-size: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 /* || grid section */
@@ -157,7 +181,8 @@ body {
 }
 
 .card-back {
-  background-color: blue;
+  background: url(./assets/images/back-font.jpg) center center no-repeat;
+  background-size: cover;
   backface-visibility: hidden;
 }
 
@@ -203,19 +228,21 @@ body {
   justify-content: center;
   align-items: center;
   border: 2px solid var(--text-prime);
+  border-radius: 4px;
   background-color: var(--bg-color);
   color: var(--text-prime);
-  width: 7rem;
+  width: 10rem;
   height: 3rem;
   margin: 1rem;
   transition: all 0.3s ease;
   cursor: pointer;
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 .button:hover,
 .button:active {
-  background-color: var(--text-prime);
-  color: var(--bg-color);
+  background-color: var(--hover);
 }
 
 /* || High score section */
@@ -226,6 +253,7 @@ body {
 
 .list__item {
   padding-bottom: 1rem;
+  text-align: center;
 }
 
 /* || Footer */

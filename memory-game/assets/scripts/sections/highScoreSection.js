@@ -1,6 +1,5 @@
 import {mainSection, showHomeSection} from '../sections/homeSection.js';
-
-const highScoresData = JSON.parse(localStorage.getItem('highScores')) || [];
+import {highScore} from "../componenets/localStorage.js"
 
 // ==================== High Score Section =======================
 // by clicking button 'HIGH SCORE" on home section
@@ -8,6 +7,7 @@ const highScoresSectionHandler = () => {
   // show high score title
   // name and score from player best 10 games
   // go home btn
+
   const highScoreSection = document.createElement('div');
   highScoreSection.classList.add('section');
 
@@ -17,12 +17,16 @@ const highScoresSectionHandler = () => {
 
   const scores = document.createElement('ul');
   scores.classList.add('list');
-  scores.innerHTML = highScoresData
-    .map((score) => {
-      return `<li class='list__item'>Score: ${score.score}, Moves: ${score.moves}</li>`;
-    })
-    .join('');
-    console.log(scores);
+  if (highScore.length === 0) {
+    scores.innerHTML = `<li class="list__item">Finish a game and your score will appear here</li>`;
+  } else {
+    scores.innerHTML = highScore
+      .map((score) => {
+        return `<li class="list__item">Score: ${score.score}, Moves: ${score.moves}</li>`;
+      })
+      .join('');
+  }
+
   highScoreSection.appendChild(scores);
 
   const goHomeBtn = document.createElement('button');

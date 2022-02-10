@@ -46,7 +46,6 @@ const cardGenerator = (level) => {
   
   goHomeButtom = document.createElement('button')
   goHomeButtom.classList.add('button', 'home-button');
-  // goHomeButtom.style.margin = '0'
   goHomeButtom.innerText = 'Go Home';
 
   mainSection.appendChild(gameSection);

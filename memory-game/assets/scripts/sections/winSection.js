@@ -3,6 +3,7 @@ import chooseLevelHandler from './chooseLevelSection.js';
 import { gameSection, goHomeButtom } from './gameSection.js';
 import { controlsBar } from '../componenets/gameControls.js';
 import { saveScoreToLocalStorage } from '../componenets/localStorage.js';
+import { currentScore } from '../componenets/cardLogic.js';
 
 // ================ WIN SECTION ======================
 const showWinMessage = () => {
@@ -14,6 +15,7 @@ const showWinMessage = () => {
   winSection.classList.add('game__restart');
   winSection.innerHTML = `
    <h2 class="header__title title--restart">You won!</h2>
+   <h3>Your score is ${currentScore}.</h3>
    <button class="button button--restart">Play again</button>
    <button class="button button--home">Go home</button>
   `;
