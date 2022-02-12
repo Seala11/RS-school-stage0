@@ -201,7 +201,7 @@ body {
 
 .card-face {
   border: 0;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
