@@ -286,6 +286,7 @@ body {
   font-family: inherit;
   cursor: pointer;
   transition: 0.3s ease;
+  text-align: center;
 }
 
 .desc_user:hover,
@@ -297,6 +298,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   max-width: 60%;
+  word-break: break-word;
 }
 
 .user_img {
