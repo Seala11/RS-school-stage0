@@ -87,6 +87,10 @@ const restartScore = () => {
   currentMoves = 0;
   playerScoreCounter.textContent = currentScore;
   playerMovesCounter.textContent = currentMoves;
+  // restart cards in case only one card was open and move wasnt finished;
+  firstCardName = '';
+  currentCardsId = [];
+  currentCards = [];
 };
 
 export { cardHandler, restartScore, currentScore, currentMoves };
