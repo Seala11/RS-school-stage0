@@ -2,16 +2,16 @@
 
 ## Stage 0 Projects:
 **1. Portfolio - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/portfolio/)** </br>
-     [Описание проекта](https://github.com/rolling-scopes-school/seala11-JSFEPRESCHOOL/edit/main/README.md#1-portfolio-task)
+     [Описание проекта](#1-portfolio-task)
      
 **2. Video player - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/custom-video/)** </br>
-     [Описание проекта](https://github.com/rolling-scopes-school/seala11-JSFEPRESCHOOL/edit/main/README.md#2-custom-video-player)
+     [Описание проекта](#2-custom-video-player)
      
 **3. Image galery - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/image-galery/)** </br>
-     [Описание проекта](https://github.com/rolling-scopes-school/seala11-JSFEPRESCHOOL/edit/main/README.md#3-image-galery-unsplash-api)
+     [Описание проекта](#3-image-galery-unsplash-api)
      
 **4. Memory game - [demo](https://rolling-scopes-school.github.io/seala11-JSFEPRESCHOOL/memory-game/)** </br>
-     [Описание проекта](https://github.com/rolling-scopes-school/seala11-JSFEPRESCHOOL/edit/main/README.md#4-memory-game)
+     [Описание проекта](#4-memory-game)
      
 ---
 
