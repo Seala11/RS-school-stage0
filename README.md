@@ -9,7 +9,7 @@
      [Project description](#2-custom-video-player)
      
 **3. Image gallery - [demo](https://seala11.github.io/RS-school-stage0/image-galery/)** </br>
-     [Project description](#3-image-galery-unsplash-api)
+     [Project description](#3-image-gallery-unsplash-api)
      
 **4. Memory game - [demo](https://seala11.github.io/RS-school-stage0/memory-game/)** </br>
      [Project description](#4-memory-game)
