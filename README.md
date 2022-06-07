@@ -21,7 +21,7 @@
 <img src="https://user-images.githubusercontent.com/77016227/172272509-78b7671e-4003-45c5-b311-0e119eda4fcf.png" width="500" />
 
   - [Deploy](https://seala11.github.io/RS-school-stage0/portfolio/)
-  - Source [code](https://github.com/Seala11/RS-school-stage0/tree/memory-game)
+  - Source [code](https://github.com/Seala11/RS-school-stage0/tree/portfolio)
   - [task](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/portfolio/portfolio.md)
   
  #### Key features:
